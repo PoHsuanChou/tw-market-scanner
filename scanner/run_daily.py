@@ -1,0 +1,96 @@
+"""每日主流程：抓資料 → 評分 → 寫 ledger → （週五）推薦 → 對答案 → out/latest.json。
+
+用法：
+  python -m scanner.run_daily               # 完整流程
+  python -m scanner.run_daily --no-fetch    # 用 history 裡最新一天重算（本機除錯）
+  python -m scanner.run_daily --force-picks # 不是週五也產生推薦（本機測試用）
+"""
+import os
+import json
+import logging
+import argparse
+
+from scanner import fetch, score, picks as picks_mod, ledger, grade
+
+log = logging.getLogger("run_daily")
+
+
+def _prev_industry_scores(root, data_date, rules):
+    dates = score.trading_dates(root, data_date)
+    n = rules["industry"]["delta_trading_days"]
+    if len(dates) <= n:
+        return {}
+    d0 = dates[-n - 1]
+    return {r["industry"]: r["score"] for r in ledger.read(root, "industry_scores") if r["data_date"] == d0}
+
+
+def _clean(v):
+    if isinstance(v, float) and v != v:
+        return None
+    return v
+
+
+def run(root=".", do_fetch=True, force_picks=False):
+    rules = score.load_rules(root)
+    if do_fetch:
+        status = fetch.fetch_all(root)
+        data_date = status.get("data_date")
+        if status.get("fatal") or not data_date:
+            raise SystemExit(status.get("fatal", "沒有資料日期"))
+    else:
+        data_date = score.trading_dates(root)[-1]
+
+    df, summary = score.score_stocks(root, data_date, rules)
+    inds = score.score_industries(df, rules, _prev_industry_scores(root, data_date, rules))
+    ver = rules["version"]
+
+    n_ind = ledger.append(root, "industry_scores",
+                          [{"data_date": data_date, "rules_version": ver, **i} for i in inds],
+                          key=("data_date", "industry"))
+    stock_cols = ["code", "name", "market", "industry", "close", "A", "B", "C", "D", "c_basis", "d_basis", "r20"]
+    n_stk = ledger.append(root, "stock_scores",
+                          [{"data_date": data_date, "rules_version": ver,
+                            **{k: _clean(r[k]) for k in stock_cols}} for r in df.to_dict("records")],
+                          key=("data_date", "code"))
+
+    n_pick = n_rej = 0
+    week_picks = []
+    if force_picks or picks_mod.is_week_close(data_date):
+        week_picks, rejects = picks_mod.select(df, inds, rules, data_date)
+        stamp = [{"rules_version": ver, **p} for p in week_picks]
+        # 同一週已經推薦過就不再寫（key = week+code，週五重跑不會改變當週結果）
+        n_pick = ledger.append(root, "picks", stamp, key=("week", "code"))
+        n_rej = ledger.append(root, "pick_rejects", [{"rules_version": ver, **r} for r in rejects],
+                              key=("week", "code"))
+    else:
+        log.info(f"{data_date} 不是週五，今天不產生推薦")
+
+    n_out = grade.run(root, rules, data_date)
+
+    latest = {
+        "data_date": data_date, "rules_version": ver, "summary": summary,
+        "industries": inds,
+        "picks_this_week": [p for p in ledger.read(root, "picks") if p["week"] == picks_mod.week_id(data_date)],
+        "stocks": [{k: _clean(r[k]) for k in stock_cols + ["flag"]} for r in df.to_dict("records")],
+    }
+    os.makedirs(os.path.join(root, "out"), exist_ok=True)
+    with open(os.path.join(root, "out", "latest.json"), "w", encoding="utf-8") as f:
+        json.dump(latest, f, ensure_ascii=False, indent=1)
+    msg = (f"{data_date}｜產業 {len(inds)}（新增 ledger {n_ind}）｜個股 {len(df)}（新增 {n_stk}）｜"
+           f"推薦新增 {n_pick}、被刷掉紀錄 {n_rej}｜對答案新增 {n_out}")
+    print(msg)
+    return latest
+
+
+def main():
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--root", default=".")
+    ap.add_argument("--no-fetch", action="store_true")
+    ap.add_argument("--force-picks", action="store_true")
+    a = ap.parse_args()
+    run(a.root, do_fetch=not a.no_fetch, force_picks=a.force_picks)
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,46 @@
+# 所有門檻都在這裡。改任何數字都要改 version，ledger 每一筆都會記錄當時的版本，
+# 回測才分得出「是哪一版規則做的判斷」。
+version: "2026-10-24.1"
+
+# 基準：目前沒有驗證過的大盤指數來源，暫時用「全部普通股 20 日報酬的中位數」當基準。
+# 驗證到 MI_INDEX / 櫃買指數可用後，換成指數並升版號。
+benchmark: median_all_common
+
+universe:
+  # U.common_stock：4 碼數字、不以 0 開頭（排除 ETF）
+  # U.liquidity：近 20 日（不足 20 日用現有天數）平均成交金額
+  min_avg_turnover_billion: 0.5
+  # U.focus：電子相關產業。名稱以 2026-10-22 實際資料為準（上市上櫃同名）。
+  focus_industries: [半導體業, 電腦及週邊設備業, 光電業, 通信網路業, 電子零組件業, 電子通路業, 資訊服務業, 其他電子業]
+  industry_alias: {金融保險業: 金融業}
+
+signals:
+  A:  # A.rs_and_ma：收盤在 20 日均線之上，且 20 日報酬高於基準
+    ma_window: 20
+    return_window: 20
+  B:  # B.inst_5d：外資＋投信 5 日累計買超，且投信 5 日不為負
+    window: 5
+  C:  # C.tdcc_big：400 張以上占比比 4 週前上升且總人數下降；沒有集保歷史時用融資代理
+    tdcc_weeks_back: 4
+    tdcc_tolerance_days: 7
+    proxy_window: 5          # C.margin_proxy：融資 5 日減少且 20 日報酬為正
+  D:  # D.revenue：最新已公布月營收 YoY ≥ min_yoy，且較前月加速
+    min_yoy: 20              # 前月 YoY 還沒有歷史時，改用「高於累計 YoY」代理，並在輸出標 d_basis
+
+industry:
+  member_share: 0.6          # 產業內該類成立的股票比例門檻
+  min_known_stocks: 5        # 資料非空的股票至少幾檔，否則該類為 null
+  delta_trading_days: 20
+
+picks:
+  weekly_max: 3              # 寄出的上限
+  record_max: 10             # 寫進 ledger 的上限（含沒寄出的）
+  min_industry_score: 3      # P.industry
+  min_industry_delta: 2
+  min_signals: 3             # P.signals（且 D 必須成立）
+  max_r20_pct: 25            # P.not_priced
+  max_margin_growth_5d_pct: 10   # P.no_trap：股價上漲同時融資 5 日增加超過此值
+  reject_record_min_signals: 2   # 被刷掉的股票，訊號至少這麼多才記錄（控制檔案大小）
+
+grade:
+  horizons: [5, 20, 60]

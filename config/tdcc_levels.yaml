@@ -1,0 +1,28 @@
+# 集保股權分散表「持股分級」對照
+# 驗證日期：2026-10-24，資料日期 2026-10-22，用 2330 實際資料核對：
+#   - 分級 17 的人數與股數 = 全體合計，股數 25,932,370,067 與證交所「已發行普通股數」完全相同
+#   - 分級 1–15 加上分級 16 的股數，剛好等於分級 17（所以 16 是差異數調整，不是持股區間）
+#   - 分級 15 的占比 84.42%，符合 2330 大股東與外資占大宗的常識
+# 各級的股數上下限是集保公布的級距，下面標 verified=false 的是「資料本身無法證明」，
+# 只能靠總和檢查，後續若集保改級距，tests/test_tdcc.py 的總和檢查會先失敗。
+total_level: 17
+adjustment_level: 16
+levels:
+  1:  {min_shares: 1,       max_shares: 999,     verified: false}
+  2:  {min_shares: 1000,    max_shares: 5000,    verified: false}
+  3:  {min_shares: 5001,    max_shares: 10000,   verified: false}
+  4:  {min_shares: 10001,   max_shares: 15000,   verified: false}
+  5:  {min_shares: 15001,   max_shares: 20000,   verified: false}
+  6:  {min_shares: 20001,   max_shares: 30000,   verified: false}
+  7:  {min_shares: 30001,   max_shares: 40000,   verified: false}
+  8:  {min_shares: 40001,   max_shares: 50000,   verified: false}
+  9:  {min_shares: 50001,   max_shares: 100000,  verified: false}
+  10: {min_shares: 100001,  max_shares: 200000,  verified: false}
+  11: {min_shares: 200001,  max_shares: 400000,  verified: false}
+  12: {min_shares: 400001,  max_shares: 600000,  verified: false}
+  13: {min_shares: 600001,  max_shares: 800000,  verified: false}
+  14: {min_shares: 800001,  max_shares: 1000000, verified: false}
+  15: {min_shares: 1000001, max_shares: null,    verified: true}   # 1,000 張以上
+# 「400 張以上大戶」= 分級 12 到 15（400,001 股以上）
+big400_levels: [12, 13, 14, 15]
+big1000_levels: [15]

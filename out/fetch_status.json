@@ -1,0 +1,80 @@
+{
+  "run_at": "2026-10-24T13:12:21+00:00",
+  "sources": {
+    "twse_day": {
+      "ok": true,
+      "rows": 1383,
+      "date": "2026-10-22"
+    },
+    "twse_margin": {
+      "ok": true
+    },
+    "twse_rev": {
+      "ok": true
+    },
+    "twse_profile": {
+      "ok": true
+    },
+    "tpex_day": {
+      "ok": true,
+      "rows": 1017,
+      "date": "2026-10-22"
+    },
+    "tpex_margin": {
+      "ok": true,
+      "rows": 919,
+      "date": "2026-10-22"
+    },
+    "tpex_inst": {
+      "ok": true,
+      "rows": 909,
+      "date": "2026-10-22"
+    },
+    "tpex_rev": {
+      "ok": true
+    },
+    "tpex_profile": {
+      "ok": true
+    },
+    "tdcc": {
+      "ok": true,
+      "rows": 4100,
+      "date": "2026-10-22",
+      "sum_mismatch": 53
+    },
+    "twse_notice": {
+      "ok": true
+    },
+    "twse_punish": {
+      "ok": true
+    },
+    "tpex_notice": {
+      "ok": true
+    },
+    "tpex_disposal": {
+      "ok": true
+    },
+    "twse_t86": {
+      "ok": true,
+      "rows": 1337
+    }
+  },
+  "data_date": "2026-10-22",
+  "industry_code_conflicts": [
+    {
+      "industry_code": "17",
+      "names": {
+        "金融保險業": 31,
+        "金融業": 9
+      }
+    }
+  ],
+  "history": {
+    "daily_rows": 2400,
+    "margin_continuity": null,
+    "revenue_months": [
+      "2026-09"
+    ],
+    "tdcc_date": "2026-10-22"
+  }
+}
