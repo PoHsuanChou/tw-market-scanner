@@ -34,15 +34,18 @@ def _ret(close, code, d0, d1):
     return float(last.iloc[-1] / p0 - 1) * 100, True
 
 
-def _bench(close, d0, d1):
+def _bench(close, d0, d1, idx=None):
+    if idx is not None and d0 in idx.index and d1 in idx.index:
+        return float(idx.loc[d1] / idx.loc[d0] - 1) * 100
     r = (close.loc[d1] / close.loc[d0] - 1).dropna() * 100
     return float(statistics.median(r)) if len(r) > 200 else None
 
 
-def run(root, rules, data_date):
+def run(root, rules, data_date, base="ledger"):
     dates, close, common = _closes(root, data_date)
     idx = {d: i for i, d in enumerate(dates)}
-    done = {(r["ref_id"], r["horizon"]) for r in ledger.read(root, "outcomes")}
+    twii = score.index_series(root, data_date)
+    done = {(r["ref_id"], r["horizon"]) for r in ledger.read(root, "outcomes", base)}
     new = []
 
     def add(ref_type, ref_id, d0, h, ret, bench, delisted, extra=None):
@@ -53,14 +56,23 @@ def run(root, rules, data_date):
                     "delisted": delisted, **(extra or {})})
 
     for h in rules["grade"]["horizons"]:
-        for p in ledger.read(root, "picks"):
+        for p in ledger.read(root, "picks", base):
             d0 = p["data_date"]
             if (p["pick_id"], h) in done or d0 not in idx or idx[d0] + h >= len(dates) or p["code"] not in close.columns:
                 continue
             d1 = dates[idx[d0] + h]
             ret, dl = _ret(close, p["code"], d0, d1)
-            add("pick", p["pick_id"], d0, h, ret, _bench(close, d0, d1), dl, {"sent": p["sent"]})
-        for r in ledger.read(root, "industry_scores"):
+            add("pick", p["pick_id"], d0, h, ret, _bench(close, d0, d1, twii), dl, {"sent": p["sent"]})
+        for p in ledger.read(root, "pick_rejects", base):
+            ref = f"{p['week']}|{p['code']}"
+            d0 = p["data_date"]
+            if (ref, h) in done or d0 not in idx or idx[d0] + h >= len(dates) or p["code"] not in close.columns:
+                continue
+            d1 = dates[idx[d0] + h]
+            ret, dl = _ret(close, p["code"], d0, d1)
+            add("reject", ref, d0, h, ret, _bench(close, d0, d1, twii), dl,
+                {"failed_at": p["failed_at"], "signals": p["signals"]})
+        for r in ledger.read(root, "industry_scores", base):
             d0 = r["data_date"]
             ref = f"{d0}|{r['industry']}"
             if (ref, h) in done or d0 not in idx or idx[d0] + h >= len(dates):
@@ -73,6 +85,6 @@ def run(root, rules, data_date):
             if not rets:
                 continue
             mean = sum(x[0] for x in rets) / len(rets)
-            add("industry", ref, d0, h, mean, _bench(close, d0, d1), any(x[1] for x in rets),
+            add("industry", ref, d0, h, mean, _bench(close, d0, d1, twii), any(x[1] for x in rets),
                 {"score": r["score"], "n_members": len(rets)})
-    return ledger.append(root, "outcomes", new, key=("ref_id", "horizon"))
+    return ledger.append(root, "outcomes", new, key=("ref_id", "horizon"), base=base)

@@ -46,12 +46,15 @@ OPTIONAL_URLS = {
     "tpex_disposal": f"{TPEX}/tpex_disposal_information",
 }
 T86_URL = "https://www.twse.com.tw/rwd/zh/fund/T86"
+MI_INDEX_URL = "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX"
 
 
 def _save_gz(path, obj):
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    with gzip.open(path, "wt", encoding="utf-8") as f:
-        json.dump(obj, f, ensure_ascii=False, separators=(",", ":"))
+    # mtime=0：gzip 檔頭預設會寫入當下時間，同樣的資料重跑也會產生不同位元組，
+    # 在 git 裡就變成一堆沒有意義的變更。
+    with open(path, "wb") as raw, gzip.GzipFile(fileobj=raw, mode="wb", mtime=0) as gz:
+        gz.write(json.dumps(obj, ensure_ascii=False, separators=(",", ":")).encode("utf-8"))
 
 
 def _try(status, name, fn):
@@ -89,6 +92,16 @@ def fetch_all(root="."):
     data_date = next((v["date"] for v in twse_day.values() if v["date"]), None)
     status["data_date"] = data_date
     st["twse_day"].update(rows=len(twse_day), date=data_date)
+
+    # ---- 加權指數（基準用）：MI_INDEX 帶日期版 ----
+    if data_date:
+        mi = _try(st, "twse_mi_index", lambda: get_json(
+            MI_INDEX_URL, params={"date": data_date.replace("-", ""), "type": "ALLBUT0999", "response": "json"}))
+        _, twii = N.twse_mi_index(mi, data_date) if mi else ({}, None)
+        if twii is not None:
+            history.upsert_index(root, data_date, twii)
+        else:
+            st["twse_mi_index"] = {"ok": False, "error": "沒有取得加權指數"}
 
     # ---- 三大法人（上市要帶日期） ----
     t86 = {}

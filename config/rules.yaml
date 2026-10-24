@@ -1,10 +1,11 @@
 # 所有門檻都在這裡。改任何數字都要改 version，ledger 每一筆都會記錄當時的版本，
 # 回測才分得出「是哪一版規則做的判斷」。
-version: "2026-10-24.1"
+version: "2026-10-24.2"
 
-# 基準：目前沒有驗證過的大盤指數來源，暫時用「全部普通股 20 日報酬的中位數」當基準。
-# 驗證到 MI_INDEX / 櫃買指數可用後，換成指數並升版號。
-benchmark: median_all_common
+# 基準：加權指數（history/index/twii.csv，來源是證交所 MI_INDEX，2026-10-24 驗證過）。
+# 指數歷史不足 21 天時退回「全部普通股 20 日報酬中位數」，輸出的 summary.benchmark 會標明用了哪一個。
+# 上櫃股票也用加權指數當基準（櫃買指數來源尚未驗證）。
+benchmark: twii
 
 universe:
   # U.common_stock：4 碼數字、不以 0 開頭（排除 ETF）

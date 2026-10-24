@@ -43,6 +43,17 @@ def load_daily(root, upto, n=70):
     return dates, (pd.concat(frames, ignore_index=True) if frames else pd.DataFrame())
 
 
+def index_series(root, upto=None):
+    """history/index/twii.csv：加權指數收盤。回傳 pandas Series（index=日期字串）。"""
+    p = os.path.join(root, "history", "index", "twii.csv")
+    if not os.path.exists(p):
+        return pd.Series(dtype=float)
+    df = pd.read_csv(p, dtype={"date": str}).dropna().sort_values("date")
+    if upto:
+        df = df[df["date"] <= upto]
+    return df.set_index("date")["close"]
+
+
 def _norm_industry(name, alias):
     name = name if isinstance(name, str) else ""
     return alias.get(name, name)
@@ -159,8 +170,13 @@ def score_stocks(root, data_date, rules=None):
     turnover = common.pivot(index="date", columns="code", values="turnover").sort_index()
 
     w = rules["signals"]["A"]["return_window"]
-    all_r20 = [r for r in (_r20(close[c], w) for c in close.columns) if r is not None]
-    bench = statistics.median(all_r20) if len(all_r20) > 200 else None
+    idx = index_series(root, data_date)
+    if len(idx) > w and idx.index[-1] == data_date:
+        bench, bench_name = float(idx.iloc[-1] / idx.iloc[-w - 1] - 1) * 100, "twii"
+    else:
+        all_r20 = [r for r in (_r20(close[c], w) for c in close.columns) if r is not None]
+        bench = statistics.median(all_r20) if len(all_r20) > 200 else None
+        bench_name = "median_all_common" if bench is not None else None
 
     today = common[common["date"] == data_date].set_index("code")
     focus = set(rules["universe"]["focus_industries"])
@@ -191,7 +207,7 @@ def score_stocks(root, data_date, rules=None):
             **{f"c_{k}": v for k, v in c_info.items()}, **{f"d_{k}": v for k, v in d_info.items()},
         })
     df = pd.DataFrame(rows)
-    summary = {"data_date": data_date, "history_days": len(dates), "benchmark_r20": bench,
+    summary = {"data_date": data_date, "history_days": len(dates), "benchmark_r20": bench, "benchmark": bench_name,
                "stocks": len(df), "tdcc_pair": tdcc_old is not None}
     return df, summary
 

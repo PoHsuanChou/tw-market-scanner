@@ -77,7 +77,7 @@ def write_all(root, data_date, day, margin, inst, profile, rev, ind_map, tdcc, i
         for c in ("margin_bal", "margin_prev", "short_bal", "short_prev"):
             df[c] = None
         out["margin_dropped"] = True
-    df.to_csv(_path(root, "daily", f"{data_date}.csv.gz"), index=False, compression="gzip")
+    df.to_csv(_path(root, "daily", f"{data_date}.csv.gz"), index=False, compression={"method": "gzip", "mtime": 0})
 
     # 月營收：依資料年月存；同一個月只保留最新抓到的版本
     by_ym = {}
@@ -85,12 +85,23 @@ def write_all(root, data_date, day, margin, inst, profile, rev, ind_map, tdcc, i
         if r.get("ym"):
             by_ym.setdefault(r["ym"], []).append({"code": code, **r})
     for ym, rows in by_ym.items():
-        pd.DataFrame(rows).to_csv(_path(root, "revenue", f"{ym}.csv.gz"), index=False, compression="gzip")
+        pd.DataFrame(rows).to_csv(_path(root, "revenue", f"{ym}.csv.gz"), index=False, compression={"method": "gzip", "mtime": 0})
     out["revenue_months"] = sorted(by_ym)
 
     if tdcc:
         tdate = next(iter(tdcc.values()))["date"]
         tdf = pd.DataFrame([{"code": c, **v} for c, v in tdcc.items()])
-        tdf.to_csv(_path(root, "tdcc", f"{tdate}.csv.gz"), index=False, compression="gzip")
+        tdf.to_csv(_path(root, "tdcc", f"{tdate}.csv.gz"), index=False, compression={"method": "gzip", "mtime": 0})
         out["tdcc_date"] = tdate
     return out
+
+
+def upsert_index(root, data_date, close):
+    """history/index/twii.csv：加權指數收盤，一天一列，同一天重跑會覆蓋。"""
+    p = _path(root, "index", "twii.csv")
+    rows = {}
+    if os.path.exists(p):
+        old = pd.read_csv(p, dtype={"date": str})
+        rows = dict(zip(old["date"], old["close"]))
+    rows[data_date] = close
+    pd.DataFrame(sorted(rows.items()), columns=["date", "close"]).to_csv(p, index=False)

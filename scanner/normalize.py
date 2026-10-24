@@ -284,3 +284,115 @@ def warnings_flags(twse_notice, twse_punish, tpex_notice, tpex_disposal):
         if c:
             out[c] = "disposal"
     return out
+
+
+# ============================================================
+# 帶日期的歷史端點（replay 用）。輸出格式和上面的當日版本完全一致。
+# 這些端點回的是「欄位名稱＋二維陣列」，不是 key-value，所以欄位用名稱找，
+# 重複欄位名（例如融資融券的「前日餘額」出現兩次）才用固定位置，並在 tests 裡鎖住。
+# ============================================================
+
+def _table(payload, title_has, must_have_field):
+    for t in (payload or {}).get("tables") or []:
+        fields = [str(f).strip() for f in t.get("fields") or []]
+        if title_has in str(t.get("title") or "") and must_have_field in fields:
+            return fields, t.get("data") or []
+    return None, []
+
+
+def twse_mi_index(payload, data_date):
+    """上市當日全部個股 + 加權指數。回傳 (day dict, 加權指數收盤 or None)。
+    payload['stat'] 不是 OK、或沒有每日收盤行情表 → 休市日，回 ({}, None)。"""
+    if not payload or payload.get("stat") != "OK":
+        return {}, None
+    fields, data = _table(payload, "每日收盤行情", "證券代號")
+    if not fields:
+        return {}, None
+    ix = {f: i for i, f in enumerate(fields)}
+    day = {}
+    for row in data:
+        code = str(row[ix["證券代號"]]).strip()
+        day[code] = {
+            "market": "TWSE", "name": str(row[ix["證券名稱"]]).strip(), "date": data_date,
+            "open": to_num(row[ix["開盤價"]]), "high": to_num(row[ix["最高價"]]),
+            "low": to_num(row[ix["最低價"]]), "close": to_num(row[ix["收盤價"]]),
+            "volume": to_num(row[ix["成交股數"]]), "turnover": to_num(row[ix["成交金額"]]),
+        }
+    twii = None
+    for t in payload.get("tables") or []:
+        if "價格指數(臺灣證券交易所)" in str(t.get("title") or ""):
+            for row in t.get("data") or []:
+                if str(row[0]).strip() == "發行量加權股價指數":
+                    twii = to_num(row[1])
+    return day, twii
+
+
+def twse_margin_dated(payload):
+    """欄位順序（用 2330 在 2026-10-22 對過）：0 代號，5 資前日餘額，6 資今日餘額，11 券前日餘額，12 券今日餘額。"""
+    out = {}
+    for t in (payload or {}).get("tables") or []:
+        if "融資融券彙總" in str(t.get("title") or ""):
+            for row in t.get("data") or []:
+                code = str(row[0]).strip()
+                if code and len(row) >= 13:
+                    out[code] = {"margin_prev": to_num(row[5]), "margin_bal": to_num(row[6]),
+                                 "short_prev": to_num(row[11]), "short_bal": to_num(row[12])}
+    return out
+
+
+def tpex_otc_dated(payload, data_date):
+    fields, data = _table(payload, "上櫃股票每日收盤行情", "代號")
+    if not fields:
+        return {}
+    ix = {f: i for i, f in enumerate(fields)}
+    out = {}
+    for row in data:
+        code = str(row[ix["代號"]]).strip()
+        out[code] = {
+            "market": "TPEx", "name": str(row[ix["名稱"]]).strip(), "date": data_date,
+            "open": to_num(row[ix["開盤"]]), "high": to_num(row[ix["最高"]]),
+            "low": to_num(row[ix["最低"]]), "close": to_num(row[ix["收盤"]]),
+            "volume": to_num(row[ix["成交股數"]]), "turnover": to_num(row[ix["成交金額(元)"]]),
+        }
+    return out
+
+
+def tpex_inst_dated(payload):
+    """上櫃三大法人：24 欄、買/賣/買賣超三欄一組重複。第 1 組（索引 2–4）= 外資及陸資（不含外資自營商），
+    第 4 組（索引 11–13）= 投信。欄位數不是 24 就整份丟掉，不猜。"""
+    out = {}
+    for t in (payload or {}).get("tables") or []:
+        if "三大法人買賣明細" in str(t.get("title") or ""):
+            if len(t.get("fields") or []) != 24:
+                return {}
+            for row in t.get("data") or []:
+                out[str(row[0]).strip()] = {"foreign_net": to_num(row[4]), "trust_net": to_num(row[13])}
+    return out
+
+
+def tpex_margin_dated(payload):
+    fields, data = _table(payload, "融資融券餘額", "代號")
+    if not fields:
+        return {}
+    ix = {f: i for i, f in enumerate(fields)}
+    return {str(r[ix["代號"]]).strip(): {
+        "margin_prev": to_num(r[ix["前資餘額(張)"]]), "margin_bal": to_num(r[ix["資餘額"]]),
+        "short_prev": to_num(r[ix["前券餘額(張)"]]), "short_bal": to_num(r[ix["券餘額"]])} for r in data}
+
+
+def mops_revenue_table(df, market, ym, published):
+    """公開資訊觀測站 t21sc03 歷史頁面（pandas.read_html 的結果，多個表）→ revenue() 同格式。
+    published：這個月營收的「可見日」。歷史頁面沒有出表日期，呼叫端用法定截止日（次月 10 日）當保守值。"""
+    out = {}
+    for t in df:
+        if t.shape[1] < 10:
+            continue
+        for _, r in t.iterrows():
+            code = str(r.iloc[0]).strip()
+            if not re.fullmatch(r"\d{4}", code):
+                continue
+            out[code] = {"market": market, "ym": ym, "published": published, "industry": "",
+                         "revenue": to_num(r.iloc[2]), "revenue_prev_month": to_num(r.iloc[3]),
+                         "revenue_last_year": to_num(r.iloc[4]), "mom": to_num(r.iloc[5]),
+                         "yoy": to_num(r.iloc[6]), "ytd_yoy": to_num(r.iloc[9])}
+    return out

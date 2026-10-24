@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-10-24T13:18:09+00:00",
+  "run_at": "2026-10-24T13:27:38+00:00",
   "sources": {
     "twse_day": {
       "ok": true,
@@ -52,6 +52,9 @@
       "ok": true
     },
     "tpex_disposal": {
+      "ok": true
+    },
+    "twse_mi_index": {
       "ok": true
     },
     "twse_t86": {

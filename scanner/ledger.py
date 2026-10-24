@@ -10,24 +10,24 @@ import os
 import json
 
 
-def _path(root, name):
-    p = os.path.join(root, "ledger", f"{name}.jsonl")
+def _path(root, name, base="ledger"):
+    p = os.path.join(root, base, f"{name}.jsonl")
     os.makedirs(os.path.dirname(p), exist_ok=True)
     return p
 
 
-def read(root, name):
-    p = _path(root, name)
+def read(root, name, base="ledger"):
+    p = _path(root, name, base)
     if not os.path.exists(p):
         return []
     with open(p, encoding="utf-8") as f:
         return [json.loads(line) for line in f if line.strip()]
 
 
-def append(root, name, records, key):
-    """寫入 key 尚未出現過的紀錄，回傳實際新增的筆數。"""
-    p = _path(root, name)
-    seen = {tuple(r.get(k) for k in key) for r in read(root, name)}
+def append(root, name, records, key, base="ledger"):
+    """寫入 key 尚未出現過的紀錄，回傳實際新增的筆數。base 預設 ledger；歷史回放用 ledger_replay，兩者不混。"""
+    p = _path(root, name, base)
+    seen = {tuple(r.get(k) for k in key) for r in read(root, name, base)}
     added = 0
     with open(p, "a", encoding="utf-8") as f:
         for r in records:
