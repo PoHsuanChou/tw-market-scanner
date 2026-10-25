@@ -52,7 +52,7 @@ def reason_text(r, ind):
     if r.get("d_yoy") == r.get("d_yoy") and r.get("d_yoy") is not None:
         d = f"（{r['d_ym']} 營收 YoY {r['d_yoy']:+.1f}%，比較基準 {r['d_ref_yoy']:+.1f}%）"
     return "\n".join([
-        f"{r['name']} {r['code']}｜{r['industry']} 產業 {ind['score']}/4",
+        f"{r['name']} {r['code']}｜{r['industry']}",
         yn("A", f"A 價量成立：收在月線上，20 日 {r20}（基準 {bench}）", "A 價量未成立"),
         yn("B", f"B 法人成立：外資 5 日 {f5} 張、投信 5 日 {t5} 張", "B 法人未成立"),
         yn("C", f"C 大戶成立{c}", "C 大戶未成立") + (c if r["C"] is False else ""),

@@ -24,6 +24,22 @@ def _prev_industry_scores(root, data_date, rules):
     return {r["industry"]: r["score"] for r in ledger.read(root, "industry_scores") if r["data_date"] == d0}
 
 
+def _latest_picks(root, base="ledger"):
+    """最近一次產生推薦的那一週（不一定是本週：週一到週四本週還沒有推薦）。
+    回傳 {"week", "data_date", "variants": {版本: [推薦]}}，沒有任何推薦時回 None。"""
+    rows = ledger.read(root, "picks", base)
+    if not rows:
+        return None
+    last = max(r["data_date"] for r in rows)
+    out = {"week": picks_mod.week_id(last), "data_date": last, "variants": {}}
+    for r in rows:
+        if r["data_date"] == last:
+            out["variants"].setdefault(r.get("variant", "base"), []).append(r)
+    for v in out["variants"].values():
+        v.sort(key=lambda r: r["rank"])
+    return out
+
+
 def _signal_history(root, win, df, data_date):
     """{(日期, 代號): 成立訊號數}，給波段版看最近 lookback 天。
     今天用剛算好的 df；過去用真實 ledger 的 stock_scores；真實紀錄還沒有的日子，用回放的 theme_scores 前 N 大補。"""
@@ -119,6 +135,8 @@ def run(root=".", do_fetch=True, force_picks=False):
         "themes": theme_rows,
         "theme_events_today": events_today,              # 波段版（通知用）
         "theme_events_today_daily": events_daily,        # 單日版（對照）
+        "latest_picks": _latest_picks(root),              # 最近一次真實推薦（只有 base 會寄出）
+        "latest_picks_replay": _latest_picks(root, "ledger_replay"),   # 回放的最近一次（真實還沒有時給網頁參考）
         # 只有 base 版會寄出；momentum 版是並行記錄的對照，放在 shadow 欄位，私人 repo 不寄、只顯示
         "picks_this_week": [p for p in ledger.read(root, "picks")
                             if p["week"] == picks_mod.week_id(data_date) and p.get("variant", "base") == "base"],
