@@ -29,6 +29,13 @@
 - 報告產生器 `python -m scanner.report --base ledger|ledger_replay`。
 - 回放已依新規則整份重算；結果見 `docs/replay-report.md`。
 
+## 2026-10-25 細分主題（草稿）
+- `config/themes.yaml`：27 個主題、84 檔，使用者改過第二版，仍是 `reviewed: false`（每日流程不使用）。
+- 主題強度：前 3 大（當天市值）裡，有 ≥3 個訊號的成員過半就算強（1→1、2→2、3→2）。
+- 第三個版本 `theme_top3`：只從強主題前 3 大挑，其他關卡同 base，只記錄不寄。
+- `history/shares.csv`：發行股數，算市值用。
+- 回放預覽結果與「後見之明偏誤」說明見 `docs/replay-report.md`。
+
 ## 還沒做 / 已知限制
 1. history 現在有 236 個交易日，A、B、C 都有值。
 2. 基準：有加權指數時用指數，不足 21 天才退回中位數。

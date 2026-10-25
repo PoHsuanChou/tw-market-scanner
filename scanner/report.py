@@ -78,7 +78,13 @@ def build(root=".", base="ledger"):
         parts.append("### 依成立訊號數（對照組：每週 focus 範圍全部股票）\n" + _fmt(_pivot(rj, "signals"), "訊號數"))
         parts.append("### 依卡在哪一關（base 版；通過 = 進入 base 候選）\n" + _fmt(_pivot(rj, "failed_at"), "關卡"))
 
-    # 4. 產業分數（只顯示用，不再擋推薦）
+    # 4. 主題強弱（前 N 大成員報酬中位數的超額）
+    th = out[out["ref_type"] == "theme"].copy()
+    if not th.empty:
+        th["強弱"] = th["strong"].map({True: "強", False: "不強"}).fillna("無資料")
+        parts.append("### 細分主題（前 3 大成員報酬中位數的超額）\n" + _fmt(_pivot(th, "強弱"), "主題"))
+
+    # 5. 產業分數（只顯示用，不再擋推薦）
     ind = out[out["ref_type"] == "industry"]
     if not ind.empty:
         parts.append("### 產業分數（產業內中位數報酬的超額）\n" + _fmt(_pivot(ind, "score"), "分數"))

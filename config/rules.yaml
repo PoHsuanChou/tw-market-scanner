@@ -1,6 +1,6 @@
 # 所有門檻都在這裡。改任何數字都要改 version，ledger 每一筆都會記錄當時的版本，
 # 回測才分得出「是哪一版規則做的判斷」。
-version: "2026-10-25.1"
+version: "2026-10-25.2"
 
 # 基準：加權指數（history/index/twii.csv，來源是證交所 MI_INDEX，2026-10-24 驗證過）。
 # 指數歷史不足 21 天時退回「全部普通股 20 日報酬中位數」，輸出的 summary.benchmark 會標明用了哪一個。
@@ -54,6 +54,16 @@ picks:
       id_tag: M
       max_r20_pct: null      # 不排除已經漲的
       sort_r20: desc         # 同訊號數時，優先已經漲比較多的
+    theme_top3:              # 2026-10-25 加：只從「強主題的前 3 大」裡挑，其他關卡同 base；只記錄不寄出
+      send: false
+      id_tag: T
+      universe: strong_theme_top
+      max_r20_pct: 25
+      sort_r20: asc
+
+# 細分主題（config/themes.yaml，reviewed 為 true 才在每日流程使用）
+themes:
+  member_min_signals: 3      # 成員有幾個以上訊號才算「強成員」；主題強 = 前 N 大裡強成員過半
 
 grade:
   horizons: [5, 20, 60]

@@ -79,10 +79,12 @@ def _gate(r, i, p, max_r20):
     return None
 
 
-def select(df, industries, rules, data_date):
+def select(df, industries, rules, data_date, theme_codes=None):
     """回傳 (picks, universe)。
     picks：各版本的推薦紀錄（含 variant、rank、sent）。
-    universe：寄出的那一版的全部股票與各自卡在哪一關（通過為 None），對照組用。"""
+    universe：寄出的那一版的全部股票與各自卡在哪一關（通過為 None），對照組用。
+    theme_codes：{代號: [強主題名稱]}，只有 universe=strong_theme_top 的版本會用到；
+    沒有主題資料（None）時，那個版本整個略過，不產生推薦。"""
     p = rules["picks"]
     variants = p["variants"]
     sent_variant = next(k for k, v in variants.items() if v.get("send"))
@@ -98,8 +100,13 @@ def select(df, industries, rules, data_date):
 
     picks, universe = [], []
     for vname, v in variants.items():
+        theme_only = v.get("universe") == "strong_theme_top"
+        if theme_only and theme_codes is None:
+            continue
         passed = []
         for r, i, base in rows:
+            if theme_only and r["code"] not in theme_codes:
+                continue
             fail = _gate(r, i, p, v.get("max_r20_pct"))
             if fail is None:
                 passed.append((r, i, base))
@@ -112,7 +119,8 @@ def select(df, industries, rules, data_date):
                                    -x[0]["avg_turnover"]))
         tag = "" if vname == sent_variant else v.get("id_tag", vname[0].upper())
         for n, (r, i, base) in enumerate(passed[: p["record_max"]], start=1):
-            picks.append({**base, "variant": vname, "pick_id": f"{base['week']}-{tag}{n:02d}", "rank": n,
+            extra = {"themes": theme_codes[r["code"]]} if theme_only else {}
+            picks.append({**base, **extra, "variant": vname, "pick_id": f"{base['week']}-{tag}{n:02d}", "rank": n,
                           "sent": bool(v.get("send")) and n <= p["weekly_max"],
                           "reason_text": reason_text(r, i), "failed_at": None})
     return picks, universe

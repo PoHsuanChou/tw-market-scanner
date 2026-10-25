@@ -35,7 +35,7 @@ from datetime import date, timedelta
 import pandas as pd
 import requests
 
-from scanner import normalize as N, history, score, picks as picks_mod, ledger, grade
+from scanner import normalize as N, history, score, picks as picks_mod, ledger, grade, themes
 from scanner.http import get_json, FetchError, UA
 
 log = logging.getLogger("replay")
@@ -190,8 +190,11 @@ def cmd_revenue(root, start, end, sleep):
 
 # ---------------- 重算 ----------------
 
-def cmd_score(root, start, end):
+def cmd_score(root, start, end, themes_draft=False):
+    """themes_draft=True：themes.yaml 還沒 reviewed 也拿來預覽，theme_scores 每筆標 draft=True。"""
     rules = score.load_rules(root)
+    tcfg = themes.load(root, allow_draft=themes_draft)
+    shares = history.load_shares(root)
     ver = rules["version"]
     dates = [d for d in score.trading_dates(root) if start <= d <= end]
     all_dates = score.trading_dates(root)
@@ -209,8 +212,13 @@ def cmd_score(root, start, end):
         inds = score.score_industries(df, rules, prev)
         ledger.append(root, "industry_scores", [{"data_date": d, "rules_version": ver, **x} for x in inds],
                       key=("data_date", "industry"), base=REPLAY_LEDGER)
+        strong_top = None
+        if tcfg:
+            trows, strong_top = themes.score(df, tcfg, shares, rules)
+            ledger.append(root, "theme_scores", [{"data_date": d, "rules_version": ver, "draft": tcfg["draft"], **t}
+                                                  for t in trows], key=("data_date", "theme"), base=REPLAY_LEDGER)
         if picks_mod.is_week_close(d):
-            ps, rj = picks_mod.select(df, inds, rules, d)
+            ps, rj = picks_mod.select(df, inds, rules, d, strong_top)
             ledger.append(root, "picks", [{"rules_version": ver, **p} for p in ps], key=("week", "code", "variant"), base=REPLAY_LEDGER)
             ledger.append(root, "pick_universe", [{"rules_version": ver, **r} for r in rj], key=("week", "code"), base=REPLAY_LEDGER)
             n_fri += 1
@@ -252,13 +260,14 @@ def main():
     ap.add_argument("--to", dest="end")
     ap.add_argument("--date")
     ap.add_argument("--sleep", type=float, default=2.5)
+    ap.add_argument("--themes-draft", action="store_true", help="themes.yaml 未 reviewed 也用來預覽")
     a = ap.parse_args()
     if a.cmd == "fetch":
         cmd_fetch(a.root, a.start, a.end, a.sleep)
     elif a.cmd == "revenue":
         cmd_revenue(a.root, a.start, a.end, a.sleep)
     elif a.cmd == "score":
-        cmd_score(a.root, a.start, a.end)
+        cmd_score(a.root, a.start, a.end, a.themes_draft)
     else:
         cmd_verify(a.root, a.date, a.sleep)
 

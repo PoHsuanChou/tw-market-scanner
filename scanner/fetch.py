@@ -170,6 +170,9 @@ def fetch_all(root="."):
         if raw.get(name):
             _save_gz(os.path.join(root, "raw", "_latest", f"{name}.json.gz"), raw[name])
 
+    if profile:
+        history.upsert_shares(root, profile, data_date)
+
     # ---- history ----
     res = history.write_all(
         root, data_date,

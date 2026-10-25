@@ -105,3 +105,26 @@ def upsert_index(root, data_date, close):
         rows = dict(zip(old["date"], old["close"]))
     rows[data_date] = close
     pd.DataFrame(sorted(rows.items()), columns=["date", "close"]).to_csv(p, index=False)
+
+
+def upsert_shares(root, profile, as_of):
+    """history/shares.csv：各股發行股數（算市值排名用）。每次抓到基本資料就更新。
+    只存最新值，所以回放時歷史市值 = 歷史收盤價 × 現在的股數；遇到分割、減資、增資的股票會有誤差。"""
+    p = _path(root, "shares.csv")
+    rows = {}
+    if os.path.exists(p):
+        old = pd.read_csv(p, dtype={"code": str})
+        rows = {c: (s, a) for c, s, a in zip(old["code"], old["issued_shares"], old["as_of"])}
+    for code, v in profile.items():
+        if v.get("issued_shares"):
+            rows[code] = (v["issued_shares"], as_of)
+    pd.DataFrame([(c, s, a) for c, (s, a) in sorted(rows.items())],
+                 columns=["code", "issued_shares", "as_of"]).to_csv(p, index=False)
+
+
+def load_shares(root):
+    p = os.path.join(root, "history", "shares.csv")
+    if not os.path.exists(p):
+        return {}
+    df = pd.read_csv(p, dtype={"code": str})
+    return dict(zip(df["code"], df["issued_shares"]))

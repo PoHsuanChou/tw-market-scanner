@@ -10,7 +10,7 @@ import json
 import logging
 import argparse
 
-from scanner import fetch, score, picks as picks_mod, ledger, grade
+from scanner import fetch, score, picks as picks_mod, ledger, grade, history, themes
 
 log = logging.getLogger("run_daily")
 
@@ -53,10 +53,19 @@ def run(root=".", do_fetch=True, force_picks=False):
                             **{k: _clean(r[k]) for k in stock_cols}} for r in df.to_dict("records")],
                           key=("data_date", "code"))
 
+    # 細分主題（themes.yaml reviewed 為 true 才使用）
+    tcfg = themes.load(root)
+    theme_rows, strong_top = ([], None)
+    if tcfg:
+        theme_rows, strong_top = themes.score(df, tcfg, history.load_shares(root), rules)
+        ledger.append(root, "theme_scores",
+                      [{"data_date": data_date, "rules_version": ver, **t} for t in theme_rows],
+                      key=("data_date", "theme"))
+
     n_pick = n_rej = 0
     week_picks = []
     if force_picks or picks_mod.is_week_close(data_date):
-        week_picks, universe = picks_mod.select(df, inds, rules, data_date)
+        week_picks, universe = picks_mod.select(df, inds, rules, data_date, strong_top)
         stamp = [{"rules_version": ver, **p} for p in week_picks]
         # 同一週已經推薦過就不再寫（key = week+code+variant，週五重跑不會改變當週結果）
         n_pick = ledger.append(root, "picks", stamp, key=("week", "code", "variant"))
@@ -70,11 +79,12 @@ def run(root=".", do_fetch=True, force_picks=False):
     latest = {
         "data_date": data_date, "rules_version": ver, "summary": summary,
         "industries": inds,
+        "themes": theme_rows,
         # 只有 base 版會寄出；momentum 版是並行記錄的對照，放在 shadow 欄位，私人 repo 不寄、只顯示
         "picks_this_week": [p for p in ledger.read(root, "picks")
                             if p["week"] == picks_mod.week_id(data_date) and p.get("variant", "base") == "base"],
         "shadow_picks_this_week": [p for p in ledger.read(root, "picks")
-                                   if p["week"] == picks_mod.week_id(data_date) and p.get("variant") == "momentum"],
+                                   if p["week"] == picks_mod.week_id(data_date) and p.get("variant", "base") != "base"],
         "stocks": [{k: _clean(r[k]) for k in stock_cols + ["flag"]} for r in df.to_dict("records")],
     }
     os.makedirs(os.path.join(root, "out"), exist_ok=True)
