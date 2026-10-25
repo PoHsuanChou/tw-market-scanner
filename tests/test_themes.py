@@ -63,7 +63,7 @@ def test_unreviewed_themes_are_not_used_unless_draft_allowed(root):
 def test_theme_variant_only_picks_strong_theme_top_members(root):
     rules = score.load_rules(root)
     df = pd.DataFrame([_row("1001"), _row("1002"), _row("5555")])
-    picked, _ = picks.select(df, INDS, rules, "2026-10-23", {"1001": ["散熱"], "1002": ["散熱"]})
+    picked, _ = picks.select(df, INDS, rules, "2026-10-23", {"strong_theme_top": {"1001": ["散熱"], "1002": ["散熱"]}})
     t = [p for p in picked if p["variant"] == "theme_top3"]
     assert {p["code"] for p in t} == {"1001", "1002"} and not any(p["sent"] for p in t)
     assert t[0]["pick_id"].startswith("2026-W43-T") and t[0]["themes"] == ["散熱"]
@@ -97,3 +97,60 @@ def test_events_from_ledger_and_history_prefers_real_over_replay():
     assert h["source"] == ["replay", "replay", "real"]
     assert h["themes"]["散熱"]["strong"] == [False, True, False]      # 10/22 用真實紀錄
     assert h["events"][0]["source"] == "replay"
+
+
+
+def _swing_rows():
+    return [{"theme": "散熱", "n": 3, "strong_members": 2, "strong": True,
+             "top": [{"code": "1001"}, {"code": "1002"}, {"code": "1003"}]}]
+
+
+DAYS = [f"2026-10-{d:02d}" for d in range(10, 20)]
+
+
+def _hist(spec):
+    """spec：{代號: 每天的訊號數 list（對齊 DAYS）}"""
+    return {(d, c): v for c, vals in spec.items() for d, v in zip(DAYS, vals) if v is not None}
+
+
+def test_swing_needs_both_trend_and_stable_signals(root):
+    rules = score.load_rules(root)
+    df = pd.DataFrame([_row("1001", r20=20.0), _row("1002", r20=15.0), _row("1003", r20=1.0),
+                       _row("9001", r20=0.0), _row("9002", r20=0.0)])
+    # 1001、1002 十天裡有 6 天 ≥3 個訊號（穩定）；1003 只有 2 天
+    stable, weak = [3, 3, 3, 3, 3, 3, 1, 1, 1, 1], [3, 3, 1, 1, 1, 1, 1, 1, 1, 1]
+    rows = _swing_rows()
+    top = themes.swing(rows, df, _hist({"1001": stable, "1002": stable, "1003": weak}), DAYS, rules)
+    r = rows[0]
+    assert (r["swing_members"], r["swing_need"], r["swing_strong"]) == (2, 2, True)
+    assert r["rel20"] > 0 and set(top) == {"1001", "1002", "1003"}
+
+    rows = _swing_rows()   # 股價趨勢輸大盤 → 訊號再穩也不算強
+    df2 = df.assign(r20=[1.0, 1.0, 1.0, 20.0, 20.0])
+    themes.swing(rows, df2, _hist({"1001": stable, "1002": stable, "1003": stable}), DAYS, rules)
+    assert rows[0]["swing_strong"] is False
+
+
+def test_swing_is_none_when_history_too_short(root):
+    rules = score.load_rules(root)
+    df = pd.DataFrame([_row("1001"), _row("1002"), _row("1003")])
+    rows = _swing_rows()
+    short = [3, 3, 3, None, None, None, None, None, None, None]      # 只有 3 天資料 < 5
+    themes.swing(rows, df, _hist({"1001": short, "1002": short, "1003": short}), DAYS, rules)
+    assert rows[0]["swing_strong"] is None
+
+
+def test_swing_events_use_swing_field_and_kind():
+    today = [{**_t("散熱", False), "swing_strong": True}]
+    prev = [{**_t("散熱", False, "2026-10-22"), "swing_strong": False}]
+    assert themes.events(today, prev, "2026-10-23") == []                       # 單日版沒有轉強
+    ev = themes.events(today, prev, "2026-10-23", "swing_strong", "swing")
+    assert len(ev) == 1 and ev[0]["kind"] == "swing"
+
+
+def test_swing_variant_uses_swing_universe(root):
+    rules = score.load_rules(root)
+    df = pd.DataFrame([_row("1001"), _row("1002")])
+    picked, _ = picks.select(df, INDS, rules, "2026-10-23", {"strong_theme_top": {}, "strong_theme_swing_top": {"1002": ["散熱"]}})
+    s = [p for p in picked if p["variant"] == "theme_swing_top3"]
+    assert [p["code"] for p in s] == ["1002"] and s[0]["pick_id"].startswith("2026-W43-S")

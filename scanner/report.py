@@ -82,11 +82,15 @@ def build(root=".", base="ledger"):
     th = out[out["ref_type"] == "theme"].copy()
     if not th.empty:
         th["強弱"] = th["strong"].map({True: "強", False: "不強"}).fillna("無資料")
-        parts.append("### 細分主題（前 3 大成員報酬中位數的超額）\n" + _fmt(_pivot(th, "強弱"), "主題"))
+        parts.append("### 細分主題・單日版（前 3 大成員報酬中位數的超額）\n" + _fmt(_pivot(th, "強弱"), "主題"))
+        if "swing_strong" in th:
+            th["波段"] = th["swing_strong"].map({True: "波段強", False: "波段不強"}).fillna("無資料")
+            parts.append("### 細分主題・波段版\n" + _fmt(_pivot(th, "波段"), "主題"))
 
     ev = out[out["ref_type"] == "theme_event"].copy()
     if not ev.empty:
-        ev["事件"] = "主題轉強當天"
+        ev["事件"] = ev.get("kind", pd.Series(["daily"] * len(ev))).fillna("daily").map(
+            {"daily": "單日版轉強當天", "swing": "波段版轉強當天"})
         parts.append("### 主題轉強事件（當天收盤後的前 3 大成員，報酬中位數的超額）\n" + _fmt(_pivot(ev, "事件"), "事件"))
 
     # 5. 產業分數（只顯示用，不再擋推薦）

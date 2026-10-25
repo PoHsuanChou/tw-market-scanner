@@ -79,12 +79,12 @@ def _gate(r, i, p, max_r20):
     return None
 
 
-def select(df, industries, rules, data_date, theme_codes=None):
+def select(df, industries, rules, data_date, universes=None):
     """回傳 (picks, universe)。
     picks：各版本的推薦紀錄（含 variant、rank、sent）。
     universe：寄出的那一版的全部股票與各自卡在哪一關（通過為 None），對照組用。
-    theme_codes：{代號: [強主題名稱]}，只有 universe=strong_theme_top 的版本會用到；
-    沒有主題資料（None）時，那個版本整個略過，不產生推薦。"""
+    universes：{"strong_theme_top": {代號: [主題]}, "strong_theme_swing_top": {...}}，
+    只有設定了 universe 的版本會用到；對應的資料是 None 或沒給時，那個版本整個略過，不產生推薦。"""
     p = rules["picks"]
     variants = p["variants"]
     sent_variant = next(k for k, v in variants.items() if v.get("send"))
@@ -100,7 +100,8 @@ def select(df, industries, rules, data_date, theme_codes=None):
 
     picks, universe = [], []
     for vname, v in variants.items():
-        theme_only = v.get("universe") == "strong_theme_top"
+        theme_only = bool(v.get("universe"))
+        theme_codes = (universes or {}).get(v.get("universe")) if theme_only else None
         if theme_only and theme_codes is None:
             continue
         passed = []

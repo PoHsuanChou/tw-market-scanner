@@ -115,13 +115,13 @@ def run(root, rules, data_date, base="ledger"):
             add("universe", ref, d0, h, ret, dl, {"failed_at": p["failed_at"] or "通過", "signals": p["signals"]})
         for e in ledger.read(root, "theme_events", base):
             d0 = e["data_date"]
-            ref = f"{d0}|E|{e['theme']}"
+            ref = f"{d0}|E|{e.get('kind', 'daily')}|{e['theme']}"
             if not due(ref, d0, h):
                 continue
             rets = _window_rets(close, [m["code"] for m in e["top"]], d0, dates[idx[d0] + h])
             if not rets.empty:
                 add("theme_event", ref, d0, h, float(rets.median()), False,
-                    {"theme": e["theme"], "n_members": int(len(rets))})
+                    {"theme": e["theme"], "kind": e.get("kind", "daily"), "n_members": int(len(rets))})
         for t in ledger.read(root, "theme_scores", base):
             d0 = t["data_date"]
             ref = f"{d0}|T|{t['theme']}"
@@ -131,7 +131,8 @@ def run(root, rules, data_date, base="ledger"):
             if rets.empty:
                 continue
             add("theme", ref, d0, h, float(rets.median()), False,
-                {"theme": t["theme"], "strong": t["strong"], "n_members": int(len(rets))})
+                {"theme": t["theme"], "strong": t["strong"], "swing_strong": t.get("swing_strong"),
+                 "n_members": int(len(rets))})
         for r in ledger.read(root, "industry_scores", base):
             d0 = r["data_date"]
             ref = f"{d0}|{r['industry']}"

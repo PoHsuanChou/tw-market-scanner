@@ -195,6 +195,7 @@ def cmd_score(root, start, end, themes_draft=False):
     rules = score.load_rules(root)
     tcfg = themes.load(root, allow_draft=themes_draft)
     shares = history.load_shares(root)
+    sig_hist = {}                                   # 波段版要看最近 10 天每檔的訊號數
     ver = rules["version"]
     dates = [d for d in score.trading_dates(root) if start <= d <= end]
     all_dates = score.trading_dates(root)
@@ -212,20 +213,27 @@ def cmd_score(root, start, end, themes_draft=False):
         inds = score.score_industries(df, rules, prev)
         ledger.append(root, "industry_scores", [{"data_date": d, "rules_version": ver, **x} for x in inds],
                       key=("data_date", "industry"), base=REPLAY_LEDGER)
-        strong_top = None
+        universes = None
+        for r in df.to_dict("records"):
+            sig_hist[(d, r["code"])] = sum(1 for k in "ABCD" if r[k] is True)
         if tcfg:
             trows, strong_top = themes.score(df, tcfg, shares, rules)
+            win = [x for x in all_dates[:i + 1] if x >= start][-rules["themes"]["swing"]["lookback_days"]:]
+            swing_top = themes.swing(trows, df, sig_hist, win, rules)
+            universes = {"strong_theme_top": strong_top, "strong_theme_swing_top": swing_top}
             ledger.append(root, "theme_scores", [{"data_date": d, "rules_version": ver, "draft": tcfg["draft"], **t}
                                                   for t in trows], key=("data_date", "theme"), base=REPLAY_LEDGER)
         if picks_mod.is_week_close(d):
-            ps, rj = picks_mod.select(df, inds, rules, d, strong_top)
+            ps, rj = picks_mod.select(df, inds, rules, d, universes)
             ledger.append(root, "picks", [{"rules_version": ver, **p} for p in ps], key=("week", "code", "variant"), base=REPLAY_LEDGER)
             ledger.append(root, "pick_universe", [{"rules_version": ver, **r} for r in rj], key=("week", "code"), base=REPLAY_LEDGER)
             n_fri += 1
     if tcfg:
-        ev = themes.events_from_ledger(ledger.read(root, "theme_scores", REPLAY_LEDGER))
+        rows = ledger.read(root, "theme_scores", REPLAY_LEDGER)
+        ev = (themes.events_from_ledger(rows, "strong", "daily")
+              + themes.events_from_ledger(rows, "swing_strong", "swing"))
         ledger.append(root, "theme_events", [{"rules_version": ver, **e} for e in ev],
-                      key=("data_date", "theme"), base=REPLAY_LEDGER)
+                      key=("data_date", "theme", "kind"), base=REPLAY_LEDGER)
     added = grade.run(root, rules, all_dates[-1], base=REPLAY_LEDGER)
     print(f"重算 {len(dates)} 天，其中 {n_fri} 個週五產生推薦；對答案新增 {added} 筆 → {REPLAY_LEDGER}/")
 
