@@ -113,6 +113,15 @@ def run(root, rules, data_date, base="ledger"):
                 continue
             ret, dl = _ret(close, p["code"], d0, dates[idx[d0] + h])
             add("universe", ref, d0, h, ret, dl, {"failed_at": p["failed_at"] or "通過", "signals": p["signals"]})
+        for e in ledger.read(root, "theme_events", base):
+            d0 = e["data_date"]
+            ref = f"{d0}|E|{e['theme']}"
+            if not due(ref, d0, h):
+                continue
+            rets = _window_rets(close, [m["code"] for m in e["top"]], d0, dates[idx[d0] + h])
+            if not rets.empty:
+                add("theme_event", ref, d0, h, float(rets.median()), False,
+                    {"theme": e["theme"], "n_members": int(len(rets))})
         for t in ledger.read(root, "theme_scores", base):
             d0 = t["data_date"]
             ref = f"{d0}|T|{t['theme']}"

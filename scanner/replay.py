@@ -222,6 +222,10 @@ def cmd_score(root, start, end, themes_draft=False):
             ledger.append(root, "picks", [{"rules_version": ver, **p} for p in ps], key=("week", "code", "variant"), base=REPLAY_LEDGER)
             ledger.append(root, "pick_universe", [{"rules_version": ver, **r} for r in rj], key=("week", "code"), base=REPLAY_LEDGER)
             n_fri += 1
+    if tcfg:
+        ev = themes.events_from_ledger(ledger.read(root, "theme_scores", REPLAY_LEDGER))
+        ledger.append(root, "theme_events", [{"rules_version": ver, **e} for e in ev],
+                      key=("data_date", "theme"), base=REPLAY_LEDGER)
     added = grade.run(root, rules, all_dates[-1], base=REPLAY_LEDGER)
     print(f"重算 {len(dates)} 天，其中 {n_fri} 個週五產生推薦；對答案新增 {added} 筆 → {REPLAY_LEDGER}/")
 

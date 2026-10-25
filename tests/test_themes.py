@@ -73,3 +73,27 @@ def test_theme_variant_only_picks_strong_theme_top_members(root):
 def test_theme_variant_skipped_when_themes_not_available(root):
     picked, _ = picks.select(pd.DataFrame([_row("1001")]), INDS, score.load_rules(root), "2026-10-23", None)
     assert not [p for p in picked if p["variant"] == "theme_top3"]
+
+
+def _t(theme, strong, d="2026-10-23"):
+    return {"data_date": d, "theme": theme, "strong": strong, "strong_members": 2 if strong else 0, "n": 3,
+            "top": [{"code": "1001"}]}
+
+
+def test_event_only_when_false_to_true():
+    today = [_t("散熱", True), _t("ABF", True), _t("CCL", True), _t("新主題", True)]
+    prev = [_t("散熱", False, "2026-10-22"), _t("ABF", True, "2026-10-22"), _t("CCL", None, "2026-10-22")]
+    ev = themes.events(today, prev, "2026-10-23")
+    assert [e["theme"] for e in ev] == ["散熱"]     # 已經強、前一天沒資料、前一天沒紀錄，都不算
+
+
+def test_events_from_ledger_and_history_prefers_real_over_replay():
+    replay = [_t("散熱", False, "2026-10-20"), _t("散熱", True, "2026-10-21"), _t("散熱", True, "2026-10-22")]
+    real = [_t("散熱", False, "2026-10-22")]
+    ev = themes.events_from_ledger(replay)
+    assert [(e["data_date"], e["theme"]) for e in ev] == [("2026-10-21", "散熱")]
+    h = themes.history(real, replay, [], ev)
+    assert h["dates"] == ["2026-10-20", "2026-10-21", "2026-10-22"]
+    assert h["source"] == ["replay", "replay", "real"]
+    assert h["themes"]["散熱"]["strong"] == [False, True, False]      # 10/22 用真實紀錄
+    assert h["events"][0]["source"] == "replay"

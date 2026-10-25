@@ -84,6 +84,11 @@ def build(root=".", base="ledger"):
         th["強弱"] = th["strong"].map({True: "強", False: "不強"}).fillna("無資料")
         parts.append("### 細分主題（前 3 大成員報酬中位數的超額）\n" + _fmt(_pivot(th, "強弱"), "主題"))
 
+    ev = out[out["ref_type"] == "theme_event"].copy()
+    if not ev.empty:
+        ev["事件"] = "主題轉強當天"
+        parts.append("### 主題轉強事件（當天收盤後的前 3 大成員，報酬中位數的超額）\n" + _fmt(_pivot(ev, "事件"), "事件"))
+
     # 5. 產業分數（只顯示用，不再擋推薦）
     ind = out[out["ref_type"] == "industry"]
     if not ind.empty:

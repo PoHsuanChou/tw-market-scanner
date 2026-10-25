@@ -24,6 +24,15 @@ def _prev_industry_scores(root, data_date, rules):
     return {r["industry"]: r["score"] for r in ledger.read(root, "industry_scores") if r["data_date"] == d0}
 
 
+def _write_theme_history(root):
+    """out/theme_history.json：網頁畫主題強弱圖用。真實紀錄優先，缺的日子用回放補，並標來源。"""
+    h = themes.history(ledger.read(root, "theme_scores"), ledger.read(root, "theme_scores", "ledger_replay"),
+                       ledger.read(root, "theme_events"), ledger.read(root, "theme_events", "ledger_replay"))
+    os.makedirs(os.path.join(root, "out"), exist_ok=True)
+    with open(os.path.join(root, "out", "theme_history.json"), "w", encoding="utf-8") as f:
+        json.dump(h, f, ensure_ascii=False, separators=(",", ":"))
+
+
 def _clean(v):
     if isinstance(v, float) and v != v:
         return None
@@ -55,12 +64,19 @@ def run(root=".", do_fetch=True, force_picks=False):
 
     # 細分主題（themes.yaml reviewed 為 true 才使用）
     tcfg = themes.load(root)
-    theme_rows, strong_top = ([], None)
+    theme_rows, strong_top, events_today = [], None, []
     if tcfg:
         theme_rows, strong_top = themes.score(df, tcfg, history.load_shares(root), rules)
         ledger.append(root, "theme_scores",
                       [{"data_date": data_date, "rules_version": ver, **t} for t in theme_rows],
                       key=("data_date", "theme"))
+        # 主題轉強：和前一個交易日比（每天都檢查，不等週五）
+        dates = score.trading_dates(root, data_date)
+        prev_rows = [r for r in ledger.read(root, "theme_scores") if len(dates) > 1 and r["data_date"] == dates[-2]]
+        events_today = themes.events(theme_rows, prev_rows, data_date)
+        ledger.append(root, "theme_events", [{"rules_version": ver, **e} for e in events_today],
+                      key=("data_date", "theme"))
+        _write_theme_history(root)
 
     n_pick = n_rej = 0
     week_picks = []
@@ -80,6 +96,7 @@ def run(root=".", do_fetch=True, force_picks=False):
         "data_date": data_date, "rules_version": ver, "summary": summary,
         "industries": inds,
         "themes": theme_rows,
+        "theme_events_today": events_today,
         # 只有 base 版會寄出；momentum 版是並行記錄的對照，放在 shadow 欄位，私人 repo 不寄、只顯示
         "picks_this_week": [p for p in ledger.read(root, "picks")
                             if p["week"] == picks_mod.week_id(data_date) and p.get("variant", "base") == "base"],

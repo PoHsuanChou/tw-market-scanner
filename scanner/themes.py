@@ -59,3 +59,60 @@ def score(df, cfg, shares, rules):
                 strong_top.setdefault(m["code"], []).append(theme)
     rows.sort(key=lambda r: (not r["strong"], -(r["strong_members"] or 0), r["theme"]))
     return rows, strong_top
+
+
+# ---------------- 主題轉強事件 ----------------
+
+def events(today_rows, prev_rows, data_date):
+    """前一個交易日「不強」（False）、今天「強」→ 一筆轉強事件。
+    前一天沒有該主題的紀錄（例如第一天、主題剛加入）不算轉強，避免第一天所有強主題都被當成事件。
+    前一天是 None（沒資料）也不算，只有明確從 False 變 True 才算。"""
+    prev = {r["theme"]: r.get("strong") for r in prev_rows}
+    out = []
+    for r in today_rows:
+        if r.get("strong") is True and prev.get(r["theme"]) is False:
+            out.append({"data_date": data_date, "theme": r["theme"], "strong_members": r["strong_members"],
+                        "n": r["n"], "top": r["top"]})
+    return out
+
+
+def events_from_ledger(rows):
+    """用一串 theme_scores 紀錄（多天）重建所有轉強事件，回放與補算用。"""
+    by_date = {}
+    for r in rows:
+        by_date.setdefault(r["data_date"], []).append(r)
+    dates = sorted(by_date)
+    out = []
+    for d0, d1 in zip(dates, dates[1:]):
+        out.extend(events(by_date[d1], by_date[d0], d1))
+    return out
+
+
+def history(real_rows, replay_rows, real_events, replay_events, days=120):
+    """給網頁畫圖：最近 days 個交易日，每個主題每天的強成員數、成員數、強不強。
+    同一天有真實紀錄就用真實的，沒有才用回放的；每天標 source（real / replay）。"""
+    by_date = {}
+    for src, rows in (("replay", replay_rows), ("real", real_rows)):
+        for r in rows:
+            by_date.setdefault(r["data_date"], {})[src] = by_date.get(r["data_date"], {}).get(src, []) + [r]
+    dates = sorted(by_date)[-days:]
+    themes_ = {}
+    sources = []
+    for d in dates:
+        src = "real" if "real" in by_date[d] else "replay"
+        sources.append(src)
+        for r in by_date[d][src]:
+            themes_.setdefault(r["theme"], {})[d] = r
+    out = {"dates": dates, "source": sources, "themes": {}}
+    for t, per in sorted(themes_.items()):
+        out["themes"][t] = {
+            "strong_members": [per.get(d, {}).get("strong_members") for d in dates],
+            "n": [per.get(d, {}).get("n") for d in dates],
+            "strong": [per.get(d, {}).get("strong") for d in dates],
+        }
+    lo = dates[0] if dates else ""
+    evs = [{**e, "source": "real"} for e in real_events if e["data_date"] >= lo]
+    real_dates = {e["data_date"] for e in evs}
+    evs += [{**e, "source": "replay"} for e in replay_events if e["data_date"] >= lo and e["data_date"] not in real_dates]
+    out["events"] = sorted(evs, key=lambda e: (e["data_date"], e["theme"]), reverse=True)
+    return out
