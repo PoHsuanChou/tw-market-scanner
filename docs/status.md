@@ -21,6 +21,14 @@
 - 結果見 `docs/replay-report.md`（推薦幾乎不出現、產業分數看不出預測力，以及為什麼不能直接據此改規則）。
 - 基準已改用加權指數（`history/index/twii.csv`），rules 版號 2026-10-24.2。
 
+## 2026-10-25 修正（不看結果也該修的三項＋並行版本）
+- 產業硬關卡關閉（rules.yaml `picks.industry_gate: false`），產業分數只顯示。
+- 評估基準改為同日 focus 股票等權中位數（`grade.benchmark: ew_median_focus`），加權指數另記 `bench_twii`。
+- 對照組：每週 focus 全部股票寫進 `pick_universe`（取代原本只記被刷掉的 `pick_rejects`）。
+- 推薦分 base（寄出）與 momentum（只記錄）兩版；`out/latest.json` 的 `shadow_picks_this_week` 是 momentum。
+- 報告產生器 `python -m scanner.report --base ledger|ledger_replay`。
+- 回放已依新規則整份重算；結果見 `docs/replay-report.md`。
+
 ## 還沒做 / 已知限制
 1. history 現在有 236 個交易日，A、B、C 都有值。
 2. 基準：有加權指數時用指數，不足 21 天才退回中位數。

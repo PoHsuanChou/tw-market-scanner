@@ -56,11 +56,11 @@ def run(root=".", do_fetch=True, force_picks=False):
     n_pick = n_rej = 0
     week_picks = []
     if force_picks or picks_mod.is_week_close(data_date):
-        week_picks, rejects = picks_mod.select(df, inds, rules, data_date)
+        week_picks, universe = picks_mod.select(df, inds, rules, data_date)
         stamp = [{"rules_version": ver, **p} for p in week_picks]
-        # 同一週已經推薦過就不再寫（key = week+code，週五重跑不會改變當週結果）
-        n_pick = ledger.append(root, "picks", stamp, key=("week", "code"))
-        n_rej = ledger.append(root, "pick_rejects", [{"rules_version": ver, **r} for r in rejects],
+        # 同一週已經推薦過就不再寫（key = week+code+variant，週五重跑不會改變當週結果）
+        n_pick = ledger.append(root, "picks", stamp, key=("week", "code", "variant"))
+        n_rej = ledger.append(root, "pick_universe", [{"rules_version": ver, **r} for r in universe],
                               key=("week", "code"))
     else:
         log.info(f"{data_date} 不是週五，今天不產生推薦")
@@ -70,14 +70,18 @@ def run(root=".", do_fetch=True, force_picks=False):
     latest = {
         "data_date": data_date, "rules_version": ver, "summary": summary,
         "industries": inds,
-        "picks_this_week": [p for p in ledger.read(root, "picks") if p["week"] == picks_mod.week_id(data_date)],
+        # 只有 base 版會寄出；momentum 版是並行記錄的對照，放在 shadow 欄位，私人 repo 不寄、只顯示
+        "picks_this_week": [p for p in ledger.read(root, "picks")
+                            if p["week"] == picks_mod.week_id(data_date) and p.get("variant", "base") == "base"],
+        "shadow_picks_this_week": [p for p in ledger.read(root, "picks")
+                                   if p["week"] == picks_mod.week_id(data_date) and p.get("variant") == "momentum"],
         "stocks": [{k: _clean(r[k]) for k in stock_cols + ["flag"]} for r in df.to_dict("records")],
     }
     os.makedirs(os.path.join(root, "out"), exist_ok=True)
     with open(os.path.join(root, "out", "latest.json"), "w", encoding="utf-8") as f:
         json.dump(latest, f, ensure_ascii=False, indent=1)
     msg = (f"{data_date}｜產業 {len(inds)}（新增 ledger {n_ind}）｜個股 {len(df)}（新增 {n_stk}）｜"
-           f"推薦新增 {n_pick}、被刷掉紀錄 {n_rej}｜對答案新增 {n_out}")
+           f"推薦新增 {n_pick}、對照組 {n_rej}｜對答案新增 {n_out}")
     print(msg)
     return latest
 

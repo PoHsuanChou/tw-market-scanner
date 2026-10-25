@@ -1,9 +1,17 @@
 """每週推薦：逐關過濾，每一關都記錄誰被刷掉。
 
-關卡 id：P.industry → P.signals → P.not_priced → P.no_trap
+關卡 id：P.industry（可關閉）→ P.signals → P.not_priced（依版本）→ P.no_trap
 （P.liquidity 已經在 score_stocks 的 U.liquidity 做掉了）
-通過的排序：訊號數多→少，20 日報酬少→多（優先還沒漲的），成交金額多→少。
-前 weekly_max 檔 sent=True；到 record_max 檔都寫進 ledger（含沒寄出的，這是回測樣本）。
+
+兩個版本並行（rules.yaml 的 picks.variants），用同一份評分：
+  base      排除 20 日已漲 ≥ 25% 的；排序 訊號數多→少、20 日報酬少→多（優先還沒漲的）。只有這版會寄出。
+  momentum  不排除已經漲的；排序 訊號數多→少、20 日報酬多→少。只記錄不寄，用來和 base 比較。
+這樣做的原因：回放顯示這一年「已經漲的」之後表現較好，但只有一年、一種行情，
+不能因此推翻 SOP「不追高」的原則；兩版同時記錄，用之後的真實資料再比。
+
+對照組：每週把 focus 範圍內「全部」股票寫進 pick_universe（通過的 failed_at=None，被刷掉的記關卡），
+含 0、1 個訊號。只記被刷掉的會漏掉通過的股票，讓高訊號那幾列偏向「漲太多被刷掉」的股票。
+每版前 weekly_max 檔 rank 1..N；只有 send=true 的版本 sent=True。
 沒有任何股票通過就是 0 檔，不湊數。
 """
 from datetime import date
@@ -53,37 +61,58 @@ def reason_text(r, ind):
     ])
 
 
+def _gate(r, i, p, max_r20):
+    """依序檢查關卡，回傳第一個沒過的關卡 id，全過回 None。max_r20=None 代表不檢查 P.not_priced。"""
+    sig = _count(r)
+    if p.get("industry_gate", True) and not (
+            i["score"] >= p["min_industry_score"]
+            or (i["delta_4w"] is not None and i["delta_4w"] >= p["min_industry_delta"])):
+        return "P.industry"
+    if sig < p["min_signals"] or r["D"] is not True:
+        return "P.signals"
+    if max_r20 is not None and r["r20"] is not None and r["r20"] >= max_r20:
+        return "P.not_priced"
+    if (r["flag"] in ("notice", "disposal")
+            or (r["margin_growth_5d"] is not None and r["margin_growth_5d"] > p["max_margin_growth_5d_pct"]
+                and r["r20"] is not None and r["r20"] > 0)):
+        return "P.no_trap"
+    return None
+
+
 def select(df, industries, rules, data_date):
-    """回傳 (picks, rejects)。picks 是要寫進 ledger 的紀錄 list（已排序、含 rank 與 sent）。"""
+    """回傳 (picks, universe)。
+    picks：各版本的推薦紀錄（含 variant、rank、sent）。
+    universe：寄出的那一版的全部股票與各自卡在哪一關（通過為 None），對照組用。"""
     p = rules["picks"]
+    variants = p["variants"]
+    sent_variant = next(k for k, v in variants.items() if v.get("send"))
     ind = {i["industry"]: i for i in industries}
-    passed, rejects = [], []
+    rows = []
     for _, r in df.iterrows():
         r = r.to_dict()
         i = ind.get(r["industry"], {"score": 0, "delta_4w": None})
-        sig = _count(r)
-        fail = None
-        if not (i["score"] >= p["min_industry_score"] or (i["delta_4w"] is not None and i["delta_4w"] >= p["min_industry_delta"])):
-            fail = "P.industry"
-        elif sig < p["min_signals"] or r["D"] is not True:
-            fail = "P.signals"
-        elif r["r20"] is not None and r["r20"] >= p["max_r20_pct"]:
-            fail = "P.not_priced"
-        elif (r["flag"] in ("notice", "disposal")
-              or (r["margin_growth_5d"] is not None and r["margin_growth_5d"] > p["max_margin_growth_5d_pct"]
-                  and r["r20"] is not None and r["r20"] > 0)):
-            fail = "P.no_trap"
         base = {"data_date": data_date, "week": week_id(data_date), "code": r["code"], "name": r["name"],
-                "industry": r["industry"], "price_at_pick": r["close"], "signals": sig,
+                "industry": r["industry"], "price_at_pick": r["close"], "r20": r["r20"], "signals": _count(r),
                 "A": r["A"], "B": r["B"], "C": r["C"], "D": r["D"]}
-        if fail:
-            if sig >= p["reject_record_min_signals"]:
-                rejects.append({**base, "failed_at": fail})
-        else:
-            passed.append((r, i, base))
-    passed.sort(key=lambda x: (-x[2]["signals"], x[0]["r20"] if x[0]["r20"] is not None else 0, -x[0]["avg_turnover"]))
-    picks = []
-    for n, (r, i, base) in enumerate(passed[: p["record_max"]], start=1):
-        picks.append({**base, "pick_id": f"{base['week']}-{n:02d}", "rank": n, "sent": n <= p["weekly_max"],
-                      "reason_text": reason_text(r, i), "failed_at": None})
-    return picks, rejects
+        rows.append((r, i, base))
+
+    picks, universe = [], []
+    for vname, v in variants.items():
+        passed = []
+        for r, i, base in rows:
+            fail = _gate(r, i, p, v.get("max_r20_pct"))
+            if fail is None:
+                passed.append((r, i, base))
+            if vname == sent_variant:
+                universe.append({**base, "failed_at": fail})
+        sign = -1 if v.get("sort_r20") == "desc" else 1
+        none_r20 = float("-inf") if sign == -1 else float("inf")
+        passed.sort(key=lambda x: (-x[2]["signals"],
+                                   sign * (x[0]["r20"] if x[0]["r20"] is not None else none_r20 * sign),
+                                   -x[0]["avg_turnover"]))
+        tag = "" if vname == sent_variant else v.get("id_tag", vname[0].upper())
+        for n, (r, i, base) in enumerate(passed[: p["record_max"]], start=1):
+            picks.append({**base, "variant": vname, "pick_id": f"{base['week']}-{tag}{n:02d}", "rank": n,
+                          "sent": bool(v.get("send")) and n <= p["weekly_max"],
+                          "reason_text": reason_text(r, i), "failed_at": None})
+    return picks, universe

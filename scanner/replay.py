@@ -211,8 +211,8 @@ def cmd_score(root, start, end):
                       key=("data_date", "industry"), base=REPLAY_LEDGER)
         if picks_mod.is_week_close(d):
             ps, rj = picks_mod.select(df, inds, rules, d)
-            ledger.append(root, "picks", [{"rules_version": ver, **p} for p in ps], key=("week", "code"), base=REPLAY_LEDGER)
-            ledger.append(root, "pick_rejects", [{"rules_version": ver, **r} for r in rj], key=("week", "code"), base=REPLAY_LEDGER)
+            ledger.append(root, "picks", [{"rules_version": ver, **p} for p in ps], key=("week", "code", "variant"), base=REPLAY_LEDGER)
+            ledger.append(root, "pick_universe", [{"rules_version": ver, **r} for r in rj], key=("week", "code"), base=REPLAY_LEDGER)
             n_fri += 1
     added = grade.run(root, rules, all_dates[-1], base=REPLAY_LEDGER)
     print(f"重算 {len(dates)} 天，其中 {n_fri} 個週五產生推薦；對答案新增 {added} 筆 → {REPLAY_LEDGER}/")
