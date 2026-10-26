@@ -44,7 +44,14 @@ jobs:
             python -m scanner.run_daily
           fi
 
+      # 網站總覽用的美股／台股／匯率、市場燈號與全部股票收盤價。Yahoo 抓不到時沿用上一次並標示，不讓整個 job 失敗
+      - name: Market data for the site
+        if: always()
+        continue-on-error: true
+        run: python -m scanner.market
+
       - name: Commit data
+        if: always()
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
