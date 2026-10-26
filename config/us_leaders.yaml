@@ -1,0 +1,56 @@
+# =====================================================
+# us_leaders.yaml — 美股領先指標：供應鏈分組
+# =====================================================
+# 2026-10-26 從私人 repo track_stock 搬來（那邊的排程被 GitHub 額度卡住，10/10 後就沒更新）。
+# 每條鏈獨立聚合、獨立判定。metric: capex（資本支出＝下游需求）或 revenue（營收＝出貨動能）。
+# companies 只填 ticker，CIK 由 SEC 官方對照表自動解析。加一條鏈 = 加一個區塊，程式不用動。
+# min_reported：該鏈至少幾家「本季+去年同季都已公布」才算有效總量（沒寫用 rules.yaml 的 us_leaders.min_reported）
+#
+# tw_categories：舊的產業分類（私人 repo watchlist.yaml），沿用原本的設定，私人 repo 的下游程式還在用。
+# themes：新的細分主題（config/themes.yaml）。這一欄是 AI 助手依各鏈的 tw_note 對應的，請確認是否合理。
+#   目前沒有任何鏈對應到的主題：MCU、矽晶圓、被動元件。
+
+chains:
+  - name: 雲端資本支出
+    metric: capex
+    min_reported: 3
+    companies: {Microsoft: MSFT, Alphabet: GOOGL, Amazon: AMZN, Meta: META, Oracle: ORCL}
+    tw_note: "AI伺服器全鏈：散熱、電源/BBU、ODM整機、IC載板、光通訊、PCB/CCL——台廠營收落後約 1-2 季"
+    tw_categories: ["ABF載板/CCL", "散熱模組/液冷", "電源供應器/PSU/BBU", "光通訊/CPO/矽光子", "功率電感/TLVR", "高速銅纜/連接器", "BMC遠端管理晶片"]
+    themes: ["伺服器ODM", "機殼/滑軌", "PCB(伺服器板)", "散熱模組/液冷", "伺服器電源/PSU", "BBU/備援電池", "ABF載板", "CCL銅箔基板", "光通訊元件/雷射", "光纖陣列/CPO元件", "光電封裝/雷射封測", "功率電感", "高速銅纜/連接器", "BMC遠端管理晶片"]
+
+  - name: AI運算（GPU/ASIC）
+    metric: revenue
+    companies: {NVIDIA: NVDA, AMD: AMD, Broadcom: AVGO}
+    tw_note: "CoWoS/先進封裝、IC載板（欣興、南電）、散熱（奇鋐、雙鴻、健策）、ODM 出貨動能確認"
+    tw_categories: ["ABF載板/CCL", "散熱模組/液冷", "高速銅纜/連接器"]
+    themes: ["晶圓代工", "IC設計-AI/ASIC", "CoWoS/先進封裝設備", "封測", "測試介面(探針卡/測試座)", "ABF載板", "CCL銅箔基板", "PCB(伺服器板)", "散熱模組/液冷", "伺服器ODM", "高速銅纜/連接器"]
+
+  - name: 光通訊/CPO
+    metric: revenue
+    companies: {Coherent: COHR, Lumentum: LITE, Fabrinet: FN}
+    tw_note: "InP/GaAs 磊晶與元件（聯亞、全新、穩懋、宏捷科）、光模組（華星光）——客戶端拉貨領先台廠出貨"
+    tw_categories: ["光通訊/CPO/矽光子", "化合物半導體/矽晶圓"]
+    themes: ["光通訊元件/雷射", "光纖陣列/CPO元件", "光電封裝/雷射封測", "化合物半導體"]
+
+  - name: 電源/熱管理基礎設施
+    metric: revenue
+    companies: {Vertiv: VRT, Eaton: ETN, nVent: NVT}
+    tw_note: "台達電、光寶科（PSU/BBU/HVDC）、機櫃級液冷與電源櫃鏈"
+    tw_categories: ["電源供應器/PSU/BBU", "功率電感/TLVR", "散熱模組/液冷"]
+    themes: ["伺服器電源/PSU", "BBU/備援電池", "功率電感", "散熱模組/液冷"]
+
+  - name: 網通/交換器
+    metric: revenue
+    companies: {Arista: ANET, Celestica: CLS}
+    tw_note: "白牌交換器（智邦）、高速 PCB/CCL（台光電、聯茂）"
+    tw_categories: ["ABF載板/CCL", "高速銅纜/連接器"]
+    themes: ["網通交換器", "PCB(伺服器板)", "CCL銅箔基板", "高速銅纜/連接器"]
+
+  - name: 記憶體
+    metric: revenue
+    min_reported: 1
+    companies: {Micron: MU}
+    tw_note: "南亞科、華邦電、群聯——MU 營收拐點領先台灣記憶體族群約一季"
+    tw_categories: ["記憶體(DRAM/NAND)"]
+    themes: ["記憶體-DRAM", "記憶體-NAND/Flash", "記憶體-控制器/模組"]

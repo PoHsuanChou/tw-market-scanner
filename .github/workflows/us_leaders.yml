@@ -1,0 +1,39 @@
+name: US Leaders
+
+on:
+  schedule:
+    - cron: '0 0 * * 2-6'   # UTC 00:00 = 台灣 08:00，週二到週六（涵蓋美股週一到週五盤後申報）
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repo-write
+  cancel-in-progress: false
+
+jobs:
+  us-leaders:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: requirements-dev.txt
+      - run: pip install -r requirements.txt
+      - name: Fetch SEC EDGAR
+        env:
+          EDGAR_UA: ${{ secrets.EDGAR_UA }}   # SEC 規定要「姓名 email」，放 Secrets，不會公開
+        run: python -m scanner.us_leaders
+      - name: Commit data
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add out/us_leaders.json out/us_leaders_status.json history/us_leaders_state.json 2>/dev/null || true
+          git diff --staged --quiet && echo "沒有變更需要 commit" && exit 0
+          git commit -m "us leaders $(date -u +%Y-%m-%d) [skip ci]"
+          git pull --rebase -q origin main
+          git push

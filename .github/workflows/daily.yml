@@ -14,7 +14,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: daily-scan
+  group: repo-write
   cancel-in-progress: false
 
 jobs:
@@ -51,4 +51,5 @@ jobs:
           git add raw history out ledger
           git diff --staged --quiet && echo "沒有變更需要 commit" && exit 0
           git commit -m "scan $(date -u +%Y-%m-%d) [skip ci]"
+          git pull --rebase -q origin main
           git push

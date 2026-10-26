@@ -1,0 +1,19 @@
+{
+  "Microsoft:capex": "2026-06-30",
+  "Alphabet:capex": "2026-06-30",
+  "Amazon:capex": "2026-06-30",
+  "Meta:capex": "2026-06-30",
+  "Oracle:capex": "2026-08-31",
+  "NVIDIA:revenue": "2026-07-26",
+  "AMD:revenue": "2026-06-27",
+  "Broadcom:revenue": "2026-08-02",
+  "Coherent:revenue": "2026-06-30",
+  "Lumentum:revenue": "2026-06-27",
+  "Fabrinet:revenue": "2026-06-26",
+  "Vertiv:revenue": "2026-06-30",
+  "Eaton:revenue": "2026-06-30",
+  "nVent:revenue": "2026-06-30",
+  "Arista:revenue": "2026-06-30",
+  "Celestica:revenue": "2026-06-30",
+  "Micron:revenue": "2026-09-03"
+}
