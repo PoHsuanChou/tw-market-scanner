@@ -1,0 +1,52 @@
+# 資料健康檢查：每個平日掃描之後檢查一次。發現問題就讓這個 job「失敗」，
+# GitHub 會對失敗的 workflow 寄 email 給你（不需要在公開 repo 放任何信箱密碼）。
+# 檢查結果也寫進 out/health.json，網站會顯示警告橫幅。
+name: Data Health
+
+on:
+  schedule:
+    - cron: '45 10 * * 1-5'   # UTC 10:45 = 台灣 18:45，掃描（17:30）之後 75 分鐘
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: repo-write
+  cancel-in-progress: false
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: requirements-dev.txt
+      - run: pip install requests pandas pyyaml
+
+      - name: Check data health
+        id: health
+        continue-on-error: true
+        run: python -m scanner.health
+
+      - name: Commit result
+        if: always()
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add out/health.json
+          git diff --staged --quiet && echo "沒有變更需要 commit" && exit 0
+          git commit -m "health $(date -u +%Y-%m-%d) [skip ci]"
+          git pull --rebase -q origin main
+          git push
+
+      # 有問題就讓整個 job 失敗 → GitHub 寄信
+      - name: Fail if problems were found
+        if: steps.health.outcome == 'failure'
+        run: |
+          echo "發現資料問題，詳見上面 Check data health 的輸出，或網站頂端的警告橫幅。"
+          exit 1
