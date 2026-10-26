@@ -11,13 +11,13 @@
 """
 import pandas as pd
 
-from scanner import ledger, score
+from scanner import ledger, score, adjust
 
 
 def _closes(root, dates_needed_upto):
     dates, hist = score.load_daily(root, dates_needed_upto, n=10**6)
     common = hist[hist["code"].str.fullmatch(score.COMMON)]
-    close = common.pivot(index="date", columns="code", values="close").sort_index()
+    close = adjust.adjusted(root, common.pivot(index="date", columns="code", values="close").sort_index())
     return dates, close, common
 
 

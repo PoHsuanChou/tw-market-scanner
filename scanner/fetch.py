@@ -184,6 +184,13 @@ def fetch_all(root="."):
         inst_markets={m for m, ok in [("TWSE", bool(t86)), ("TPEx", bool(tpex_inst))] if ok},
     )
     status["history"] = res
+    # 股價還原用的公司行動（除權息、減資、偵測到的分割）：失敗不影響主流程
+    try:
+        from scanner import adjust
+        status["adjust_new_events"] = adjust.update_day(root, data_date)
+    except Exception as e:  # noqa: BLE001
+        log.warning(f"公司行動更新失敗（略過）：{e}")
+        status["adjust_error"] = str(e)
     _write_status(root, status)
     return status
 

@@ -9,6 +9,7 @@
   python -m scanner.report --base ledger_replay [--out docs/replay-tables.md]
   python -m scanner.report --base ledger
 """
+import os
 import argparse
 
 import pandas as pd
@@ -103,13 +104,63 @@ def build(root=".", base="ledger"):
     return "\n\n".join(parts)
 
 
+def _cell(c):
+    if not c or not c.get("n"):
+        return "—"
+    mark = " ⚠" if c["n"] < MIN_N else ""
+    return f"{c['median']:+.2f}%｜勝率 {c['win']:.0%}｜n={c['n']}{mark}"
+
+
+def by_year_md(summary):
+    """replay/summary.json → 分年度 Markdown。重點是「強主題比不強主題多多少」是不是每一年都在。"""
+    hz = [str(h) for h in summary["horizons"]]
+    years = sorted(summary["by_year"])
+    parts = [f"回放期間 {summary['period']['from']} 到 {summary['period']['to']}（{summary['period']['trading_days']} 個交易日），"
+             f"規則版本 {summary['rules_version']}。⚠ 表示樣本數 < {MIN_N}。"]
+
+    def gap_table(title, getter):
+        rows = ["| 年度 | " + " | ".join(f"{h} 日" for h in hz) + " |", "|---|" + "---|" * len(hz)]
+        for y in years + ["全部"]:
+            src = summary["all"] if y == "全部" else summary["by_year"][y]
+            cells = []
+            for h in hz:
+                a, b = getter(src, h)
+                cells.append("—" if not a or not b or not a.get("n") or not b.get("n")
+                             else f"{a['median'] - b['median']:+.2f} 個百分點（強 {a['median']:+.2f}、不強 {b['median']:+.2f}）")
+            rows.append(f"| {y} | " + " | ".join(cells) + " |")
+        return f"#### {title}\n" + "\n".join(rows)
+
+    parts.append(gap_table("波段強的主題 − 不強的主題（中位數超額的差距；正數＝強的比較好）",
+                           lambda s, h: ((s["themes"].get("強") or {}).get(h), (s["themes"].get("不強") or {}).get(h))))
+
+    def level_table(title, getter):
+        rows = ["| 年度 | " + " | ".join(f"{h} 日" for h in hz) + " |", "|---|" + "---|" * len(hz)]
+        for y in years + ["全部"]:
+            src = summary["all"] if y == "全部" else summary["by_year"][y]
+            rows.append(f"| {y} | " + " | ".join(_cell(getter(src, h)) for h in hz) + " |")
+        return f"#### {title}\n" + "\n".join(rows)
+
+    parts.append(level_table("波段強的主題（絕對水準，偏樂觀）", lambda s, h: (s["themes"].get("強") or {}).get(h)))
+    parts.append(level_table("不強的主題", lambda s, h: (s["themes"].get("不強") or {}).get(h)))
+    parts.append(level_table("波段版轉強當天", lambda s, h: s["theme_events"].get(h)))
+    for v, name in (("theme_swing_top3", "波段主題前 3 大（現在寄出的版本）"), ("base", "原規則（不追高，對照組）"),
+                    ("momentum", "追漲版"), ("theme_top3", "單日主題前 3 大")):
+        parts.append(level_table(f"推薦：{name}", lambda s, h, v=v: (s["picks"].get(v) or {}).get(h)))
+    return "\n\n".join(parts)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--root", default=".")
     ap.add_argument("--base", default="ledger")
     ap.add_argument("--out")
+    ap.add_argument("--by-year", action="store_true", help="讀 replay/summary.json，輸出分年度表格")
     a = ap.parse_args()
-    md = build(a.root, a.base)
+    if a.by_year:
+        import json
+        md = by_year_md(json.load(open(os.path.join(a.root, "replay", "summary.json"), encoding="utf-8")))
+    else:
+        md = build(a.root, a.base)
     if a.out:
         with open(a.out, "w", encoding="utf-8") as f:
             f.write(md + "\n")

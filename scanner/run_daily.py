@@ -10,7 +10,7 @@ import json
 import logging
 import argparse
 
-from scanner import fetch, score, picks as picks_mod, ledger, grade, history, themes, accuracy
+from scanner import fetch, score, picks as picks_mod, ledger, grade, history, themes, accuracy, replay_store
 
 log = logging.getLogger("run_daily")
 
@@ -49,7 +49,7 @@ def _signal_history(root, win, df, data_date):
         if r["data_date"] in past:
             out[(r["data_date"], r["code"])] = sum(1 for k in "ABCD" if r.get(k) is True)
     have = {d for d, _ in out}
-    for r in ledger.read(root, "theme_scores", "ledger_replay"):
+    for r in replay_store.load_recent(root)["theme_scores"]:
         if r["data_date"] in past and r["data_date"] not in have:
             for m in r.get("top") or []:
                 out.setdefault((r["data_date"], m["code"]), m["signals"])
@@ -58,8 +58,9 @@ def _signal_history(root, win, df, data_date):
 
 def _write_theme_history(root):
     """out/theme_history.json：網頁畫主題強弱圖用。真實紀錄優先，缺的日子用回放補，並標來源。"""
-    h = themes.history(ledger.read(root, "theme_scores"), ledger.read(root, "theme_scores", "ledger_replay"),
-                       ledger.read(root, "theme_events"), ledger.read(root, "theme_events", "ledger_replay"))
+    recent = replay_store.load_recent(root)
+    h = themes.history(ledger.read(root, "theme_scores"), recent["theme_scores"],
+                       ledger.read(root, "theme_events"), recent["theme_events"])
     os.makedirs(os.path.join(root, "out"), exist_ok=True)
     with open(os.path.join(root, "out", "theme_history.json"), "w", encoding="utf-8") as f:
         json.dump(h, f, ensure_ascii=False, separators=(",", ":"))
@@ -138,7 +139,7 @@ def run(root=".", do_fetch=True, force_picks=False):
         "theme_events_today": events_today,              # 波段版（通知用）
         "theme_events_today_daily": events_daily,        # 單日版（對照）
         "latest_picks": _latest_picks(root),              # 最近一次真實推薦（只有 base 會寄出）
-        "latest_picks_replay": _latest_picks(root, "ledger_replay"),   # 回放的最近一次（真實還沒有時給網頁參考）
+        "latest_picks_replay": (replay_store.load_summary(root) or {}).get("latest_picks"),   # 回放的最近一次（真實還沒有時給網頁參考）
         # 寄出的版本由 rules.yaml 的 send 決定（2026-10-26 起是 theme_swing_top3）；其他版本放 shadow，只顯示不寄
         "sent_variant": sent_variant,
         "picks_this_week": [p for p in ledger.read(root, "picks")

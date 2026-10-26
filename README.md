@@ -21,6 +21,10 @@
 - 缺值是空白，不是 0。唯一例外：交易所只列有法人交易的股票，已成功抓到的市場裡沒被列出的普通股，法人買賣超記 0。
 - 所有門檻在 `config/rules.yaml`，改動要改 `version`，ledger 每筆都記版本。
 
+## 回放（歷史模擬）
+- 用過去的資料假裝「當時就有這套系統」，結果見 `docs/replay-report.md`。明細在本機 `ledger_replay/`（不進 git，約 120 MB），
+  進 git 的是 `replay/summary.json`。主題名單是事後挑的，回放偏樂觀，只供參考。
+
 ## 本機執行
 ```bash
 python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt

@@ -42,6 +42,14 @@
 - 轉強事件分 kind=swing（通知用）與 kind=daily（對照）；推薦多一個並行版本 theme_swing_top3。
 - theme_scores 的 key 含 rules_version，改版後同一天另記新版本，畫圖用最後一筆。
 
+## 2026-10-27 三年回放與股價還原
+- 歷史 2023-09-01 到 2026-10-22 共 762 個交易日，回放評分 2023-10-02 起 742 天；0 天抓取失敗。
+- `scanner/adjust.py`：除權息（TWT49U、exDailyQ）、減資（TWTAUU）、偵測到的跳空 → `history/adjust.csv`；
+  評分、對答案、市值排名都用還原價；每日掃描會補當天的事件。
+- 回放明細（約 120 MB，outcomes.jsonl 就 95 MB）不進 git；進 git 的是 `replay/summary.json`（分年度摘要）與 `replay/theme_recent.json`。
+- 報告：`docs/replay-report.md`（重點與限制）、`docs/replay-by-year.md`（完整分年度表）。
+- 重算回放：`python -m scanner.adjust build --from 2023-09-01 --to <最新日>` → `python -m scanner.replay score --from 2023-10-02 --to <最新日>`。
+
 ## 還沒做 / 已知限制
 1. history 現在有 236 個交易日，A、B、C 都有值。
 2. 基準：有加權指數時用指數，不足 21 天才退回中位數。

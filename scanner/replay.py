@@ -35,7 +35,7 @@ from datetime import date, timedelta
 import pandas as pd
 import requests
 
-from scanner import normalize as N, history, score, picks as picks_mod, ledger, grade, themes
+from scanner import normalize as N, history, score, picks as picks_mod, ledger, grade, themes, replay_store
 from scanner.http import get_json, FetchError, UA
 
 log = logging.getLogger("replay")
@@ -235,6 +235,8 @@ def cmd_score(root, start, end, themes_draft=False):
         ledger.append(root, "theme_events", [{"rules_version": ver, **e} for e in ev],
                       key=("data_date", "theme", "kind"), base=REPLAY_LEDGER)
     added = grade.run(root, rules, all_dates[-1], base=REPLAY_LEDGER)
+    s = replay_store.export(root, rules)          # 明細只留本機，摘要與最近 130 天主題紀錄寫進 replay/（進 git）
+    print(f"已匯出摘要 replay/summary.json（{s['period']['from']} 到 {s['period']['to']}，分年度：{sorted(s['by_year'])}）")
     print(f"重算 {len(dates)} 天，其中 {n_fri} 個週五產生推薦；對答案新增 {added} 筆 → {REPLAY_LEDGER}/")
 
 

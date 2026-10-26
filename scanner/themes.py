@@ -52,7 +52,9 @@ def score(df, cfg, shares, rules):
             if r is None or not sh or r["close"] != r["close"]:
                 continue
             sig = sum(1 for k in "ABCD" if r[k] is True)
-            members.append({"code": r["code"], "name": r["name"], "cap": r["close"] * sh / 1e8, "signals": sig})
+            # 市值 = 還原後的收盤價 × 現在的股數：歷史價格如果沒還原，分割、減資前後的股數與價格對不上，排名會錯
+            px = r.get("adj_close", r["close"])
+            members.append({"code": r["code"], "name": r["name"], "cap": px * sh / 1e8, "signals": sig})
         members.sort(key=lambda m: -m["cap"])
         top = members[:top_n]
         n = len(top)

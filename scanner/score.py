@@ -16,6 +16,8 @@ import numpy as np
 import pandas as pd
 import yaml
 
+from scanner import adjust
+
 COMMON = re.compile(r"[1-9]\d{3}")
 
 
@@ -163,7 +165,8 @@ def score_stocks(root, data_date, rules=None):
     alias = rules["universe"]["industry_alias"]
     hist["industry"] = hist["industry"].map(lambda x: _norm_industry(x, alias))
     common = hist[hist["code"].str.fullmatch(COMMON)]
-    close = common.pivot(index="date", columns="code", values="close").sort_index()
+    close_raw = common.pivot(index="date", columns="code", values="close").sort_index()
+    close = adjust.adjusted(root, close_raw)          # 除權息、減資、分割還原；算報酬、均線、市值都用還原價
     foreign = common.pivot(index="date", columns="code", values="foreign_net").sort_index()
     trust = common.pivot(index="date", columns="code", values="trust_net").sort_index()
     margin = common.pivot(index="date", columns="code", values="margin_bal").sort_index()
@@ -201,7 +204,7 @@ def score_stocks(root, data_date, rules=None):
             mg5 = float(m.iloc[-1] / m.iloc[-6] - 1) * 100
         rows.append({
             "code": code, "name": t["name"], "market": t["market"], "industry": t["industry"],
-            "close": float(t["close"]), "avg_turnover": avg_turn, "flag": t["flag"] if isinstance(t["flag"], str) else "",
+            "close": float(t["close"]), "adj_close": float(close[code].iloc[-1]), "avg_turnover": avg_turn, "flag": t["flag"] if isinstance(t["flag"], str) else "",
             "A": A, "B": B, "C": C, "D": D, "c_basis": c_basis, "d_basis": d_basis,
             "r20": r20, "bench_r20": bench, "foreign_5d": f5, "trust_5d": t5, "margin_growth_5d": mg5,
             **{f"c_{k}": v for k, v in c_info.items()}, **{f"d_{k}": v for k, v in d_info.items()},

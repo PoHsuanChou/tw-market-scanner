@@ -16,7 +16,7 @@ from datetime import datetime
 
 import pandas as pd
 
-from scanner import ledger, score, grade
+from scanner import ledger, score, grade, replay_store
 
 
 def stats(values):
@@ -84,11 +84,15 @@ def picks_to_date(root, rules, data_date):
 
 def build(root, rules, data_date):
     hz = rules["grade"]["horizons"]
+    rs = replay_store.load_summary(root) or {}
     acc = {
         "updated_at": datetime.now().isoformat(timespec="seconds"),
         "data_date": data_date, "rules_version": rules["version"], "horizons": hz,
         "real": summarize(ledger.read(root, "outcomes"), hz),
-        "replay": summarize(ledger.read(root, "outcomes", "ledger_replay"), hz),
+        # 回放是固定的歷史模擬：直接讀 replay/summary.json（明細不進 git，見 replay_store.py）
+        "replay": rs.get("all") or summarize(ledger.read(root, "outcomes", "ledger_replay"), hz),
+        "replay_by_year": rs.get("by_year") or {},
+        "replay_period": rs.get("period"),
         "picks_list": picks_to_date(root, rules, data_date),
     }
     os.makedirs(os.path.join(root, "out"), exist_ok=True)
