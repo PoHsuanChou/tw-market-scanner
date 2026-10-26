@@ -10,7 +10,7 @@ import json
 import logging
 import argparse
 
-from scanner import fetch, score, picks as picks_mod, ledger, grade, history, themes
+from scanner import fetch, score, picks as picks_mod, ledger, grade, history, themes, accuracy
 
 log = logging.getLogger("run_daily")
 
@@ -128,6 +128,7 @@ def run(root=".", do_fetch=True, force_picks=False):
         log.info(f"{data_date} 不是週五，今天不產生推薦")
 
     n_out = grade.run(root, rules, data_date)
+    accuracy.build(root, rules, data_date)        # 網站「主題」「推薦」頁的準確率與推薦追蹤
 
     latest = {
         "data_date": data_date, "rules_version": ver, "summary": summary,
