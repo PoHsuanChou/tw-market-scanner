@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-10-24T13:27:38+00:00",
+  "run_at": "2026-10-26T13:44:02+00:00",
   "sources": {
     "twse_day": {
       "ok": true,
@@ -74,7 +74,11 @@
   ],
   "history": {
     "daily_rows": 2400,
-    "margin_continuity": null,
+    "margin_continuity": {
+      "compared": 1926,
+      "match_ratio": 0.999,
+      "prev_file": "2026-10-21.csv.gz"
+    },
     "revenue_months": [
       "2026-09"
     ],
