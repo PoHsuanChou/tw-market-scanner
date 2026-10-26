@@ -17,12 +17,27 @@ def _row(code, **kw):
 INDS = [{"industry": "半導體業", "score": 4, "delta_4w": None}]
 
 
+def _send_base(rules):
+    """這些測試檢查「寄出／記錄」的機制本身，跟目前設定哪一版寄出無關，所以固定讓 base 寄出。"""
+    for k, v in rules["picks"]["variants"].items():
+        v["send"] = (k == "base")
+    return rules
+
+
+def _send_base_on_disk(root):
+    import yaml
+    p = f"{root}/config/rules.yaml"
+    r = yaml.safe_load(open(p, encoding="utf-8"))
+    _send_base(r)
+    yaml.safe_dump(r, open(p, "w", encoding="utf-8"), allow_unicode=True)
+
+
 def _variant(picked, name):
     return [p for p in picked if p["variant"] == name]
 
 
 def test_at_most_three_sent_but_all_ten_recorded(root):
-    rules = score.load_rules(root)
+    rules = _send_base(score.load_rules(root))
     df = pd.DataFrame([_row(str(2000 + i), r20=float(i)) for i in range(12)])
     picked, _ = picks.select(df, INDS, rules, "2026-10-23")
     base = _variant(picked, "base")
@@ -88,6 +103,7 @@ def test_week_close_is_friday_only():
 
 
 def test_end_to_end_grade_and_idempotent(root):
+    _send_base_on_disk(root)
     dates = write_history(root, n_days=90, heroes={str(1000 + i) for i in range(8)})
     # 90 個交易日，從 2026-01-05 起，找一個週五當資料日期
     fri = [d for d in dates[25:30] if pd.Timestamp(d).weekday() == 4][0]
@@ -146,3 +162,17 @@ def test_benchmark_is_equal_weight_median_of_focus_stocks(root):
     w = close[close.code.isin([str(1000 + i) for i in range(10)])].pivot(index="date", columns="code", values="close")
     expected = float(((w.iloc[1] / w.iloc[0] - 1) * 100).median())
     assert abs(o["bench_ret"] - expected) < 1e-2
+
+
+def test_control_group_uses_base_even_when_theme_version_is_sent(root):
+    rules = score.load_rules(root)            # 目前設定：theme_swing_top3 寄出、base 不寄
+    assert rules["picks"]["variants"]["theme_swing_top3"]["send"] and not rules["picks"]["variants"]["base"]["send"]
+    df = pd.DataFrame([_row("1001"), _row("1002"), _row("5555"), _row("6666", D=False)])
+    picked, universe = picks.select(df, INDS, rules, "2026-10-23",
+                                    {"strong_theme_top": {}, "strong_theme_swing_top": {"1001": ["散熱"]}})
+    sent = [p["code"] for p in picked if p["sent"]]
+    assert sent == ["1001"]                                              # 只有波段主題版寄出
+    assert not any(p["sent"] for p in picked if p["variant"] == "base")
+    assert {u["code"] for u in universe} == {"1001", "1002", "5555", "6666"}   # 對照組仍是全部股票
+    ids = {p["variant"]: p["pick_id"] for p in picked if p["rank"] == 1}
+    assert ids["base"] == "2026-W43-01" and ids["theme_swing_top3"] == "2026-W43-S01"   # 編號不隨寄出版本改變

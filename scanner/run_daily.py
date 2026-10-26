@@ -130,6 +130,7 @@ def run(root=".", do_fetch=True, force_picks=False):
     n_out = grade.run(root, rules, data_date)
     accuracy.build(root, rules, data_date)        # 網站「主題」「推薦」頁的準確率與推薦追蹤
 
+    sent_variant = next((k for k, v in rules["picks"]["variants"].items() if v.get("send")), "base")
     latest = {
         "data_date": data_date, "rules_version": ver, "summary": summary,
         "industries": inds,
@@ -138,11 +139,12 @@ def run(root=".", do_fetch=True, force_picks=False):
         "theme_events_today_daily": events_daily,        # 單日版（對照）
         "latest_picks": _latest_picks(root),              # 最近一次真實推薦（只有 base 會寄出）
         "latest_picks_replay": _latest_picks(root, "ledger_replay"),   # 回放的最近一次（真實還沒有時給網頁參考）
-        # 只有 base 版會寄出；momentum 版是並行記錄的對照，放在 shadow 欄位，私人 repo 不寄、只顯示
+        # 寄出的版本由 rules.yaml 的 send 決定（2026-10-26 起是 theme_swing_top3）；其他版本放 shadow，只顯示不寄
+        "sent_variant": sent_variant,
         "picks_this_week": [p for p in ledger.read(root, "picks")
-                            if p["week"] == picks_mod.week_id(data_date) and p.get("variant", "base") == "base"],
+                            if p["week"] == picks_mod.week_id(data_date) and p.get("variant", "base") == sent_variant],
         "shadow_picks_this_week": [p for p in ledger.read(root, "picks")
-                                   if p["week"] == picks_mod.week_id(data_date) and p.get("variant", "base") != "base"],
+                                   if p["week"] == picks_mod.week_id(data_date) and p.get("variant", "base") != sent_variant],
         "stocks": [{k: _clean(r[k]) for k in stock_cols + ["flag"]} for r in df.to_dict("records")],
     }
     os.makedirs(os.path.join(root, "out"), exist_ok=True)

@@ -1,6 +1,6 @@
 {
  "data_date": "2026-10-22",
- "rules_version": "2026-10-26.1",
+ "rules_version": "2026-10-26.2",
  "summary": {
   "data_date": "2026-10-22",
   "history_days": 70,
@@ -1387,6 +1387,7 @@
    ]
   }
  },
+ "sent_variant": "theme_swing_top3",
  "picks_this_week": [],
  "shadow_picks_this_week": [],
  "stocks": [

@@ -1,6 +1,6 @@
 # 所有門檻都在這裡。改任何數字都要改 version，ledger 每一筆都會記錄當時的版本，
 # 回測才分得出「是哪一版規則做的判斷」。
-version: "2026-10-26.1"
+version: "2026-10-26.2"
 
 # 基準：加權指數（history/index/twii.csv，來源是證交所 MI_INDEX，2026-10-24 驗證過）。
 # 指數歷史不足 21 天時退回「全部普通股 20 日報酬中位數」，輸出的 summary.benchmark 會標明用了哪一個。
@@ -44,9 +44,10 @@ picks:
   min_industry_delta: 2
   min_signals: 3             # P.signals（且 D 必須成立）
   max_margin_growth_5d_pct: 10   # P.no_trap：股價上漲同時融資 5 日增加超過此值
+  control_variant: base      # 對照組（pick_universe）一律用 base 版的關卡記錄全部股票
   variants:
-    base:                    # 原本的規則，唯一會寄出的版本
-      send: true
+    base:                    # 原本的規則。2026-10-26 起不寄，只記錄當「不追高」的對照組
+      send: false
       max_r20_pct: 25        # P.not_priced：20 日已漲 ≥ 25% 不推薦
       sort_r20: asc          # 同訊號數時，優先還沒漲的
     momentum:                # 並行記錄、不寄出；pick_id 形如 2026-W43-M01
@@ -54,8 +55,8 @@ picks:
       id_tag: M
       max_r20_pct: null      # 不排除已經漲的
       sort_r20: desc         # 同訊號數時，優先已經漲比較多的
-    theme_swing_top3:        # 2026-10-25 加：只從「波段強主題的前 3 大」裡挑，其他關卡同 base；只記錄不寄出
-      send: false
+    theme_swing_top3:        # 只從「波段強主題的前 3 大」裡挑，其他關卡同 base。2026-10-26 起改成寄出的版本
+      send: true
       id_tag: S
       universe: strong_theme_swing_top
       max_r20_pct: 25

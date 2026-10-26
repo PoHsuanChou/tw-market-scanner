@@ -82,12 +82,13 @@ def _gate(r, i, p, max_r20):
 def select(df, industries, rules, data_date, universes=None):
     """回傳 (picks, universe)。
     picks：各版本的推薦紀錄（含 variant、rank、sent）。
-    universe：寄出的那一版的全部股票與各自卡在哪一關（通過為 None），對照組用。
+    universe：對照組。用 base 版的關卡記錄 focus 範圍「全部」股票各自卡在哪一關（通過為 None），
+      和哪一版寄出無關（寄出的若是主題版，它只看主題前 3 大，拿來當對照組會太窄）。
     universes：{"strong_theme_top": {代號: [主題]}, "strong_theme_swing_top": {...}}，
     只有設定了 universe 的版本會用到；對應的資料是 None 或沒給時，那個版本整個略過，不產生推薦。"""
     p = rules["picks"]
     variants = p["variants"]
-    sent_variant = next(k for k, v in variants.items() if v.get("send"))
+    control = p.get("control_variant", "base")
     ind = {i["industry"]: i for i in industries}
     rows = []
     for _, r in df.iterrows():
@@ -111,14 +112,14 @@ def select(df, industries, rules, data_date, universes=None):
             fail = _gate(r, i, p, v.get("max_r20_pct"))
             if fail is None:
                 passed.append((r, i, base))
-            if vname == sent_variant:
+            if vname == control:
                 universe.append({**base, "failed_at": fail})
         sign = -1 if v.get("sort_r20") == "desc" else 1
         none_r20 = float("-inf") if sign == -1 else float("inf")
         passed.sort(key=lambda x: (-x[2]["signals"],
                                    sign * (x[0]["r20"] if x[0]["r20"] is not None else none_r20 * sign),
                                    -x[0]["avg_turnover"]))
-        tag = "" if vname == sent_variant else v.get("id_tag", vname[0].upper())
+        tag = v.get("id_tag", "")          # 編號只跟版本有關，換寄出版本也不會變（base 沒有前綴）
         for n, (r, i, base) in enumerate(passed[: p["record_max"]], start=1):
             extra = {"themes": theme_codes[r["code"]]} if theme_only else {}
             picks.append({**base, **extra, "variant": vname, "pick_id": f"{base['week']}-{tag}{n:02d}", "rank": n,
