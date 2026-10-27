@@ -138,9 +138,9 @@ def run(root=".", do_fetch=True, force_picks=False):
         "themes": theme_rows,
         "theme_events_today": events_today,              # 波段版（通知用）
         "theme_events_today_daily": events_daily,        # 單日版（對照）
-        "latest_picks": _latest_picks(root),              # 最近一次真實推薦（只有 base 會寄出）
+        "latest_picks": _latest_picks(root),              # 最近一次真實推薦（只有 send=true 的版本會寄出）
         "latest_picks_replay": (replay_store.load_summary(root) or {}).get("latest_picks"),   # 回放的最近一次（真實還沒有時給網頁參考）
-        # 寄出的版本由 rules.yaml 的 send 決定（2026-10-26 起是 theme_swing_top3）；其他版本放 shadow，只顯示不寄
+        # 寄出的版本由 rules.yaml 的 send 決定（2026-10-26 起 theme_swing_top3，2026-10-27.2 起 theme_swing_uncapped）；其他版本放 shadow，只顯示不寄
         "sent_variant": sent_variant,
         "picks_this_week": [p for p in ledger.read(root, "picks")
                             if p["week"] == picks_mod.week_id(data_date) and p.get("variant", "base") == sent_variant],

@@ -4,10 +4,12 @@
 （P.liquidity 已經在 score_stocks 的 U.liquidity 做掉了）
 
 兩個版本並行（rules.yaml 的 picks.variants），用同一份評分：
-  base      排除 20 日已漲 ≥ 25% 的；排序 訊號數多→少、20 日報酬少→多（優先還沒漲的）。只有這版會寄出。
+  base      排除 20 日已漲 ≥ 25% 的；排序 訊號數多→少、20 日報酬少→多（優先還沒漲的）。2026-10-26 起不寄，2026-10-27 起也不記推薦。
   momentum  不排除已經漲的；排序 訊號數多→少、20 日報酬多→少。只記錄不寄，用來和 base 比較。
 這樣做的原因：回放顯示這一年「已經漲的」之後表現較好，但只有一年、一種行情，
 不能因此推翻 SOP「不追高」的原則；兩版同時記錄，用之後的真實資料再比。
+（2026-10-27 起 base 設 record: false：不寄也不記推薦，只保留關卡給對照組。
+ 另加 theme_swing_uncapped：波段主題版但不擋已漲 ≥ 25%，只記錄不寄。）
 
 對照組：每週把 focus 範圍內「全部」股票寫進 pick_universe（通過的 failed_at=None，被刷掉的記關卡），
 含 0、1 個訊號。只記被刷掉的會漏掉通過的股票，讓高訊號那幾列偏向「漲太多被刷掉」的股票。
@@ -114,6 +116,8 @@ def select(df, industries, rules, data_date, universes=None):
                 passed.append((r, i, base))
             if vname == control:
                 universe.append({**base, "failed_at": fail})
+        if v.get("record") is False:     # 只當對照組的關卡用，不產生推薦紀錄
+            continue
         sign = -1 if v.get("sort_r20") == "desc" else 1
         none_r20 = float("-inf") if sign == -1 else float("inf")
         passed.sort(key=lambda x: (-x[2]["signals"],

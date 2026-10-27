@@ -21,6 +21,8 @@ def _send_base(rules):
     """這些測試檢查「寄出／記錄」的機制本身，跟目前設定哪一版寄出無關，所以固定讓 base 寄出。"""
     for k, v in rules["picks"]["variants"].items():
         v["send"] = (k == "base")
+        if k == "base":
+            v["record"] = True
     return rules
 
 
@@ -49,7 +51,7 @@ def test_at_most_three_sent_but_all_ten_recorded(root):
 
 
 def test_momentum_variant_is_recorded_but_never_sent(root):
-    rules = score.load_rules(root)
+    rules = _send_base(score.load_rules(root))
     df = pd.DataFrame([_row(str(2000 + i), r20=float(i * 5)) for i in range(8)])   # 最高 35%
     picked, _ = picks.select(df, INDS, rules, "2026-10-23")
     mom = _variant(picked, "momentum")
@@ -69,7 +71,7 @@ def test_zero_picks_when_nothing_passes_and_control_group_kept(root):
 
 
 def test_each_gate_records_where_it_failed(root):
-    rules = score.load_rules(root)
+    rules = _send_base(score.load_rules(root))
     df = pd.DataFrame([
         _row("3001", r20=30.0),                                   # P.not_priced（只在 base）
         _row("3002", flag="disposal"),                             # P.no_trap
@@ -165,14 +167,28 @@ def test_benchmark_is_equal_weight_median_of_focus_stocks(root):
 
 
 def test_control_group_uses_base_even_when_theme_version_is_sent(root):
-    rules = score.load_rules(root)            # 目前設定：theme_swing_top3 寄出、base 不寄
-    assert rules["picks"]["variants"]["theme_swing_top3"]["send"] and not rules["picks"]["variants"]["base"]["send"]
+    rules = score.load_rules(root)            # 目前設定：theme_swing_uncapped 寄出，其他不寄
+    v = rules["picks"]["variants"]
+    assert [k for k in v if v[k].get("send")] == ["theme_swing_uncapped"]
     df = pd.DataFrame([_row("1001"), _row("1002"), _row("5555"), _row("6666", D=False)])
     picked, universe = picks.select(df, INDS, rules, "2026-10-23",
                                     {"strong_theme_top": {}, "strong_theme_swing_top": {"1001": ["散熱"]}})
     sent = [p["code"] for p in picked if p["sent"]]
-    assert sent == ["1001"]                                              # 只有波段主題版寄出
-    assert not any(p["sent"] for p in picked if p["variant"] == "base")
+    assert sent == ["1001"] and {p["variant"] for p in picked if p["sent"]} == {"theme_swing_uncapped"}
+    assert not [p for p in picked if p["variant"] == "base"]           # base 不記推薦（record: false）
     assert {u["code"] for u in universe} == {"1001", "1002", "5555", "6666"}   # 對照組仍是全部股票
+    assert {u["code"]: u["failed_at"] for u in universe}["6666"] == "P.signals"  # 關卡仍照 base 記
     ids = {p["variant"]: p["pick_id"] for p in picked if p["rank"] == 1}
-    assert ids["base"] == "2026-W43-01" and ids["theme_swing_top3"] == "2026-W43-S01"   # 編號不隨寄出版本改變
+    assert ids["theme_swing_top3"] == "2026-W43-S01" and ids["theme_swing_uncapped"] == "2026-W43-U01"
+
+
+def test_swing_uncapped_keeps_stocks_already_up(root):
+    rules = score.load_rules(root)
+    df = pd.DataFrame([_row("1001", r20=40.0), _row("1002", r20=10.0), _row("5555", r20=5.0)])
+    sw = {"1001": ["散熱"], "1002": ["散熱"]}
+    picked, _ = picks.select(df, INDS, rules, "2026-10-23", {"strong_theme_top": {}, "strong_theme_swing_top": sw})
+    capped = [p["code"] for p in picked if p["variant"] == "theme_swing_top3"]
+    unc = [p for p in picked if p["variant"] == "theme_swing_uncapped"]
+    assert capped == ["1002"]                                     # 舊波段版仍擋 20 日漲 ≥ 25%
+    assert [p["code"] for p in unc] == ["1002", "1001"]           # 不擋版留下 1001；排序同舊波段版（還沒漲的優先）
+    assert [p["sent"] for p in unc] == [True, True] and unc[0]["pick_id"] == "2026-W43-U01"

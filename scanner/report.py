@@ -143,7 +143,8 @@ def by_year_md(summary):
     parts.append(level_table("波段強的主題（絕對水準，偏樂觀）", lambda s, h: (s["themes"].get("強") or {}).get(h)))
     parts.append(level_table("不強的主題", lambda s, h: (s["themes"].get("不強") or {}).get(h)))
     parts.append(level_table("波段版轉強當天", lambda s, h: s["theme_events"].get(h)))
-    for v, name in (("theme_swing_top3", "波段主題前 3 大（現在寄出的版本）"), ("base", "原規則（不追高，對照組）"),
+    for v, name in (("theme_swing_uncapped", "波段主題前 3 大、不擋已漲（現在寄出的版本）"),
+                    ("theme_swing_top3", "波段主題前 3 大（擋已漲，舊寄出版）"), ("base", "原規則（不追高，2026-10-27 起不記錄）"),
                     ("momentum", "追漲版"), ("theme_top3", "單日主題前 3 大")):
         parts.append(level_table(f"推薦：{name}", lambda s, h, v=v: (s["picks"].get(v) or {}).get(h)))
     return "\n\n".join(parts)

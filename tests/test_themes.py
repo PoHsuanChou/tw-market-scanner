@@ -67,7 +67,7 @@ def test_theme_variant_only_picks_strong_theme_top_members(root):
     t = [p for p in picked if p["variant"] == "theme_top3"]
     assert {p["code"] for p in t} == {"1001", "1002"} and not any(p["sent"] for p in t)
     assert t[0]["pick_id"].startswith("2026-W43-T") and t[0]["themes"] == ["散熱"]
-    assert "5555" in {p["code"] for p in picked if p["variant"] == "base"}    # base 不受主題限制
+    assert "5555" in {p["code"] for p in picked if p["variant"] == "momentum"}    # 沒設 universe 的版本不受主題限制
 
 
 def test_theme_variant_skipped_when_themes_not_available(root):
