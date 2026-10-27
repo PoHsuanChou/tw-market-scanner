@@ -36,3 +36,16 @@ def test_picks_to_date_reports_return_since_pick(root):
     r = rows[0]
     assert r["days_held"] == 9 and r["ret_to_date"] > 0 and r["excess_to_date"] is not None
     assert r["outcomes"]["5"] is not None and r["outcomes"]["20"] is None    # 5 日已到期、20 日還沒
+
+
+def test_by_mode_joins_outcomes_to_the_recorded_mode_of_the_judgement_day(root):
+    ledger.append(root, "market_modes", [
+        {"tw_data_date": "2026-01-05", "mode": "riskon", "stale": False},
+        {"tw_data_date": "2026-01-06", "mode": "riskoff", "stale": False},
+        {"tw_data_date": "2026-01-07", "mode": "panic", "stale": True}], key=("tw_data_date",))
+    mk = lambda d, ex, strong: {"ref_type": "theme", "horizon": 20, "start_date": d, "excess": ex, "swing_strong": strong}
+    outs = [mk("2026-01-05", 5.0, True), mk("2026-01-05", 1.0, False), mk("2026-01-06", -2.0, True),
+            mk("2026-01-07", 9.0, True), mk("2026-01-08", 9.0, True)]       # 後兩筆：stale 燈號、沒有燈號紀錄
+    res, days = accuracy.by_mode(root, outs, [20])
+    assert set(res) == {"riskon", "riskoff"} and days == {"riskon": 1, "riskoff": 1}
+    assert res["riskon"]["themes"]["強"]["20"]["median"] == 5.0 and res["riskoff"]["themes"]["強"]["20"]["median"] == -2.0

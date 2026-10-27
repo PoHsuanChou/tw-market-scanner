@@ -103,6 +103,35 @@ def market_mode(us):
     return "neutral", info
 
 
+def mode_asof(us, tw_date):
+    """台股 tw_date 收盤後（17:30 掃描時）能知道的市場燈號。
+    那個時間美股還沒開盤，最近一次收盤是「前一個美股交易日」，所以只用日期 < tw_date 的美股資料。
+    這樣燈號只取決於 (tw_date, 美股序列)，不管什麼時候重跑、補跑都會得到同一個結果，不會偷看之後的資料。"""
+    cut = {k: [p for p in v if p[0] < tw_date] for k, v in us.items()}
+    mode, info = market_mode(cut)
+    asof = max((cut[k][-1][0] for k in ("vix", "sox", "ixic") if cut.get(k)), default=None)
+    return mode, info, asof
+
+
+def record_mode(root, series, rules_version):
+    """把「最新一個台股交易日」的市場燈號寫進 ledger/market_modes.jsonl（只增不改，同一天只記第一筆）。
+    美股資料太舊（最近一筆比台股日期早超過 5 天，例如 Yahoo 連續抓不到）就標 stale，分析時不採用。"""
+    from datetime import date
+    from scanner import ledger, score
+    dates = score.trading_dates(root)
+    if not dates:
+        return None
+    d = dates[-1]
+    mode, info, asof = mode_asof(series, d)
+    if mode is None:
+        return None
+    stale = asof is None or (date.fromisoformat(d) - date.fromisoformat(asof)).days > 5
+    rec = {"tw_data_date": d, "mode": mode, "inputs": info, "us_asof": asof, "stale": stale,
+           "rules_version": rules_version, "recorded_at": datetime.now(timezone.utc).isoformat(timespec="seconds")}
+    ledger.append(root, "market_modes", [rec], key=("tw_data_date",))
+    return rec
+
+
 def prices(root):
     """全部股票最新一天的收盤價 {代號: 收盤}，沒有收盤價（沒成交）的不放。"""
     d = os.path.join(root, "history", "daily")
@@ -144,6 +173,11 @@ def build(root=".", fetch=fetch_yahoo):
            "failed": failed, "stale": sorted(set(stale))}
     with open(mpath, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, separators=(",", ":"))
+    try:
+        from scanner import score
+        record_mode(root, series, score.load_rules(root)["version"])
+    except Exception as e:  # noqa: BLE001
+        log.warning(f"記錄市場燈號失敗（不影響其他輸出）：{e}")
     px = prices(root)
     if px:
         with open(os.path.join(root, "out", "prices.json"), "w", encoding="utf-8") as f:

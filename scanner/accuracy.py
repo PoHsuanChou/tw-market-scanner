@@ -82,6 +82,21 @@ def picks_to_date(root, rules, data_date):
     return out
 
 
+def by_mode(root, outcomes, hz):
+    """真實紀錄依「判斷當天的市場燈號」分組（ledger/market_modes.jsonl，stale 的不採用）。
+    回傳 ({燈號: summarize 結果}, {燈號: 已記錄天數})。燈號是事先記下的，不是事後回頭貼的標籤。"""
+    modes = {r["tw_data_date"]: r["mode"] for r in ledger.read(root, "market_modes") if not r.get("stale")}
+    days = {}
+    for m in modes.values():
+        days[m] = days.get(m, 0) + 1
+    groups = {}
+    for r in outcomes:
+        m = modes.get(r.get("start_date"))
+        if m:
+            groups.setdefault(m, []).append(r)
+    return {m: summarize(rows, hz) for m, rows in groups.items()}, days
+
+
 def build(root, rules, data_date):
     hz = rules["grade"]["horizons"]
     rs = replay_store.load_summary(root) or {}
@@ -89,6 +104,8 @@ def build(root, rules, data_date):
         "updated_at": datetime.now().isoformat(timespec="seconds"),
         "data_date": data_date, "rules_version": rules["version"], "horizons": hz,
         "real": summarize(ledger.read(root, "outcomes"), hz),
+        "real_by_mode": by_mode(root, ledger.read(root, "outcomes"), hz)[0],
+        "mode_days": by_mode(root, [], hz)[1],
         # 回放是固定的歷史模擬：直接讀 replay/summary.json（明細不進 git，見 replay_store.py）
         "replay": rs.get("all") or summarize(ledger.read(root, "outcomes", "ledger_replay"), hz),
         "replay_by_year": rs.get("by_year") or {},

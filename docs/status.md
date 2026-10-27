@@ -50,6 +50,13 @@
 - 報告：`docs/replay-report.md`（重點與限制）、`docs/replay-by-year.md`（完整分年度表）。
 - 重算回放：`python -m scanner.adjust build --from 2023-09-01 --to <最新日>` → `python -m scanner.replay score --from 2023-10-02 --to <最新日>`。
 
+## 2026-10-27 開始記錄每日市場燈號
+- `ledger/market_modes.jsonl`：每個台股交易日一筆（只增不改，同一天第一筆為準），欄位 tw_data_date、mode、inputs（VIX、SOX/NASDAQ 5/20 日漲跌）、us_asof、stale。
+- 燈號是「台股 d 日 17:30 能知道的」：只用日期 < d 的美股資料（`market.mode_asof`），補跑、重跑結果一致，不偷看之後。
+- `out/accuracy.json` 的 `real_by_mode`、`mode_days`：真實紀錄依判斷當天燈號分組；網站「主題」頁有對應表格。
+- 目的：之後看強主題的優勢是不是集中在特定燈號。**規則不因此調整**；每種燈號要 ≥ 30 筆樣本，通常要累積數個月。
+- 回放期間（2023–2026）的燈號沒有逐日記錄；若要事後分析回放，可用 Yahoo 的長期資料依同一個函式重建，屬於探索，不是規則依據。
+
 ## 還沒做 / 已知限制
 1. history 現在有 236 個交易日，A、B、C 都有值。
 2. 基準：有加權指數時用指數，不足 21 天才退回中位數。
