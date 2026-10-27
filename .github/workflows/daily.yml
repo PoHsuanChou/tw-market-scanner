@@ -50,6 +50,12 @@ jobs:
         continue-on-error: true
         run: python -m scanner.market
 
+      # 主題頁的「國外強度」（國外同類公司最近有沒有在漲）。只顯示、不影響推薦；Yahoo 抓不到時沿用上一次並標示
+      - name: Foreign peers for themes
+        if: always()
+        continue-on-error: true
+        run: python -m scanner.theme_peers
+
       - name: Commit data
         if: always()
         run: |
