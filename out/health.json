@@ -1,5 +1,26 @@
 {
- "checked_at": "2026-10-28T02:26:20+00:00",
- "ok": true,
- "problems": []
+ "checked_at": "2026-10-28T16:50:44+00:00",
+ "ok": false,
+ "problems": [
+  {
+   "level": "warn",
+   "code": "source_tpex_day_warn",
+   "msg": "上櫃日成交：日期 ['2026-10-28'] 與主日期 2026-10-27 不一致，該來源欄位留空"
+  },
+  {
+   "level": "warn",
+   "code": "source_tpex_margin_warn",
+   "msg": "上櫃融資融券：日期 ['2026-10-28'] 與主日期 2026-10-27 不一致，該來源欄位留空"
+  },
+  {
+   "level": "warn",
+   "code": "source_tpex_inst_warn",
+   "msg": "上櫃三大法人：日期 ['2026-10-28'] 與主日期 2026-10-27 不一致，該來源欄位留空"
+  },
+  {
+   "level": "error",
+   "code": "behind_2026-10-28",
+   "msg": "證交所有 2026-10-28 的交易資料，但我們的資料還停在 2026-10-27。"
+  }
+ ]
 }
