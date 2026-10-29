@@ -1,2 +1,3 @@
 {"tw_data_date":"2026-10-22","mode":"neutral","inputs":{"vix":16.68,"sox5":-1.53,"sox20":-8.21,"nas5":0.04,"nas20":-0.87},"us_asof":"2026-10-21","stale":false,"rules_version":"2026-10-26.2","recorded_at":"2026-10-27T01:25:36+00:00"}
 {"tw_data_date":"2026-10-27","mode":"neutral","inputs":{"vix":18.39,"sox5":-2.06,"sox20":-11.08,"nas5":-0.99,"nas20":-2.43},"us_asof":"2026-10-26","stale":false,"rules_version":"2026-10-27.3","recorded_at":"2026-10-28T02:12:48+00:00"}
+{"tw_data_date":"2026-10-28","mode":"riskon","inputs":{"vix":17.52,"sox5":1.76,"sox20":-9.08,"nas5":0.2,"nas20":-1.19},"us_asof":"2026-10-27","stale":false,"rules_version":"2026-10-27.3","recorded_at":"2026-10-29T16:19:33+00:00"}
