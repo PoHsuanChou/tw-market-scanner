@@ -1,10 +1,10 @@
 {
-  "run_at": "2026-10-29T16:18:55+00:00",
+  "run_at": "2026-10-30T16:07:43+00:00",
   "sources": {
     "twse_day": {
       "ok": true,
-      "rows": 1386,
-      "date": "2026-10-28"
+      "rows": 1388,
+      "date": "2026-10-29"
     },
     "twse_margin": {
       "ok": true
@@ -17,15 +17,15 @@
     },
     "tpex_day": {
       "ok": true,
-      "warning": "日期 ['2026-10-29'] 與主日期 2026-10-28 不一致，該來源欄位留空"
+      "warning": "日期 ['2026-10-30'] 與主日期 2026-10-29 不一致，該來源欄位留空"
     },
     "tpex_margin": {
       "ok": true,
-      "warning": "日期 ['2026-10-29'] 與主日期 2026-10-28 不一致，該來源欄位留空"
+      "warning": "日期 ['2026-10-30'] 與主日期 2026-10-29 不一致，該來源欄位留空"
     },
     "tpex_inst": {
       "ok": true,
-      "warning": "日期 ['2026-10-29'] 與主日期 2026-10-28 不一致，該來源欄位留空"
+      "warning": "日期 ['2026-10-30'] 與主日期 2026-10-29 不一致，該來源欄位留空"
     },
     "tpex_rev": {
       "ok": true
@@ -56,10 +56,10 @@
     },
     "twse_t86": {
       "ok": true,
-      "rows": 1351
+      "rows": 1340
     }
   },
-  "data_date": "2026-10-28",
+  "data_date": "2026-10-29",
   "industry_code_conflicts": [
     {
       "industry_code": "17",
@@ -70,16 +70,16 @@
     }
   ],
   "history": {
-    "daily_rows": 1386,
+    "daily_rows": 1388,
     "margin_continuity": {
       "compared": 1236,
-      "match_ratio": 1.0,
-      "prev_file": "2026-10-27.csv.gz"
+      "match_ratio": 0.9976,
+      "prev_file": "2026-10-28.csv.gz"
     },
     "revenue_months": [
       "2026-09"
     ],
     "tdcc_date": "2026-10-22"
   },
-  "adjust_new_events": 5
+  "adjust_new_events": 3
 }
