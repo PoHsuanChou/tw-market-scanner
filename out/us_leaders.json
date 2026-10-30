@@ -1,6 +1,6 @@
 {
- "updated_at": "2026-10-29T03:32:04+00:00",
- "date": "2026-10-29",
+ "updated_at": "2026-10-30T03:34:35+00:00",
+ "date": "2026-10-30",
  "accel_pp": 5,
  "chains": [
   {
@@ -8,19 +8,20 @@
    "metric": "capex",
    "agg": {
     "bucket": "2026Q3",
-    "total_b": 101.8,
-    "yoy": 117.9,
+    "total_b": 153.2,
+    "yoy": 116.7,
     "prev_yoy": 86.5,
-    "accel": 31.4,
-    "n": 3,
+    "accel": 30.2,
+    "n": 4,
     "names": [
+     "Alphabet",
      "Meta",
      "Microsoft",
      "Oracle"
     ]
    },
    "direction": "順風",
-   "verdict": "加速中（+31.4pp）",
+   "verdict": "加速中（+30.2pp）",
    "tw_note": "AI伺服器全鏈：散熱、電源/BBU、ODM整機、IC載板、光通訊、PCB/CCL——台廠營收落後約 1-2 季",
    "tw_categories": [
     "ABF載板/CCL",
@@ -108,11 +109,6 @@
      "ticker": "GOOGL",
      "series": [
       {
-       "end": "2024-03-31",
-       "val_b": 12.01,
-       "yoy": 91.0
-      },
-      {
        "end": "2024-06-30",
        "val_b": 13.19,
        "yoy": 91.4
@@ -156,6 +152,11 @@
        "end": "2026-06-30",
        "val_b": 44.92,
        "yoy": 100.1
+      },
+      {
+       "end": "2026-09-30",
+       "val_b": 51.35,
+       "yoy": 114.4
       }
      ]
     },
@@ -1161,70 +1162,70 @@
    "scope": "category",
    "key": "ABF載板/CCL",
    "direction": "順風",
-   "detail": "雲端資本支出鏈 2026Q3 Capex YoY +117.9%（+31.4pp，3 家）",
+   "detail": "雲端資本支出鏈 2026Q3 Capex YoY +116.7%（+30.2pp，4 家）",
    "chain": "雲端資本支出",
-   "date": "2026-10-29",
-   "expires": "2027-02-06",
+   "date": "2026-10-30",
+   "expires": "2027-02-07",
    "small": false
   },
   {
    "scope": "category",
    "key": "散熱模組/液冷",
    "direction": "順風",
-   "detail": "雲端資本支出鏈 2026Q3 Capex YoY +117.9%（+31.4pp，3 家）",
+   "detail": "雲端資本支出鏈 2026Q3 Capex YoY +116.7%（+30.2pp，4 家）",
    "chain": "雲端資本支出",
-   "date": "2026-10-29",
-   "expires": "2027-02-06",
+   "date": "2026-10-30",
+   "expires": "2027-02-07",
    "small": false
   },
   {
    "scope": "category",
    "key": "電源供應器/PSU/BBU",
    "direction": "順風",
-   "detail": "雲端資本支出鏈 2026Q3 Capex YoY +117.9%（+31.4pp，3 家）",
+   "detail": "雲端資本支出鏈 2026Q3 Capex YoY +116.7%（+30.2pp，4 家）",
    "chain": "雲端資本支出",
-   "date": "2026-10-29",
-   "expires": "2027-02-06",
+   "date": "2026-10-30",
+   "expires": "2027-02-07",
    "small": false
   },
   {
    "scope": "category",
    "key": "光通訊/CPO/矽光子",
    "direction": "順風",
-   "detail": "雲端資本支出鏈 2026Q3 Capex YoY +117.9%（+31.4pp，3 家）",
+   "detail": "雲端資本支出鏈 2026Q3 Capex YoY +116.7%（+30.2pp，4 家）",
    "chain": "雲端資本支出",
-   "date": "2026-10-29",
-   "expires": "2027-02-06",
+   "date": "2026-10-30",
+   "expires": "2027-02-07",
    "small": false
   },
   {
    "scope": "category",
    "key": "功率電感/TLVR",
    "direction": "順風",
-   "detail": "雲端資本支出鏈 2026Q3 Capex YoY +117.9%（+31.4pp，3 家）",
+   "detail": "雲端資本支出鏈 2026Q3 Capex YoY +116.7%（+30.2pp，4 家）",
    "chain": "雲端資本支出",
-   "date": "2026-10-29",
-   "expires": "2027-02-06",
+   "date": "2026-10-30",
+   "expires": "2027-02-07",
    "small": false
   },
   {
    "scope": "category",
    "key": "高速銅纜/連接器",
    "direction": "順風",
-   "detail": "雲端資本支出鏈 2026Q3 Capex YoY +117.9%（+31.4pp，3 家）",
+   "detail": "雲端資本支出鏈 2026Q3 Capex YoY +116.7%（+30.2pp，4 家）",
    "chain": "雲端資本支出",
-   "date": "2026-10-29",
-   "expires": "2027-02-06",
+   "date": "2026-10-30",
+   "expires": "2027-02-07",
    "small": false
   },
   {
    "scope": "category",
    "key": "BMC遠端管理晶片",
    "direction": "順風",
-   "detail": "雲端資本支出鏈 2026Q3 Capex YoY +117.9%（+31.4pp，3 家）",
+   "detail": "雲端資本支出鏈 2026Q3 Capex YoY +116.7%（+30.2pp，4 家）",
    "chain": "雲端資本支出",
-   "date": "2026-10-29",
-   "expires": "2027-02-06",
+   "date": "2026-10-30",
+   "expires": "2027-02-07",
    "small": false
   },
   {
@@ -1233,8 +1234,8 @@
    "direction": "順風",
    "detail": "AI運算（GPU/ASIC）鏈 2026Q2 營收 YoY +95.2%（+23.7pp，3 家）",
    "chain": "AI運算（GPU/ASIC）",
-   "date": "2026-10-29",
-   "expires": "2027-02-06",
+   "date": "2026-10-30",
+   "expires": "2027-02-07",
    "small": false
   },
   {
@@ -1243,8 +1244,8 @@
    "direction": "順風",
    "detail": "AI運算（GPU/ASIC）鏈 2026Q2 營收 YoY +95.2%（+23.7pp，3 家）",
    "chain": "AI運算（GPU/ASIC）",
-   "date": "2026-10-29",
-   "expires": "2027-02-06",
+   "date": "2026-10-30",
+   "expires": "2027-02-07",
    "small": false
   },
   {
@@ -1253,8 +1254,8 @@
    "direction": "順風",
    "detail": "AI運算（GPU/ASIC）鏈 2026Q2 營收 YoY +95.2%（+23.7pp，3 家）",
    "chain": "AI運算（GPU/ASIC）",
-   "date": "2026-10-29",
-   "expires": "2027-02-06",
+   "date": "2026-10-30",
+   "expires": "2027-02-07",
    "small": false
   },
   {
@@ -1263,8 +1264,8 @@
    "direction": "順風",
    "detail": "光通訊/CPO鏈 2026Q2 營收 YoY +49.6%（+12.6pp，3 家）",
    "chain": "光通訊/CPO",
-   "date": "2026-10-29",
-   "expires": "2027-02-06",
+   "date": "2026-10-30",
+   "expires": "2027-02-07",
    "small": false
   },
   {
@@ -1273,8 +1274,8 @@
    "direction": "順風",
    "detail": "光通訊/CPO鏈 2026Q2 營收 YoY +49.6%（+12.6pp，3 家）",
    "chain": "光通訊/CPO",
-   "date": "2026-10-29",
-   "expires": "2027-02-06",
+   "date": "2026-10-30",
+   "expires": "2027-02-07",
    "small": false
   },
   {
@@ -1283,8 +1284,8 @@
    "direction": "順風",
    "detail": "網通/交換器鏈 2026Q2 營收 YoY +51.7%（+6.5pp，2 家）",
    "chain": "網通/交換器",
-   "date": "2026-10-29",
-   "expires": "2027-02-06",
+   "date": "2026-10-30",
+   "expires": "2027-02-07",
    "small": false
   },
   {
@@ -1293,8 +1294,8 @@
    "direction": "順風",
    "detail": "網通/交換器鏈 2026Q2 營收 YoY +51.7%（+6.5pp，2 家）",
    "chain": "網通/交換器",
-   "date": "2026-10-29",
-   "expires": "2027-02-06",
+   "date": "2026-10-30",
+   "expires": "2027-02-07",
    "small": false
   },
   {
@@ -1303,8 +1304,8 @@
    "direction": "順風",
    "detail": "記憶體鏈 2026Q3 營收 YoY +379.3%（+33.6pp，1 家）",
    "chain": "記憶體",
-   "date": "2026-10-29",
-   "expires": "2027-02-06",
+   "date": "2026-10-30",
+   "expires": "2027-02-07",
    "small": true
   }
  ],
@@ -1312,236 +1313,236 @@
   "伺服器ODM": [
    {
     "direction": "順風",
-    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +117.9%（+31.4pp，3 家）",
+    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +116.7%（+30.2pp，4 家）",
     "chain": "雲端資本支出",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    },
    {
     "direction": "順風",
     "detail": "AI運算（GPU/ASIC）鏈 2026Q2 營收 YoY +95.2%（+23.7pp，3 家）",
     "chain": "AI運算（GPU/ASIC）",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    }
   ],
   "機殼/滑軌": [
    {
     "direction": "順風",
-    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +117.9%（+31.4pp，3 家）",
+    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +116.7%（+30.2pp，4 家）",
     "chain": "雲端資本支出",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    }
   ],
   "PCB(伺服器板)": [
    {
     "direction": "順風",
-    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +117.9%（+31.4pp，3 家）",
+    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +116.7%（+30.2pp，4 家）",
     "chain": "雲端資本支出",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    },
    {
     "direction": "順風",
     "detail": "AI運算（GPU/ASIC）鏈 2026Q2 營收 YoY +95.2%（+23.7pp，3 家）",
     "chain": "AI運算（GPU/ASIC）",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    },
    {
     "direction": "順風",
     "detail": "網通/交換器鏈 2026Q2 營收 YoY +51.7%（+6.5pp，2 家）",
     "chain": "網通/交換器",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    }
   ],
   "散熱模組/液冷": [
    {
     "direction": "順風",
-    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +117.9%（+31.4pp，3 家）",
+    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +116.7%（+30.2pp，4 家）",
     "chain": "雲端資本支出",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    },
    {
     "direction": "順風",
     "detail": "AI運算（GPU/ASIC）鏈 2026Q2 營收 YoY +95.2%（+23.7pp，3 家）",
     "chain": "AI運算（GPU/ASIC）",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    }
   ],
   "伺服器電源/PSU": [
    {
     "direction": "順風",
-    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +117.9%（+31.4pp，3 家）",
+    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +116.7%（+30.2pp，4 家）",
     "chain": "雲端資本支出",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    }
   ],
   "BBU/備援電池": [
    {
     "direction": "順風",
-    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +117.9%（+31.4pp，3 家）",
+    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +116.7%（+30.2pp，4 家）",
     "chain": "雲端資本支出",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    }
   ],
   "ABF載板": [
    {
     "direction": "順風",
-    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +117.9%（+31.4pp，3 家）",
+    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +116.7%（+30.2pp，4 家）",
     "chain": "雲端資本支出",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    },
    {
     "direction": "順風",
     "detail": "AI運算（GPU/ASIC）鏈 2026Q2 營收 YoY +95.2%（+23.7pp，3 家）",
     "chain": "AI運算（GPU/ASIC）",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    }
   ],
   "CCL銅箔基板": [
    {
     "direction": "順風",
-    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +117.9%（+31.4pp，3 家）",
+    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +116.7%（+30.2pp，4 家）",
     "chain": "雲端資本支出",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    },
    {
     "direction": "順風",
     "detail": "AI運算（GPU/ASIC）鏈 2026Q2 營收 YoY +95.2%（+23.7pp，3 家）",
     "chain": "AI運算（GPU/ASIC）",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    },
    {
     "direction": "順風",
     "detail": "網通/交換器鏈 2026Q2 營收 YoY +51.7%（+6.5pp，2 家）",
     "chain": "網通/交換器",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    }
   ],
   "光通訊元件/雷射": [
    {
     "direction": "順風",
-    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +117.9%（+31.4pp，3 家）",
+    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +116.7%（+30.2pp，4 家）",
     "chain": "雲端資本支出",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    },
    {
     "direction": "順風",
     "detail": "光通訊/CPO鏈 2026Q2 營收 YoY +49.6%（+12.6pp，3 家）",
     "chain": "光通訊/CPO",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    }
   ],
   "光纖陣列/CPO元件": [
    {
     "direction": "順風",
-    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +117.9%（+31.4pp，3 家）",
+    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +116.7%（+30.2pp，4 家）",
     "chain": "雲端資本支出",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    },
    {
     "direction": "順風",
     "detail": "光通訊/CPO鏈 2026Q2 營收 YoY +49.6%（+12.6pp，3 家）",
     "chain": "光通訊/CPO",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    }
   ],
   "光電封裝/雷射封測": [
    {
     "direction": "順風",
-    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +117.9%（+31.4pp，3 家）",
+    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +116.7%（+30.2pp，4 家）",
     "chain": "雲端資本支出",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    },
    {
     "direction": "順風",
     "detail": "光通訊/CPO鏈 2026Q2 營收 YoY +49.6%（+12.6pp，3 家）",
     "chain": "光通訊/CPO",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    }
   ],
   "功率電感": [
    {
     "direction": "順風",
-    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +117.9%（+31.4pp，3 家）",
+    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +116.7%（+30.2pp，4 家）",
     "chain": "雲端資本支出",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    }
   ],
   "高速銅纜/連接器": [
    {
     "direction": "順風",
-    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +117.9%（+31.4pp，3 家）",
+    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +116.7%（+30.2pp，4 家）",
     "chain": "雲端資本支出",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    },
    {
     "direction": "順風",
     "detail": "AI運算（GPU/ASIC）鏈 2026Q2 營收 YoY +95.2%（+23.7pp，3 家）",
     "chain": "AI運算（GPU/ASIC）",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    },
    {
     "direction": "順風",
     "detail": "網通/交換器鏈 2026Q2 營收 YoY +51.7%（+6.5pp，2 家）",
     "chain": "網通/交換器",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    }
   ],
   "BMC遠端管理晶片": [
    {
     "direction": "順風",
-    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +117.9%（+31.4pp，3 家）",
+    "detail": "雲端資本支出鏈 2026Q3 Capex YoY +116.7%（+30.2pp，4 家）",
     "chain": "雲端資本支出",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    }
   ],
@@ -1550,8 +1551,8 @@
     "direction": "順風",
     "detail": "AI運算（GPU/ASIC）鏈 2026Q2 營收 YoY +95.2%（+23.7pp，3 家）",
     "chain": "AI運算（GPU/ASIC）",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    }
   ],
@@ -1560,8 +1561,8 @@
     "direction": "順風",
     "detail": "AI運算（GPU/ASIC）鏈 2026Q2 營收 YoY +95.2%（+23.7pp，3 家）",
     "chain": "AI運算（GPU/ASIC）",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    }
   ],
@@ -1570,8 +1571,8 @@
     "direction": "順風",
     "detail": "AI運算（GPU/ASIC）鏈 2026Q2 營收 YoY +95.2%（+23.7pp，3 家）",
     "chain": "AI運算（GPU/ASIC）",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    }
   ],
@@ -1580,8 +1581,8 @@
     "direction": "順風",
     "detail": "AI運算（GPU/ASIC）鏈 2026Q2 營收 YoY +95.2%（+23.7pp，3 家）",
     "chain": "AI運算（GPU/ASIC）",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    }
   ],
@@ -1590,8 +1591,8 @@
     "direction": "順風",
     "detail": "AI運算（GPU/ASIC）鏈 2026Q2 營收 YoY +95.2%（+23.7pp，3 家）",
     "chain": "AI運算（GPU/ASIC）",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    }
   ],
@@ -1600,8 +1601,8 @@
     "direction": "順風",
     "detail": "光通訊/CPO鏈 2026Q2 營收 YoY +49.6%（+12.6pp，3 家）",
     "chain": "光通訊/CPO",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    }
   ],
@@ -1610,8 +1611,8 @@
     "direction": "順風",
     "detail": "網通/交換器鏈 2026Q2 營收 YoY +51.7%（+6.5pp，2 家）",
     "chain": "網通/交換器",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": false
    }
   ],
@@ -1620,8 +1621,8 @@
     "direction": "順風",
     "detail": "記憶體鏈 2026Q3 營收 YoY +379.3%（+33.6pp，1 家）",
     "chain": "記憶體",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": true
    }
   ],
@@ -1630,8 +1631,8 @@
     "direction": "順風",
     "detail": "記憶體鏈 2026Q3 營收 YoY +379.3%（+33.6pp，1 家）",
     "chain": "記憶體",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": true
    }
   ],
@@ -1640,22 +1641,17 @@
     "direction": "順風",
     "detail": "記憶體鏈 2026Q3 營收 YoY +379.3%（+33.6pp，1 家）",
     "chain": "記憶體",
-    "date": "2026-10-29",
-    "expires": "2027-02-06",
+    "date": "2026-10-30",
+    "expires": "2027-02-07",
     "small": true
    }
   ]
  },
  "new_updates": [
   {
-   "company": "Microsoft",
+   "company": "Alphabet",
    "end": "2026-09-30",
    "chain": "雲端資本支出"
-  },
-  {
-   "company": "Vertiv",
-   "end": "2026-09-30",
-   "chain": "電源/熱管理基礎設施"
   }
  ]
 }
