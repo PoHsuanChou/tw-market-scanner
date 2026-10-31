@@ -1,7 +1,7 @@
 {
  "Microsoft:capex": "2026-09-30",
  "Alphabet:capex": "2026-09-30",
- "Amazon:capex": "2026-06-30",
+ "Amazon:capex": "2026-09-30",
  "Meta:capex": "2026-09-30",
  "Oracle:capex": "2026-08-31",
  "NVIDIA:revenue": "2026-07-26",
@@ -12,7 +12,7 @@
  "Fabrinet:revenue": "2026-06-26",
  "Vertiv:revenue": "2026-09-30",
  "Eaton:revenue": "2026-06-30",
- "nVent:revenue": "2026-06-30",
+ "nVent:revenue": "2026-09-30",
  "Arista:revenue": "2026-06-30",
  "Celestica:revenue": "2026-09-30",
  "Micron:revenue": "2026-09-03"
