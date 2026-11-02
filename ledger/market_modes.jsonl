@@ -2,3 +2,4 @@
 {"tw_data_date":"2026-10-27","mode":"neutral","inputs":{"vix":18.39,"sox5":-2.06,"sox20":-11.08,"nas5":-0.99,"nas20":-2.43},"us_asof":"2026-10-26","stale":false,"rules_version":"2026-10-27.3","recorded_at":"2026-10-28T02:12:48+00:00"}
 {"tw_data_date":"2026-10-28","mode":"riskon","inputs":{"vix":17.52,"sox5":1.76,"sox20":-9.08,"nas5":0.2,"nas20":-1.19},"us_asof":"2026-10-27","stale":false,"rules_version":"2026-10-27.3","recorded_at":"2026-10-29T16:19:33+00:00"}
 {"tw_data_date":"2026-10-29","mode":"neutral","inputs":{"vix":16.91,"sox5":1.55,"sox20":-7.48,"nas5":-0.57,"nas20":-1.16},"us_asof":"2026-10-28","stale":false,"rules_version":"2026-10-27.3","recorded_at":"2026-10-30T16:08:23+00:00"}
+{"tw_data_date":"2026-10-30","mode":"riskon","inputs":{"vix":17.2,"sox5":7.33,"sox20":-10.22,"nas5":0.68,"nas20":-2.56},"us_asof":"2026-10-29","stale":false,"rules_version":"2026-10-27.3","recorded_at":"2026-11-02T19:40:55+00:00"}

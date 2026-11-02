@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-11-02T01:22:25+00:00",
+  "run_at": "2026-11-02T19:40:02+00:00",
   "sources": {
     "twse_day": {
       "ok": true,
@@ -17,18 +17,15 @@
     },
     "tpex_day": {
       "ok": true,
-      "rows": 1018,
-      "date": "2026-10-30"
+      "warning": "日期 ['2026-11-02'] 與主日期 2026-10-30 不一致，該來源欄位留空"
     },
     "tpex_margin": {
       "ok": true,
-      "rows": 919,
-      "date": "2026-10-30"
+      "warning": "日期 ['2026-11-02'] 與主日期 2026-10-30 不一致，該來源欄位留空"
     },
     "tpex_inst": {
       "ok": true,
-      "rows": 917,
-      "date": "2026-10-30"
+      "warning": "日期 ['2026-11-02'] 與主日期 2026-10-30 不一致，該來源欄位留空"
     },
     "tpex_rev": {
       "ok": true
@@ -73,7 +70,7 @@
     }
   ],
   "history": {
-    "daily_rows": 2407,
+    "daily_rows": 1389,
     "margin_continuity": {
       "compared": 1236,
       "match_ratio": 0.9976,
