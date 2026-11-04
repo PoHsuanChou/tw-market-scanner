@@ -47,6 +47,7 @@ OPTIONAL_URLS = {
 }
 T86_URL = "https://www.twse.com.tw/rwd/zh/fund/T86"
 MI_INDEX_URL = "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX"
+MI_MARGN_URL = "https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN"
 
 
 def _save_gz(path, obj):
@@ -90,6 +91,23 @@ def fetch_all(root="."):
         return status
     twse_day = N.twse_day(raw["twse_day"])
     data_date = next((v["date"] for v in twse_day.values() if v["date"]), None)
+    # OpenAPI 的 STOCK_DAY_ALL / MI_MARGN 要到隔天凌晨才更新，傍晚掃描時還是前一天。
+    # 上櫃的 OpenAPI 當天就有；若上櫃日期比較新，上市改用帶日期的 MI_INDEX / MI_MARGN 補上。
+    twse_margin_dated = None
+    tpex_dates = {v.get("date") for v in N.tpex_day(raw["tpex_day"]).values() if v.get("date")} if raw.get("tpex_day") else set()
+    newer = max(tpex_dates) if tpex_dates else None
+    if newer and data_date and newer > data_date:
+        dnum = newer.replace("-", "")
+        mi_new = _try(st, "twse_day_dated", lambda: get_json(
+            MI_INDEX_URL, params={"date": dnum, "type": "ALLBUT0999", "response": "json"}))
+        day_new, _ = N.twse_mi_index(mi_new, newer) if mi_new else ({}, None)
+        mg_new = _try(st, "twse_margin_dated", lambda: get_json(
+            MI_MARGN_URL, params={"date": dnum, "selectType": "STOCK", "response": "json"}))
+        mg_new = N.twse_margin_dated(mg_new) if mg_new else {}
+        if day_new and mg_new:
+            log.info(f"OpenAPI 上市還停在 {data_date}，改用帶日期版 {newer}")
+            twse_day, data_date, twse_margin_dated = day_new, newer, mg_new
+            st["twse_day_dated"] = {"ok": True, "rows": len(day_new), "date": newer}
     status["data_date"] = data_date
     st["twse_day"].update(rows=len(twse_day), date=data_date)
 
@@ -115,7 +133,8 @@ def fetch_all(root="."):
             st.get("twse_t86", {}).update(rows=len(t86))
 
     # ---- 其他來源正規化 ----
-    twse_margin = N.twse_margin(raw["twse_margin"]) if raw.get("twse_margin") else {}
+    twse_margin = twse_margin_dated if twse_margin_dated is not None else (
+        N.twse_margin(raw["twse_margin"]) if raw.get("twse_margin") else {})
     tpex_day = N.tpex_day(raw["tpex_day"]) if raw.get("tpex_day") else {}
     tpex_margin = N.tpex_margin(raw["tpex_margin"]) if raw.get("tpex_margin") else {}
     tpex_inst = N.tpex_inst(raw["tpex_inst"]) if raw.get("tpex_inst") else {}
@@ -162,8 +181,9 @@ def fetch_all(root="."):
     status["industry_code_conflicts"] = conflicts
 
     # ---- 寫 raw（只存每日變動的三項；其餘存最新一份覆蓋） ----
+    stale = {"twse_day", "twse_margin"} if twse_margin_dated is not None else set()  # 落後的 OpenAPI 原檔不存到新日期底下
     for name in ("twse_day", "tpex_day", "tpex_margin", "tpex_inst", "twse_margin"):
-        if raw.get(name):
+        if raw.get(name) and name not in stale:
             _save_gz(os.path.join(root, "raw", data_date, f"{name}.json.gz"), raw[name])
     _save_gz(os.path.join(root, "raw", data_date, "twse_t86.json.gz"), {"rows": t86}) if t86 else None
     for name in ("twse_rev", "tpex_rev", "twse_profile", "tpex_profile", "tdcc"):
