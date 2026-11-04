@@ -1,5 +1,6 @@
-# 資料健康檢查：每個平日掃描之後檢查一次。結果寫進 out/health.json，網站會顯示警告橫幅。
-# 不再讓 job 失敗寄信（2026-11-04 停用：GitHub 排程延遲造成天天誤報）。
+# 資料健康檢查：每個平日掃描之後檢查一次。發現問題就讓這個 job「失敗」，
+# GitHub 會對失敗的 workflow 寄 email 給你（不需要在公開 repo 放任何信箱密碼）。
+# 檢查結果也寫進 out/health.json，網站會顯示警告橫幅。
 name: Data Health
 
 on:
@@ -29,7 +30,7 @@ jobs:
 
       - name: Check data health
         id: health
-        continue-on-error: true   # 有問題也不讓整個 job 失敗（失敗會寄信）
+        continue-on-error: true
         run: python -m scanner.health
 
       - name: Commit result
@@ -42,3 +43,10 @@ jobs:
           git commit -m "health $(date -u +%Y-%m-%d) [skip ci]"
           git pull --rebase -q origin main
           git push
+
+      # 有問題就讓整個 job 失敗 → GitHub 寄信
+      - name: Fail if problems were found
+        if: steps.health.outcome == 'failure'
+        run: |
+          echo "發現資料問題，詳見上面 Check data health 的輸出，或網站頂端的警告橫幅。"
+          exit 1
