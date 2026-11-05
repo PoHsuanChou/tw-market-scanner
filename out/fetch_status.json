@@ -1,10 +1,10 @@
 {
-  "run_at": "2026-11-04T17:24:47+00:00",
+  "run_at": "2026-11-05T17:31:58+00:00",
   "sources": {
     "twse_day": {
       "ok": true,
-      "rows": 1390,
-      "date": "2026-11-04"
+      "rows": 1389,
+      "date": "2026-11-05"
     },
     "twse_margin": {
       "ok": true
@@ -17,18 +17,18 @@
     },
     "tpex_day": {
       "ok": true,
-      "rows": 1018,
-      "date": "2026-11-04"
+      "rows": 1017,
+      "date": "2026-11-05"
     },
     "tpex_margin": {
       "ok": true,
       "rows": 919,
-      "date": "2026-11-04"
+      "date": "2026-11-05"
     },
     "tpex_inst": {
       "ok": true,
-      "rows": 918,
-      "date": "2026-11-04"
+      "rows": 910,
+      "date": "2026-11-05"
     },
     "tpex_rev": {
       "ok": true
@@ -56,8 +56,8 @@
     },
     "twse_day_dated": {
       "ok": true,
-      "rows": 1390,
-      "date": "2026-11-04"
+      "rows": 1389,
+      "date": "2026-11-05"
     },
     "twse_margin_dated": {
       "ok": true
@@ -67,10 +67,10 @@
     },
     "twse_t86": {
       "ok": true,
-      "rows": 1354
+      "rows": 1353
     }
   },
-  "data_date": "2026-11-04",
+  "data_date": "2026-11-05",
   "industry_code_conflicts": [
     {
       "industry_code": "17",
@@ -81,16 +81,16 @@
     }
   ],
   "history": {
-    "daily_rows": 2408,
+    "daily_rows": 2406,
     "margin_continuity": {
-      "compared": 1924,
-      "match_ratio": 0.9979,
-      "prev_file": "2026-11-03.csv.gz"
+      "compared": 1978,
+      "match_ratio": 0.9985,
+      "prev_file": "2026-11-04.csv.gz"
     },
     "revenue_months": [
       "2026-09"
     ],
     "tdcc_date": "2026-10-30"
   },
-  "adjust_new_events": 7
+  "adjust_new_events": 4
 }
