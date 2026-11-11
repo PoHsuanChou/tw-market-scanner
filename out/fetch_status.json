@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-11-10T17:11:38+00:00",
+  "run_at": "2026-11-11T09:31:04+00:00",
   "sources": {
     "twse_day": {
       "ok": true,
@@ -17,8 +17,7 @@
     },
     "tpex_day": {
       "ok": true,
-      "rows": 1020,
-      "date": "2026-11-10"
+      "warning": "日期 ['2026-11-11'] 與主日期 2026-11-10 不一致，該來源欄位留空"
     },
     "tpex_margin": {
       "ok": true,
@@ -27,8 +26,7 @@
     },
     "tpex_inst": {
       "ok": true,
-      "rows": 897,
-      "date": "2026-11-10"
+      "warning": "日期 ['2026-11-11'] 與主日期 2026-11-10 不一致，該來源欄位留空"
     },
     "tpex_rev": {
       "ok": true
@@ -55,9 +53,7 @@
       "ok": true
     },
     "twse_day_dated": {
-      "ok": true,
-      "rows": 1389,
-      "date": "2026-11-10"
+      "ok": true
     },
     "twse_margin_dated": {
       "ok": true
@@ -81,16 +77,17 @@
     }
   ],
   "history": {
-    "daily_rows": 2409,
+    "daily_rows": 1389,
     "margin_continuity": {
-      "compared": 1981,
+      "compared": 1008,
       "match_ratio": 0.999,
       "prev_file": "2026-11-09.csv.gz"
     },
     "revenue_months": [
-      "2026-09"
+      "2026-09",
+      "2026-10"
     ],
     "tdcc_date": "2026-11-06"
   },
-  "adjust_new_events": 0
+  "adjust_new_events": 1
 }
