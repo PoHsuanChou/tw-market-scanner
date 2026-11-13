@@ -1,0 +1,20 @@
+{
+ "H1": {
+  "variants": 10,
+  "same_sign_share": 1.0,
+  "t_ge_2_share": 0.8,
+  "loo_all_same_sign": true,
+  "loo_min_t": 2.8940255996149484,
+  "pass_rule2": true,
+  "weak_rule": true
+ },
+ "H2": {
+  "variants": 25,
+  "same_sign_share": 1.0,
+  "t_ge_2_share": 0.6,
+  "loo_all_same_sign": true,
+  "loo_min_t": 1.6641048650333998,
+  "pass_rule2": false,
+  "weak_rule": true
+ }
+}

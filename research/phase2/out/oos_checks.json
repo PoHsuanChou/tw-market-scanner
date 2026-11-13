@@ -1,0 +1,28 @@
+{
+ "H1": {
+  "oos_periods": 27,
+  "ic_B_mean": 0.13586540668979533,
+  "ic_B_t": 2.184218933703844,
+  "clark_west_p": 0.08375167098278585,
+  "spread_d1_B_mean": 2.1758484922895183,
+  "pass_rule3": false,
+  "weak_oos": true
+ },
+ "H2": {
+  "oos_dates": 25,
+  "mean": 2.9681393851927407,
+  "t": 2.0890401861116885,
+  "p": 0.023741440922182704,
+  "quarters": 9,
+  "quarters_positive": 7,
+  "pass_rule3": true,
+  "weak_oos": true
+ },
+ "live_ledger": {
+  "first": "2026-10-22",
+  "last": "2026-11-12",
+  "trading_days": 14,
+  "matured_20d": 0,
+  "note": "真實紀錄還沒有任何一筆滿 20 個交易日，Insufficient Data"
+ }
+}

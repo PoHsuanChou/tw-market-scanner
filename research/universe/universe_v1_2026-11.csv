@@ -1,0 +1,149 @@
+version,theme,side,ticker,name,market,inclusion_date,exclusion_date,selection_reason,source,weight
+v1,晶圓代工,台股,2330,台積電,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,晶圓代工,台股,2303,聯電,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,晶圓代工,台股,6770,力積電,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,晶圓代工,台股,5347,世界,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,IC設計-AI/ASIC,台股,2454,聯發科,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,IC設計-AI/ASIC,台股,3443,創意,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,IC設計-AI/ASIC,台股,3661,世芯-KY,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,IC設計-AI/ASIC,台股,3035,智原,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,IC設計-AI/ASIC,台股,6643,M31,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,MCU,台股,4919,新唐,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,MCU,台股,6202,盛群,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,MCU,台股,5471,松翰,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,MCU,台股,4952,凌通,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,MCU,台股,6494,九齊,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,BMC遠端管理晶片,台股,5274,信驊,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,記憶體-DRAM,台股,2408,南亞科,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,記憶體-DRAM,台股,2344,華邦電,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,記憶體-NAND/Flash,台股,2344,華邦電,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,記憶體-NAND/Flash,台股,2337,旺宏,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,記憶體-控制器/模組,台股,8299,群聯,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,記憶體-控制器/模組,台股,3260,威剛,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,記憶體-控制器/模組,台股,4967,十銓,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,封測,台股,3711,日月光投控,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,封測,台股,2449,京元電子,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,封測,台股,6239,力成,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,封測,台股,6147,頎邦,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,CoWoS/先進封裝設備,台股,6187,萬潤,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,CoWoS/先進封裝設備,台股,2467,志聖,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,CoWoS/先進封裝設備,台股,3131,弘塑,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,CoWoS/先進封裝設備,台股,3583,辛耘,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,CoWoS/先進封裝設備,台股,3680,家登,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,CoWoS/先進封裝設備,台股,6640,均華,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,測試介面(探針卡/測試座),台股,6223,旺矽,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,測試介面(探針卡/測試座),台股,6515,穎崴,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,測試介面(探針卡/測試座),台股,6510,精測,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,矽晶圓,台股,6488,環球晶,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,矽晶圓,台股,3532,台勝科,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,矽晶圓,台股,5483,中美晶,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,矽晶圓,台股,6182,合晶,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,化合物半導體,台股,3105,穩懋,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,化合物半導體,台股,3016,嘉晶,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,化合物半導體,台股,3707,漢磊,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,ABF載板,台股,3037,欣興,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,ABF載板,台股,8046,南電,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,ABF載板,台股,3189,景碩,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,CCL銅箔基板,台股,2383,台光電,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,CCL銅箔基板,台股,6274,台燿,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,CCL銅箔基板,台股,6213,聯茂,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,PCB(伺服器板),台股,2368,金像電,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,PCB(伺服器板),台股,3044,健鼎,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,PCB(伺服器板),台股,2313,華通,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,散熱模組/液冷,台股,3017,奇鋐,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,散熱模組/液冷,台股,3653,健策,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,散熱模組/液冷,台股,3324,雙鴻,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,散熱模組/液冷,台股,2421,建準,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,散熱模組/液冷,台股,6230,尼得科超眾,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,被動元件,台股,2327,國巨*,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,被動元件,台股,2492,華新科,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,被動元件,台股,3026,禾伸堂,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,被動元件,台股,6173,信昌電,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,功率電感,台股,3236,千如,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,伺服器電源/PSU,台股,2308,台達電,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,伺服器電源/PSU,台股,2301,光寶科,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,伺服器電源/PSU,台股,3015,全漢,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,BBU/備援電池,台股,6409,旭隼,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,伺服器ODM,台股,2317,鴻海,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,伺服器ODM,台股,2382,廣達,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,伺服器ODM,台股,6669,緯穎,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,伺服器ODM,台股,3231,緯創,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,伺服器ODM,台股,2356,英業達,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,機殼/滑軌,台股,2059,川湖,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,機殼/滑軌,台股,8210,勤誠,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,機殼/滑軌,台股,3013,晟銘電,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,光通訊元件/雷射,台股,3081,聯亞,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,光通訊元件/雷射,台股,2455,全新,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,光通訊元件/雷射,台股,4979,華星光,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,光纖陣列/CPO元件,台股,3363,上詮,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,光纖陣列/CPO元件,台股,3163,波若威,TPEx,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,光電封裝/雷射封測,台股,3450,聯鈞,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,高速銅纜/連接器,台股,3665,貿聯-KY,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,高速銅纜/連接器,台股,3533,嘉澤,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,網通交換器,台股,2345,智邦,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,網通交換器,台股,3596,智易,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,網通交換器,台股,5388,中磊,TWSE,2026-10-25,,使用者定稿的主題名單（config/themes.yaml 第二版）；前 3 大每天依市值重排,config/themes.yaml,主要版本：主題內全部等權
+v1,晶圓代工,國外,GFS,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,晶圓代工,國外,TSEM,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,IC設計-AI/ASIC,國外,AVGO,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,IC設計-AI/ASIC,國外,MRVL,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,IC設計-AI/ASIC,國外,6526.T,,日本,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,MCU,國外,MCHP,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,MCU,國外,NXPI,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,MCU,國外,STM,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,MCU,國外,6723.T,,日本,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,記憶體-DRAM,國外,MU,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,記憶體-DRAM,國外,000660.KS,,韓國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,記憶體-DRAM,國外,005930.KS,,韓國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,記憶體-NAND/Flash,國外,WDC,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,記憶體-NAND/Flash,國外,SNDK,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,記憶體-NAND/Flash,國外,285A.T,,日本,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,記憶體-控制器/模組,國外,SIMO,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,封測,國外,AMKR,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,CoWoS/先進封裝設備,國外,BESI.AS,,荷蘭,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,CoWoS/先進封裝設備,國外,6146.T,,日本,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,CoWoS/先進封裝設備,國外,6315.T,,日本,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,測試介面(探針卡/測試座),國外,FORM,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,測試介面(探針卡/測試座),國外,6855.T,,日本,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,測試介面(探針卡/測試座),國外,COHU,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,矽晶圓,國外,3436.T,,日本,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,矽晶圓,國外,4063.T,,日本,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,矽晶圓,國外,SOI.PA,,法國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,化合物半導體,國外,QRVO,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,化合物半導體,國外,SWKS,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,ABF載板,國外,4062.T,,日本,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,ABF載板,國外,ATS.VI,,奧地利,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,CCL銅箔基板,國外,4004.T,,日本,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,CCL銅箔基板,國外,4182.T,,日本,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,CCL銅箔基板,國外,600183.SS,,上海,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,PCB(伺服器板),國外,TTMI,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,PCB(伺服器板),國外,002463.SZ,,深圳,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,PCB(伺服器板),國外,300476.SZ,,深圳,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,散熱模組/液冷,國外,VRT,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,散熱模組/液冷,國外,MOD,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,散熱模組/液冷,國外,6594.T,,日本,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,被動元件,國外,6981.T,,日本,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,被動元件,國外,6976.T,,日本,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,被動元件,國外,6762.T,,日本,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,功率電感,國外,6762.T,,日本,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,功率電感,國外,VSH,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,伺服器電源/PSU,國外,VRT,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,伺服器電源/PSU,國外,ETN,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,BBU/備援電池,國外,ENS,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,伺服器ODM,國外,SMCI,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,伺服器ODM,國外,DELL,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,伺服器ODM,國外,CLS,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,光通訊元件/雷射,國外,COHR,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,光通訊元件/雷射,國外,LITE,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,光通訊元件/雷射,國外,AAOI,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,光纖陣列/CPO元件,國外,5803.T,,日本,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,光纖陣列/CPO元件,國外,5801.T,,日本,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,光纖陣列/CPO元件,國外,GLW,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,光電封裝/雷射封測,國外,FN,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,光電封裝/雷射封測,國外,300308.SZ,,深圳,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,光電封裝/雷射封測,國外,300502.SZ,,深圳,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,高速銅纜/連接器,國外,APH,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,高速銅纜/連接器,國外,CRDO,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,高速銅纜/連接器,國外,TEL,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,網通交換器,國外,ANET,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
+v1,網通交換器,國外,CSCO,,美國,2026-10-27,,AI 助手依產品相似度列（theme_peers.yaml 註解），列的時候已知 2023～2026 漲幅，有後見之明,config/theme_peers.yaml,中位數（等於不加權）
