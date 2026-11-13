@@ -1,5 +1,16 @@
 {
- "checked_at": "2026-11-12T18:37:03+00:00",
- "ok": true,
- "problems": []
+ "checked_at": "2026-11-13T10:46:16+00:00",
+ "ok": false,
+ "problems": [
+  {
+   "level": "warn",
+   "code": "source_tpex_day_warn",
+   "msg": "上櫃日成交：日期 ['2026-11-13'] 與主日期 2026-11-12 不一致，該來源欄位留空"
+  },
+  {
+   "level": "warn",
+   "code": "source_tpex_inst_warn",
+   "msg": "上櫃三大法人：日期 ['2026-11-13'] 與主日期 2026-11-12 不一致，該來源欄位留空"
+  }
+ ]
 }
