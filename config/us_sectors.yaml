@@ -1,0 +1,44 @@
+# =====================================================
+# us_sectors.yaml — 美股產業 ETF → 台股族群（回測用，不影響每日流程與推薦）
+# =====================================================
+# 用途：scanner/replay_us_sectors.py 回測「美股某產業在漲／抗跌的時候，買台股對應族群」準不準。
+#
+# 規則（2026-11-13 和使用者講定，先寫死再跑結果，不能看了結果再改）：
+#   - 一組配對只用一檔美股 ETF（ETF 的成分是固定規則，比自己挑個股少一點後見之明）
+#   - 固定配對（使用者選的 A 方案），不做全部交叉試
+#   - 航運拿掉（使用者決定）；資安籃由 AI 助手依主要業務挑，見下面
+#
+# 美股強：ETF 20 日報酬 − universe 全部 ETF 20 日報酬中位數 ≥ strong_pp
+#   本身 20 日報酬 > 0 →「在漲」；≤ 0 →「抗跌」
+# 利率（^TNX，美國 10 年期公債殖利率）：20 日上升 ≥ rate_up 個百分點 →「在漲」（利率上升）
+#
+# 異動紀錄：
+#   2026-11-13 第一版
+
+universe: [XLK, XLF, XLE, XLB, XLI, XLV, XLY, XLP, XLU, XLC, XLRE, SMH, IGV, CIBR, KBE, ITB]
+
+pairs:
+  - {name: 半導體, us: SMH, tw: {industries: [半導體業]}}
+  - {name: 半導體→AI 硬體細分主題, us: SMH, tw: {themes: all}}        # config/themes.yaml 全部成員
+  - {name: 軟體, us: IGV, tw: {industries: [資訊服務業, 數位雲端]}}
+  - {name: 資安, us: CIBR, tw: {stocks: ["6690", "3029", "2480", "8272", "7765", "7823"], liquidity: false}}
+  - {name: 銀行, us: KBE, tw: {industries: [金融業, 金融保險業]}}
+  - {name: 美國利率上升→金融, us: ^TNX, kind: rate, tw: {industries: [金融業, 金融保險業]}}
+  - {name: 能源, us: XLE, tw: {industries: [油電燃氣業]}}
+  - {name: 原物料, us: XLB, tw: {industries: [鋼鐵工業, 塑膠工業, 化學工業]}}
+  - {name: 營建, us: ITB, tw: {industries: [建材營造]}}
+  - {name: 醫療, us: XLV, tw: {industries: [生技醫療業]}}
+  - {name: 工業, us: XLI, tw: {industries: [電機機械]}}
+
+# 資安籃（主要業務是資安）：安碁資訊（資安監控）、零壹（資安產品代理）、敦陽科（系統整合，資安占比高）、
+#   全景軟體（憑證、加密）、中華資安、奧義賽博。後三檔 2024-10、2025-09、2026-02 才上市，之前籃子只有 3 檔。
+#   成交量小，不套流動性門檻。名單是 2026-11 才挑的，有一點後見之明。
+
+signal:
+  window: 20
+  strong_pp: 5
+  rate_up: 0.25
+
+hold: [5, 20, 60]          # 持有幾個台股交易日
+cost_pct: 0.4              # 一買一賣的成本（手續費＋證交稅，約）；「扣成本勝率」用
+min_avg_turnover_billion: 0.5   # 台股成員近 20 日平均成交金額門檻（和 rules.yaml universe 一樣）

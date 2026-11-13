@@ -1,0 +1,6245 @@
+{
+ "generated_at": "2026-11-13T08:40:08+00:00",
+ "period": [
+  "2023-10-02",
+  "2026-11-12"
+ ],
+ "trading_days": 755,
+ "rules_version": "2026-11-13.1",
+ "hold": [
+  5,
+  20,
+  60
+ ],
+ "themes": [
+  {
+   "name": "晶圓代工",
+   "members": [
+    "2330",
+    "2303",
+    "6770"
+   ],
+   "days": {
+    "國外在動": 146,
+    "國外抗跌": 21,
+    "平常": 588
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 32,
+      "mean": 0.57,
+      "median": 0.79,
+      "win": 0.594,
+      "win_after_cost": 0.531
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": -2.4,
+      "median": -3.33,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "平常": {
+      "n": 115,
+      "mean": 0.59,
+      "median": -0.04,
+      "win": 0.496,
+      "win_after_cost": 0.435
+     },
+     "全部": {
+      "n": 150,
+      "mean": 0.52,
+      "median": 0.14,
+      "win": 0.507,
+      "win_after_cost": 0.447
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 6,
+      "mean": 8.56,
+      "median": 2.42,
+      "win": 0.833,
+      "win_after_cost": 0.833
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 31,
+      "mean": 1.27,
+      "median": 1.3,
+      "win": 0.548,
+      "win_after_cost": 0.548
+     },
+     "全部": {
+      "n": 37,
+      "mean": 2.45,
+      "median": 1.75,
+      "win": 0.595,
+      "win_after_cost": 0.595
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 2,
+      "mean": 35.45,
+      "median": 35.45,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 10,
+      "mean": 4.03,
+      "median": 3.78,
+      "win": 0.6,
+      "win_after_cost": 0.6
+     },
+     "全部": {
+      "n": 12,
+      "mean": 9.27,
+      "median": 4.69,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 27,
+      "mean": 0.2,
+      "median": -0.53,
+      "win": 0.407,
+      "win_after_cost": 0.37
+     },
+     "國外抗跌": {
+      "n": 8,
+      "mean": -0.83,
+      "median": -1.09,
+      "win": 0.375,
+      "win_after_cost": 0.375
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 16,
+      "mean": 2.1,
+      "median": 0.62,
+      "win": 0.562,
+      "win_after_cost": 0.562
+     },
+     "國外抗跌": {
+      "n": 4,
+      "mean": -1.46,
+      "median": -1.62,
+      "win": 0.5,
+      "win_after_cost": 0.25
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 8,
+      "mean": 9.9,
+      "median": 4.39,
+      "win": 0.75,
+      "win_after_cost": 0.75
+     },
+     "國外抗跌": {
+      "n": 4,
+      "mean": 10.99,
+      "median": -0.05,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 4,
+      "mean": 1.66,
+      "median": 1.89,
+      "win": 0.75,
+      "win_after_cost": 0.75
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 2,
+      "mean": 0.46,
+      "median": 0.46,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 10,
+      "mean": -0.47,
+      "median": -1.28,
+      "win": 0.4,
+      "win_after_cost": 0.4
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 2,
+      "mean": 18.36,
+      "median": 18.36,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 10,
+      "mean": 3.28,
+      "median": 1.87,
+      "win": 0.7,
+      "win_after_cost": 0.7
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 2,
+      "mean": 6.88,
+      "median": 6.88,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 7,
+      "mean": 0.65,
+      "median": -1.07,
+      "win": 0.429,
+      "win_after_cost": 0.429
+     }
+    }
+   }
+  },
+  {
+   "name": "IC設計-AI/ASIC",
+   "members": [
+    "2454",
+    "3443",
+    "3661"
+   ],
+   "days": {
+    "國外在動": 142,
+    "國外抗跌": 36,
+    "平常": 577
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 22,
+      "mean": -1.18,
+      "median": -1.9,
+      "win": 0.318,
+      "win_after_cost": 0.227
+     },
+     "國外抗跌": {
+      "n": 7,
+      "mean": 0.75,
+      "median": 0.26,
+      "win": 0.571,
+      "win_after_cost": 0.429
+     },
+     "平常": {
+      "n": 121,
+      "mean": 1.05,
+      "median": 0.49,
+      "win": 0.545,
+      "win_after_cost": 0.512
+     },
+     "全部": {
+      "n": 150,
+      "mean": 0.71,
+      "median": 0.08,
+      "win": 0.513,
+      "win_after_cost": 0.467
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 6,
+      "mean": 0.89,
+      "median": 3.4,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": 19.26,
+      "median": 12.39,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "平常": {
+      "n": 28,
+      "mean": 1.66,
+      "median": -0.4,
+      "win": 0.464,
+      "win_after_cost": 0.464
+     },
+     "全部": {
+      "n": 37,
+      "mean": 2.97,
+      "median": 2.05,
+      "win": 0.541,
+      "win_after_cost": 0.541
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 2,
+      "mean": -1.43,
+      "median": -1.43,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": 68.55,
+      "median": 68.55,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "平常": {
+      "n": 9,
+      "mean": 5.94,
+      "median": 8.13,
+      "win": 0.556,
+      "win_after_cost": 0.556
+     },
+     "全部": {
+      "n": 12,
+      "mean": 9.93,
+      "median": 3.45,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 33,
+      "mean": 1.22,
+      "median": -0.55,
+      "win": 0.485,
+      "win_after_cost": 0.485
+     },
+     "國外抗跌": {
+      "n": 7,
+      "mean": 4.0,
+      "median": 3.4,
+      "win": 0.714,
+      "win_after_cost": 0.714
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 19,
+      "mean": 3.15,
+      "median": 3.09,
+      "win": 0.579,
+      "win_after_cost": 0.526
+     },
+     "國外抗跌": {
+      "n": 6,
+      "mean": 13.77,
+      "median": 7.81,
+      "win": 0.833,
+      "win_after_cost": 0.833
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 9,
+      "mean": 10.33,
+      "median": 5.39,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     },
+     "國外抗跌": {
+      "n": 4,
+      "mean": 34.67,
+      "median": 29.28,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": 1.11,
+      "median": 1.11,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "平常": {
+      "n": 3,
+      "mean": 5.7,
+      "median": 7.87,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 4,
+      "mean": -2.35,
+      "median": -1.35,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 8,
+      "mean": 1.85,
+      "median": 0.45,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 2,
+      "mean": 7.38,
+      "median": 7.38,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 10,
+      "mean": 0.27,
+      "median": -0.75,
+      "win": 0.4,
+      "win_after_cost": 0.4
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "國外抗跌": {
+      "n": 2,
+      "mean": 28.34,
+      "median": 28.34,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "平常": {
+      "n": 7,
+      "mean": 1.71,
+      "median": -0.36,
+      "win": 0.429,
+      "win_after_cost": 0.429
+     }
+    }
+   }
+  },
+  {
+   "name": "MCU",
+   "members": [
+    "4919",
+    "6202",
+    "5471"
+   ],
+   "days": {
+    "國外在動": 81,
+    "國外抗跌": 25,
+    "平常": 649
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 16,
+      "mean": -0.36,
+      "median": -0.38,
+      "win": 0.438,
+      "win_after_cost": 0.375
+     },
+     "國外抗跌": {
+      "n": 4,
+      "mean": -3.65,
+      "median": -3.39,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "平常": {
+      "n": 130,
+      "mean": -0.17,
+      "median": -0.58,
+      "win": 0.392,
+      "win_after_cost": 0.346
+     },
+     "全部": {
+      "n": 150,
+      "mean": -0.28,
+      "median": -0.65,
+      "win": 0.387,
+      "win_after_cost": 0.34
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 5,
+      "mean": 1.25,
+      "median": 0.27,
+      "win": 0.6,
+      "win_after_cost": 0.4
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 32,
+      "mean": -1.29,
+      "median": -4.01,
+      "win": 0.375,
+      "win_after_cost": 0.344
+     },
+     "全部": {
+      "n": 37,
+      "mean": -0.95,
+      "median": -2.57,
+      "win": 0.405,
+      "win_after_cost": 0.351
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 1,
+      "mean": 35.57,
+      "median": 35.57,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 11,
+      "mean": -5.62,
+      "median": -10.57,
+      "win": 0.364,
+      "win_after_cost": 0.364
+     },
+     "全部": {
+      "n": 12,
+      "mean": -2.19,
+      "median": -10.28,
+      "win": 0.417,
+      "win_after_cost": 0.417
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 10,
+      "mean": -0.59,
+      "median": -1.59,
+      "win": 0.3,
+      "win_after_cost": 0.3
+     },
+     "國外抗跌": {
+      "n": 4,
+      "mean": 2.45,
+      "median": 0.62,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 8,
+      "mean": 0.59,
+      "median": 0.47,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 2,
+      "mean": -4.87,
+      "median": -4.87,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 5,
+      "mean": -4.13,
+      "median": -5.59,
+      "win": 0.4,
+      "win_after_cost": 0.4
+     },
+     "國外抗跌": {
+      "n": 2,
+      "mean": -10.21,
+      "median": -10.21,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 1,
+      "mean": -5.89,
+      "median": -5.89,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 3,
+      "mean": 2.62,
+      "median": 4.29,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 12,
+      "mean": -2.99,
+      "median": -3.54,
+      "win": 0.333,
+      "win_after_cost": 0.25
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 2,
+      "mean": -1.15,
+      "median": -1.15,
+      "win": 0.5,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 10,
+      "mean": -3.8,
+      "median": -5.04,
+      "win": 0.2,
+      "win_after_cost": 0.2
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 2,
+      "mean": 7.22,
+      "median": 7.22,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 7,
+      "mean": 3.52,
+      "median": 1.15,
+      "win": 0.571,
+      "win_after_cost": 0.571
+     }
+    }
+   }
+  },
+  {
+   "name": "記憶體-DRAM",
+   "members": [
+    "2408",
+    "2344"
+   ],
+   "days": {
+    "國外在動": 259,
+    "國外抗跌": 25,
+    "平常": 471
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 54,
+      "mean": 2.46,
+      "median": 0.7,
+      "win": 0.537,
+      "win_after_cost": 0.519
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": -0.35,
+      "median": -2.64,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     },
+     "平常": {
+      "n": 93,
+      "mean": 0.47,
+      "median": -1.32,
+      "win": 0.419,
+      "win_after_cost": 0.387
+     },
+     "全部": {
+      "n": 150,
+      "mean": 1.17,
+      "median": -0.87,
+      "win": 0.46,
+      "win_after_cost": 0.433
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 14,
+      "mean": 7.42,
+      "median": -1.53,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": 2.1,
+      "median": 3.79,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     },
+     "平常": {
+      "n": 20,
+      "mean": 4.92,
+      "median": -2.29,
+      "win": 0.45,
+      "win_after_cost": 0.4
+     },
+     "全部": {
+      "n": 37,
+      "mean": 5.64,
+      "median": -0.19,
+      "win": 0.486,
+      "win_after_cost": 0.459
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 6,
+      "mean": 25.17,
+      "median": 11.16,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 6,
+      "mean": 17.41,
+      "median": 11.67,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     },
+     "全部": {
+      "n": 12,
+      "mean": 21.29,
+      "median": 11.67,
+      "win": 0.583,
+      "win_after_cost": 0.583
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 31,
+      "mean": 2.56,
+      "median": 0.17,
+      "win": 0.516,
+      "win_after_cost": 0.484
+     },
+     "國外抗跌": {
+      "n": 10,
+      "mean": 0.68,
+      "median": 1.17,
+      "win": 0.6,
+      "win_after_cost": 0.6
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 18,
+      "mean": 5.15,
+      "median": -2.04,
+      "win": 0.444,
+      "win_after_cost": 0.444
+     },
+     "國外抗跌": {
+      "n": 7,
+      "mean": 9.37,
+      "median": 2.64,
+      "win": 0.571,
+      "win_after_cost": 0.571
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 10,
+      "mean": 22.39,
+      "median": 2.41,
+      "win": 0.6,
+      "win_after_cost": 0.6
+     },
+     "國外抗跌": {
+      "n": 4,
+      "mean": 22.08,
+      "median": 14.93,
+      "win": 0.75,
+      "win_after_cost": 0.75
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": 3.79,
+      "median": 3.79,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "平常": {
+      "n": 3,
+      "mean": -0.43,
+      "median": 1.68,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 2,
+      "mean": -8.16,
+      "median": -8.16,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 10,
+      "mean": -6.62,
+      "median": -5.92,
+      "win": 0.1,
+      "win_after_cost": 0.1
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 6,
+      "mean": 15.26,
+      "median": 25.03,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": 8.26,
+      "median": 8.26,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "平常": {
+      "n": 5,
+      "mean": 30.0,
+      "median": 16.8,
+      "win": 1.0,
+      "win_after_cost": 0.8
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 6,
+      "mean": 4.79,
+      "median": -5.01,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": -5.75,
+      "median": -5.75,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "平常": {
+      "n": 2,
+      "mean": 7.94,
+      "median": 7.94,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    }
+   }
+  },
+  {
+   "name": "記憶體-NAND/Flash",
+   "members": [
+    "2344",
+    "2337"
+   ],
+   "days": {
+    "國外在動": 332,
+    "國外抗跌": 3,
+    "平常": 420
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 63,
+      "mean": 1.73,
+      "median": 0.09,
+      "win": 0.508,
+      "win_after_cost": 0.46
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": 2.47,
+      "median": 2.47,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "平常": {
+      "n": 86,
+      "mean": 0.21,
+      "median": -0.83,
+      "win": 0.384,
+      "win_after_cost": 0.372
+     },
+     "全部": {
+      "n": 150,
+      "mean": 0.86,
+      "median": -0.49,
+      "win": 0.44,
+      "win_after_cost": 0.413
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 17,
+      "mean": 7.39,
+      "median": 9.59,
+      "win": 0.529,
+      "win_after_cost": 0.529
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 20,
+      "mean": 1.32,
+      "median": -3.89,
+      "win": 0.35,
+      "win_after_cost": 0.35
+     },
+     "全部": {
+      "n": 37,
+      "mean": 4.11,
+      "median": -2.94,
+      "win": 0.432,
+      "win_after_cost": 0.432
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 6,
+      "mean": 9.35,
+      "median": -6.07,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 6,
+      "mean": 23.59,
+      "median": 12.05,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     },
+     "全部": {
+      "n": 12,
+      "mean": 16.47,
+      "median": 3.44,
+      "win": 0.583,
+      "win_after_cost": 0.583
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 34,
+      "mean": 2.76,
+      "median": 0.15,
+      "win": 0.529,
+      "win_after_cost": 0.441
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": 1.53,
+      "median": 2.47,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 20,
+      "mean": 2.29,
+      "median": -3.47,
+      "win": 0.35,
+      "win_after_cost": 0.35
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": -2.31,
+      "median": -2.29,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 10,
+      "mean": 24.48,
+      "median": -4.69,
+      "win": 0.4,
+      "win_after_cost": 0.4
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": 12.45,
+      "median": 6.16,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 1,
+      "mean": -2.94,
+      "median": -2.94,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 3,
+      "mean": -0.04,
+      "median": -1.19,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 4,
+      "mean": -6.76,
+      "median": -4.86,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 8,
+      "mean": -4.17,
+      "median": -4.52,
+      "win": 0.125,
+      "win_after_cost": 0.125
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 7,
+      "mean": 17.86,
+      "median": 15.1,
+      "win": 0.857,
+      "win_after_cost": 0.857
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 5,
+      "mean": 14.38,
+      "median": 4.33,
+      "win": 0.6,
+      "win_after_cost": 0.6
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 5,
+      "mean": 6.12,
+      "median": 12.6,
+      "win": 0.6,
+      "win_after_cost": 0.6
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 4,
+      "mean": -3.01,
+      "median": -1.11,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    }
+   }
+  },
+  {
+   "name": "記憶體-控制器/模組",
+   "members": [
+    "8299",
+    "3260",
+    "4967"
+   ],
+   "days": {
+    "國外在動": 202,
+    "國外抗跌": 5,
+    "平常": 548
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 43,
+      "mean": 0.78,
+      "median": -0.18,
+      "win": 0.465,
+      "win_after_cost": 0.442
+     },
+     "國外抗跌": {
+      "n": 2,
+      "mean": 5.75,
+      "median": 5.75,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "平常": {
+      "n": 105,
+      "mean": 0.91,
+      "median": -0.6,
+      "win": 0.448,
+      "win_after_cost": 0.429
+     },
+     "全部": {
+      "n": 150,
+      "mean": 0.94,
+      "median": -0.42,
+      "win": 0.46,
+      "win_after_cost": 0.44
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 11,
+      "mean": 1.73,
+      "median": -0.84,
+      "win": 0.455,
+      "win_after_cost": 0.364
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 26,
+      "mean": 4.16,
+      "median": 1.16,
+      "win": 0.538,
+      "win_after_cost": 0.538
+     },
+     "全部": {
+      "n": 37,
+      "mean": 3.44,
+      "median": 0.12,
+      "win": 0.514,
+      "win_after_cost": 0.486
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 4,
+      "mean": 22.71,
+      "median": 22.27,
+      "win": 1.0,
+      "win_after_cost": 0.75
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 8,
+      "mean": 6.74,
+      "median": -2.47,
+      "win": 0.375,
+      "win_after_cost": 0.375
+     },
+     "全部": {
+      "n": 12,
+      "mean": 12.07,
+      "median": 5.86,
+      "win": 0.583,
+      "win_after_cost": 0.5
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 26,
+      "mean": 0.33,
+      "median": -1.07,
+      "win": 0.423,
+      "win_after_cost": 0.385
+     },
+     "國外抗跌": {
+      "n": 4,
+      "mean": 2.94,
+      "median": 2.95,
+      "win": 0.75,
+      "win_after_cost": 0.75
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 18,
+      "mean": 4.86,
+      "median": 0.15,
+      "win": 0.611,
+      "win_after_cost": 0.444
+     },
+     "國外抗跌": {
+      "n": 2,
+      "mean": -0.92,
+      "median": -0.92,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 9,
+      "mean": 6.6,
+      "median": 1.74,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": 3.92,
+      "median": 3.92,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 1,
+      "mean": -5.33,
+      "median": -5.33,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 3,
+      "mean": 4.26,
+      "median": 4.3,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 1,
+      "mean": 5.45,
+      "median": 5.45,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 11,
+      "mean": -1.84,
+      "median": -1.21,
+      "win": 0.455,
+      "win_after_cost": 0.455
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 4,
+      "mean": 9.38,
+      "median": 3.61,
+      "win": 0.75,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 8,
+      "mean": 13.14,
+      "median": 6.64,
+      "win": 0.625,
+      "win_after_cost": 0.625
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 5,
+      "mean": -3.72,
+      "median": -6.88,
+      "win": 0.2,
+      "win_after_cost": 0.2
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 4,
+      "mean": 2.64,
+      "median": 4.8,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    }
+   }
+  },
+  {
+   "name": "封測",
+   "members": [
+    "3711",
+    "2449",
+    "6239"
+   ],
+   "days": {
+    "國外在動": 189,
+    "國外抗跌": 3,
+    "平常": 563
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 38,
+      "mean": 1.7,
+      "median": 1.52,
+      "win": 0.553,
+      "win_after_cost": 0.553
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": -2.75,
+      "median": -2.75,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "平常": {
+      "n": 111,
+      "mean": 0.37,
+      "median": 0.03,
+      "win": 0.514,
+      "win_after_cost": 0.441
+     },
+     "全部": {
+      "n": 150,
+      "mean": 0.69,
+      "median": 0.09,
+      "win": 0.52,
+      "win_after_cost": 0.467
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 11,
+      "mean": 7.8,
+      "median": 5.68,
+      "win": 0.727,
+      "win_after_cost": 0.636
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 26,
+      "mean": 0.93,
+      "median": 0.87,
+      "win": 0.538,
+      "win_after_cost": 0.5
+     },
+     "全部": {
+      "n": 37,
+      "mean": 2.97,
+      "median": 1.59,
+      "win": 0.595,
+      "win_after_cost": 0.541
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 5,
+      "mean": 9.97,
+      "median": 15.72,
+      "win": 0.6,
+      "win_after_cost": 0.6
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 7,
+      "mean": 9.53,
+      "median": 5.69,
+      "win": 0.714,
+      "win_after_cost": 0.714
+     },
+     "全部": {
+      "n": 12,
+      "mean": 9.71,
+      "median": 10.52,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 24,
+      "mean": 0.98,
+      "median": 1.09,
+      "win": 0.542,
+      "win_after_cost": 0.542
+     },
+     "國外抗跌": {
+      "n": 2,
+      "mean": -0.95,
+      "median": -0.95,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 15,
+      "mean": 2.84,
+      "median": 4.5,
+      "win": 0.667,
+      "win_after_cost": 0.6
+     },
+     "國外抗跌": {
+      "n": 2,
+      "mean": -0.45,
+      "median": -0.45,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 8,
+      "mean": 11.94,
+      "median": 11.99,
+      "win": 0.75,
+      "win_after_cost": 0.75
+     },
+     "國外抗跌": {
+      "n": 2,
+      "mean": 26.0,
+      "median": 26.0,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 2,
+      "mean": 6.2,
+      "median": 6.2,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 2,
+      "mean": 1.19,
+      "median": 1.19,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 3,
+      "mean": -2.48,
+      "median": -1.95,
+      "win": 0.333,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 9,
+      "mean": 1.34,
+      "median": 1.59,
+      "win": 0.667,
+      "win_after_cost": 0.556
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 3,
+      "mean": 17.34,
+      "median": 19.88,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 9,
+      "mean": 2.65,
+      "median": 1.76,
+      "win": 0.556,
+      "win_after_cost": 0.556
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 3,
+      "mean": 9.61,
+      "median": 12.09,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 6,
+      "mean": -2.35,
+      "median": -2.53,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     }
+    }
+   }
+  },
+  {
+   "name": "CoWoS/先進封裝設備",
+   "members": [
+    "6187",
+    "3131",
+    "2467"
+   ],
+   "days": {
+    "國外在動": 209,
+    "國外抗跌": 16,
+    "平常": 530
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 41,
+      "mean": 0.63,
+      "median": 0.74,
+      "win": 0.585,
+      "win_after_cost": 0.537
+     },
+     "國外抗跌": {
+      "n": 2,
+      "mean": -9.81,
+      "median": -9.81,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "平常": {
+      "n": 107,
+      "mean": 1.63,
+      "median": 1.47,
+      "win": 0.598,
+      "win_after_cost": 0.561
+     },
+     "全部": {
+      "n": 150,
+      "mean": 1.2,
+      "median": 0.82,
+      "win": 0.587,
+      "win_after_cost": 0.547
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 8,
+      "mean": 3.95,
+      "median": 3.78,
+      "win": 0.625,
+      "win_after_cost": 0.625
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 29,
+      "mean": 6.27,
+      "median": 1.37,
+      "win": 0.552,
+      "win_after_cost": 0.552
+     },
+     "全部": {
+      "n": 37,
+      "mean": 5.76,
+      "median": 1.66,
+      "win": 0.568,
+      "win_after_cost": 0.568
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 2,
+      "mean": -4.63,
+      "median": -4.63,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 10,
+      "mean": 28.4,
+      "median": 13.63,
+      "win": 0.7,
+      "win_after_cost": 0.6
+     },
+     "全部": {
+      "n": 12,
+      "mean": 22.89,
+      "median": 5.76,
+      "win": 0.583,
+      "win_after_cost": 0.5
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 26,
+      "mean": 0.56,
+      "median": 0.76,
+      "win": 0.615,
+      "win_after_cost": 0.577
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": 0.29,
+      "median": 0.43,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 14,
+      "mean": 5.33,
+      "median": 0.08,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": 0.59,
+      "median": 0.59,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 8,
+      "mean": 28.65,
+      "median": 21.26,
+      "win": 0.75,
+      "win_after_cost": 0.75
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": 42.48,
+      "median": 42.48,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 2,
+      "mean": 7.44,
+      "median": 7.44,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 2,
+      "mean": 10.4,
+      "median": 10.4,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 3,
+      "mean": 4.3,
+      "median": 1.66,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 9,
+      "mean": 10.0,
+      "median": 3.02,
+      "win": 0.556,
+      "win_after_cost": 0.556
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 2,
+      "mean": -7.82,
+      "median": -7.82,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 10,
+      "mean": 2.54,
+      "median": 2.88,
+      "win": 0.6,
+      "win_after_cost": 0.6
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 1,
+      "mean": 19.45,
+      "median": 19.45,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 8,
+      "mean": 5.7,
+      "median": -1.4,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    }
+   }
+  },
+  {
+   "name": "測試介面(探針卡/測試座)",
+   "members": [
+    "6223",
+    "6515",
+    "6510"
+   ],
+   "days": {
+    "國外在動": 165,
+    "國外抗跌": 7,
+    "平常": 583
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 30,
+      "mean": 1.74,
+      "median": 2.09,
+      "win": 0.6,
+      "win_after_cost": 0.567
+     },
+     "國外抗跌": {
+      "n": 2,
+      "mean": 4.38,
+      "median": 4.38,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "平常": {
+      "n": 118,
+      "mean": 1.19,
+      "median": 1.02,
+      "win": 0.593,
+      "win_after_cost": 0.551
+     },
+     "全部": {
+      "n": 150,
+      "mean": 1.34,
+      "median": 1.28,
+      "win": 0.6,
+      "win_after_cost": 0.56
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 8,
+      "mean": 10.43,
+      "median": 8.29,
+      "win": 0.875,
+      "win_after_cost": 0.875
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 29,
+      "mean": 4.88,
+      "median": 2.72,
+      "win": 0.69,
+      "win_after_cost": 0.655
+     },
+     "全部": {
+      "n": 37,
+      "mean": 6.08,
+      "median": 6.31,
+      "win": 0.73,
+      "win_after_cost": 0.703
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 1,
+      "mean": 34.69,
+      "median": 34.69,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 11,
+      "mean": 21.66,
+      "median": 20.39,
+      "win": 0.727,
+      "win_after_cost": 0.727
+     },
+     "全部": {
+      "n": 12,
+      "mean": 22.74,
+      "median": 24.45,
+      "win": 0.75,
+      "win_after_cost": 0.75
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 29,
+      "mean": 1.31,
+      "median": 0.54,
+      "win": 0.552,
+      "win_after_cost": 0.517
+     },
+     "國外抗跌": {
+      "n": 7,
+      "mean": 1.42,
+      "median": 3.57,
+      "win": 0.857,
+      "win_after_cost": 0.857
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 18,
+      "mean": 3.63,
+      "median": 2.08,
+      "win": 0.611,
+      "win_after_cost": 0.611
+     },
+     "國外抗跌": {
+      "n": 6,
+      "mean": 4.81,
+      "median": 5.94,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 9,
+      "mean": 23.82,
+      "median": 11.5,
+      "win": 0.778,
+      "win_after_cost": 0.778
+     },
+     "國外抗跌": {
+      "n": 5,
+      "mean": 21.03,
+      "median": 10.82,
+      "win": 0.6,
+      "win_after_cost": 0.6
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 1,
+      "mean": 8.13,
+      "median": 8.13,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 3,
+      "mean": -1.35,
+      "median": -1.17,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 1,
+      "mean": 7.6,
+      "median": 7.6,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 11,
+      "mean": 5.27,
+      "median": 6.31,
+      "win": 0.818,
+      "win_after_cost": 0.818
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 2,
+      "mean": 11.66,
+      "median": 11.66,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 10,
+      "mean": 10.48,
+      "median": 7.21,
+      "win": 0.8,
+      "win_after_cost": 0.8
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 4,
+      "mean": 11.1,
+      "median": 13.89,
+      "win": 0.75,
+      "win_after_cost": 0.75
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 5,
+      "mean": -3.43,
+      "median": -2.58,
+      "win": 0.4,
+      "win_after_cost": 0.2
+     }
+    }
+   }
+  },
+  {
+   "name": "矽晶圓",
+   "members": [
+    "6488",
+    "3532",
+    "5483"
+   ],
+   "days": {
+    "國外在動": 108,
+    "國外抗跌": 23,
+    "平常": 624
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 22,
+      "mean": 0.04,
+      "median": 0.3,
+      "win": 0.545,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 4,
+      "mean": -4.24,
+      "median": -2.1,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "平常": {
+      "n": 124,
+      "mean": 0.38,
+      "median": -0.51,
+      "win": 0.419,
+      "win_after_cost": 0.355
+     },
+     "全部": {
+      "n": 150,
+      "mean": 0.21,
+      "median": -0.51,
+      "win": 0.427,
+      "win_after_cost": 0.367
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 4,
+      "mean": 2.47,
+      "median": 4.66,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 33,
+      "mean": 1.14,
+      "median": -0.61,
+      "win": 0.424,
+      "win_after_cost": 0.394
+     },
+     "全部": {
+      "n": 37,
+      "mean": 1.28,
+      "median": -0.61,
+      "win": 0.432,
+      "win_after_cost": 0.405
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 1,
+      "mean": 82.98,
+      "median": 82.98,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 11,
+      "mean": -0.33,
+      "median": -7.28,
+      "win": 0.364,
+      "win_after_cost": 0.364
+     },
+     "全部": {
+      "n": 12,
+      "mean": 6.61,
+      "median": -5.94,
+      "win": 0.417,
+      "win_after_cost": 0.417
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 19,
+      "mean": 2.07,
+      "median": -1.0,
+      "win": 0.421,
+      "win_after_cost": 0.421
+     },
+     "國外抗跌": {
+      "n": 5,
+      "mean": -6.21,
+      "median": -3.95,
+      "win": 0.2,
+      "win_after_cost": 0.2
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 12,
+      "mean": -2.88,
+      "median": -6.68,
+      "win": 0.25,
+      "win_after_cost": 0.25
+     },
+     "國外抗跌": {
+      "n": 4,
+      "mean": -11.81,
+      "median": -5.35,
+      "win": 0.25,
+      "win_after_cost": 0.0
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 8,
+      "mean": 10.41,
+      "median": -13.81,
+      "win": 0.375,
+      "win_after_cost": 0.375
+     },
+     "國外抗跌": {
+      "n": 4,
+      "mean": -11.5,
+      "median": -16.12,
+      "win": 0.25,
+      "win_after_cost": 0.25
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 4,
+      "mean": 3.42,
+      "median": 2.18,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 1,
+      "mean": -3.88,
+      "median": -3.88,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 11,
+      "mean": -5.08,
+      "median": -6.72,
+      "win": 0.273,
+      "win_after_cost": 0.273
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 12,
+      "mean": 2.74,
+      "median": -0.24,
+      "win": 0.417,
+      "win_after_cost": 0.333
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 3,
+      "mean": 4.59,
+      "median": 13.2,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 6,
+      "mean": 7.82,
+      "median": 3.77,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    }
+   }
+  },
+  {
+   "name": "化合物半導體",
+   "members": [
+    "3105",
+    "3016",
+    "3707"
+   ],
+   "days": {
+    "國外在動": 139,
+    "國外抗跌": 19,
+    "平常": 597
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 23,
+      "mean": 0.99,
+      "median": 0.89,
+      "win": 0.522,
+      "win_after_cost": 0.522
+     },
+     "國外抗跌": {
+      "n": 4,
+      "mean": 3.25,
+      "median": 2.4,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "平常": {
+      "n": 123,
+      "mean": -0.01,
+      "median": -0.5,
+      "win": 0.407,
+      "win_after_cost": 0.366
+     },
+     "全部": {
+      "n": 150,
+      "mean": 0.23,
+      "median": -0.5,
+      "win": 0.427,
+      "win_after_cost": 0.393
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 6,
+      "mean": 1.26,
+      "median": -2.93,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": -6.94,
+      "median": -6.94,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "平常": {
+      "n": 30,
+      "mean": 1.93,
+      "median": 0.34,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "全部": {
+      "n": 37,
+      "mean": 1.58,
+      "median": -1.23,
+      "win": 0.459,
+      "win_after_cost": 0.459
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 2,
+      "mean": -11.27,
+      "median": -11.27,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": -12.74,
+      "median": -12.74,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "平常": {
+      "n": 9,
+      "mean": 9.07,
+      "median": 1.34,
+      "win": 0.556,
+      "win_after_cost": 0.556
+     },
+     "全部": {
+      "n": 12,
+      "mean": 3.86,
+      "median": -6.67,
+      "win": 0.417,
+      "win_after_cost": 0.417
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 16,
+      "mean": 0.26,
+      "median": -1.79,
+      "win": 0.312,
+      "win_after_cost": 0.312
+     },
+     "國外抗跌": {
+      "n": 5,
+      "mean": -2.5,
+      "median": -3.65,
+      "win": 0.2,
+      "win_after_cost": 0.2
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 9,
+      "mean": -1.64,
+      "median": -6.07,
+      "win": 0.333,
+      "win_after_cost": 0.222
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": -1.79,
+      "median": 0.11,
+      "win": 0.667,
+      "win_after_cost": 0.333
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 6,
+      "mean": -1.99,
+      "median": -6.27,
+      "win": 0.167,
+      "win_after_cost": 0.167
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": 2.2,
+      "median": -8.36,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 1,
+      "mean": -8.06,
+      "median": -8.06,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 3,
+      "mean": 0.33,
+      "median": -2.22,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 2,
+      "mean": -2.93,
+      "median": -2.93,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 10,
+      "mean": -3.44,
+      "median": -3.14,
+      "win": 0.2,
+      "win_after_cost": 0.2
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": -6.94,
+      "median": -6.94,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "平常": {
+      "n": 11,
+      "mean": 5.3,
+      "median": 4.0,
+      "win": 0.727,
+      "win_after_cost": 0.727
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 3,
+      "mean": 7.16,
+      "median": 13.34,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 6,
+      "mean": 5.48,
+      "median": 4.53,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    }
+   }
+  },
+  {
+   "name": "ABF載板",
+   "members": [
+    "3037",
+    "8046",
+    "3189"
+   ],
+   "days": {
+    "國外在動": 254,
+    "國外抗跌": 14,
+    "平常": 487
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 51,
+      "mean": 1.81,
+      "median": -0.5,
+      "win": 0.49,
+      "win_after_cost": 0.49
+     },
+     "國外抗跌": {
+      "n": 2,
+      "mean": 3.47,
+      "median": 3.47,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "平常": {
+      "n": 97,
+      "mean": 0.6,
+      "median": 0.03,
+      "win": 0.505,
+      "win_after_cost": 0.423
+     },
+     "全部": {
+      "n": 150,
+      "mean": 1.05,
+      "median": 0.04,
+      "win": 0.507,
+      "win_after_cost": 0.453
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 12,
+      "mean": 8.98,
+      "median": 4.53,
+      "win": 0.833,
+      "win_after_cost": 0.833
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": -9.06,
+      "median": -9.06,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "平常": {
+      "n": 24,
+      "mean": 3.67,
+      "median": -0.86,
+      "win": 0.417,
+      "win_after_cost": 0.417
+     },
+     "全部": {
+      "n": 37,
+      "mean": 5.05,
+      "median": 2.29,
+      "win": 0.541,
+      "win_after_cost": 0.541
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 2,
+      "mean": 8.28,
+      "median": 8.28,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 10,
+      "mean": 21.45,
+      "median": -3.22,
+      "win": 0.5,
+      "win_after_cost": 0.4
+     },
+     "全部": {
+      "n": 12,
+      "mean": 19.26,
+      "median": 3.37,
+      "win": 0.583,
+      "win_after_cost": 0.5
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 24,
+      "mean": 2.75,
+      "median": 0.17,
+      "win": 0.583,
+      "win_after_cost": 0.458
+     },
+     "國外抗跌": {
+      "n": 10,
+      "mean": 2.95,
+      "median": 2.34,
+      "win": 0.7,
+      "win_after_cost": 0.7
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 14,
+      "mean": 6.03,
+      "median": 0.47,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 5,
+      "mean": -5.12,
+      "median": -3.15,
+      "win": 0.2,
+      "win_after_cost": 0.2
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 8,
+      "mean": 30.99,
+      "median": 13.12,
+      "win": 0.625,
+      "win_after_cost": 0.625
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": 33.14,
+      "median": 9.92,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 4,
+      "mean": -3.34,
+      "median": -1.9,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 12,
+      "mean": -2.81,
+      "median": -3.0,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 6,
+      "mean": 2.15,
+      "median": 1.88,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": -9.06,
+      "median": -9.06,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "平常": {
+      "n": 5,
+      "mean": 16.83,
+      "median": 14.34,
+      "win": 0.8,
+      "win_after_cost": 0.8
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 6,
+      "mean": 15.81,
+      "median": 7.13,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 3,
+      "mean": 17.0,
+      "median": 12.3,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    }
+   }
+  },
+  {
+   "name": "CCL銅箔基板",
+   "members": [
+    "2383",
+    "6274",
+    "6213"
+   ],
+   "days": {
+    "國外在動": 172,
+    "國外抗跌": 18,
+    "平常": 565
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 30,
+      "mean": 0.96,
+      "median": 1.11,
+      "win": 0.633,
+      "win_after_cost": 0.533
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": 0.0,
+      "median": -5.91,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     },
+     "平常": {
+      "n": 117,
+      "mean": 1.5,
+      "median": 0.72,
+      "win": 0.598,
+      "win_after_cost": 0.513
+     },
+     "全部": {
+      "n": 150,
+      "mean": 1.36,
+      "median": 0.73,
+      "win": 0.6,
+      "win_after_cost": 0.513
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 9,
+      "mean": 0.33,
+      "median": -1.55,
+      "win": 0.444,
+      "win_after_cost": 0.444
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 28,
+      "mean": 7.92,
+      "median": 5.2,
+      "win": 0.679,
+      "win_after_cost": 0.679
+     },
+     "全部": {
+      "n": 37,
+      "mean": 6.07,
+      "median": 4.23,
+      "win": 0.622,
+      "win_after_cost": 0.622
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 2,
+      "mean": 12.01,
+      "median": 12.01,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 10,
+      "mean": 21.83,
+      "median": 16.13,
+      "win": 0.7,
+      "win_after_cost": 0.7
+     },
+     "全部": {
+      "n": 12,
+      "mean": 20.19,
+      "median": 16.13,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 41,
+      "mean": 0.15,
+      "median": -1.02,
+      "win": 0.488,
+      "win_after_cost": 0.463
+     },
+     "國外抗跌": {
+      "n": 10,
+      "mean": 0.05,
+      "median": -2.05,
+      "win": 0.4,
+      "win_after_cost": 0.4
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 20,
+      "mean": 3.21,
+      "median": 0.11,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 5,
+      "mean": 3.18,
+      "median": 2.08,
+      "win": 0.6,
+      "win_after_cost": 0.6
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 8,
+      "mean": 21.06,
+      "median": 11.93,
+      "win": 0.625,
+      "win_after_cost": 0.625
+     },
+     "國外抗跌": {
+      "n": 4,
+      "mean": 9.82,
+      "median": 2.54,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 2,
+      "mean": -8.73,
+      "median": -8.73,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 2,
+      "mean": 1.66,
+      "median": 1.66,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 2,
+      "mean": 1.48,
+      "median": 1.48,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 10,
+      "mean": 0.77,
+      "median": 0.66,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 3,
+      "mean": 4.43,
+      "median": 4.23,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 9,
+      "mean": 7.73,
+      "median": 6.26,
+      "win": 0.778,
+      "win_after_cost": 0.778
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 2,
+      "mean": 2.07,
+      "median": 2.07,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 7,
+      "mean": 20.16,
+      "median": 20.93,
+      "win": 0.857,
+      "win_after_cost": 0.857
+     }
+    }
+   }
+  },
+  {
+   "name": "PCB(伺服器板)",
+   "members": [
+    "2368",
+    "3044",
+    "2313"
+   ],
+   "days": {
+    "國外在動": 238,
+    "國外抗跌": 8,
+    "平常": 509
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 47,
+      "mean": 0.56,
+      "median": 0.09,
+      "win": 0.511,
+      "win_after_cost": 0.468
+     },
+     "國外抗跌": {
+      "n": 2,
+      "mean": 2.06,
+      "median": 2.06,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "平常": {
+      "n": 101,
+      "mean": 0.66,
+      "median": -0.17,
+      "win": 0.485,
+      "win_after_cost": 0.465
+     },
+     "全部": {
+      "n": 150,
+      "mean": 0.65,
+      "median": -0.1,
+      "win": 0.493,
+      "win_after_cost": 0.467
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 12,
+      "mean": 1.91,
+      "median": 0.1,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 2,
+      "mean": 3.21,
+      "median": 3.21,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "平常": {
+      "n": 23,
+      "mean": 3.95,
+      "median": 1.59,
+      "win": 0.609,
+      "win_after_cost": 0.565
+     },
+     "全部": {
+      "n": 37,
+      "mean": 3.24,
+      "median": 1.59,
+      "win": 0.595,
+      "win_after_cost": 0.568
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 5,
+      "mean": 7.93,
+      "median": 0.64,
+      "win": 0.6,
+      "win_after_cost": 0.6
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": 24.87,
+      "median": 24.87,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "平常": {
+      "n": 6,
+      "mean": 8.79,
+      "median": -0.03,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "全部": {
+      "n": 12,
+      "mean": 9.77,
+      "median": 1.06,
+      "win": 0.583,
+      "win_after_cost": 0.583
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 33,
+      "mean": -0.09,
+      "median": -1.17,
+      "win": 0.455,
+      "win_after_cost": 0.394
+     },
+     "國外抗跌": {
+      "n": 4,
+      "mean": 1.19,
+      "median": 0.94,
+      "win": 0.75,
+      "win_after_cost": 0.5
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 20,
+      "mean": 0.92,
+      "median": 0.58,
+      "win": 0.55,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": 3.9,
+      "median": 2.43,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 10,
+      "mean": 12.2,
+      "median": 9.52,
+      "win": 0.7,
+      "win_after_cost": 0.7
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": 7.09,
+      "median": 5.15,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 1,
+      "mean": -9.81,
+      "median": -9.81,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 3,
+      "mean": 4.22,
+      "median": -1.55,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 6,
+      "mean": -0.3,
+      "median": -1.15,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 6,
+      "mean": 0.36,
+      "median": -1.8,
+      "win": 0.5,
+      "win_after_cost": 0.333
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 5,
+      "mean": 6.89,
+      "median": 8.93,
+      "win": 0.8,
+      "win_after_cost": 0.8
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": 2.43,
+      "median": 2.43,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "平常": {
+      "n": 6,
+      "mean": 5.65,
+      "median": 5.94,
+      "win": 0.833,
+      "win_after_cost": 0.833
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": 4.0,
+      "median": 4.0,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "平常": {
+      "n": 8,
+      "mean": 5.25,
+      "median": 8.09,
+      "win": 0.625,
+      "win_after_cost": 0.625
+     }
+    }
+   }
+  },
+  {
+   "name": "散熱模組/液冷",
+   "members": [
+    "3017",
+    "3653",
+    "3324"
+   ],
+   "days": {
+    "國外在動": 186,
+    "國外抗跌": 26,
+    "平常": 543
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 36,
+      "mean": 2.68,
+      "median": 3.07,
+      "win": 0.694,
+      "win_after_cost": 0.639
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": 7.95,
+      "median": 7.1,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "平常": {
+      "n": 111,
+      "mean": 0.5,
+      "median": 0.03,
+      "win": 0.505,
+      "win_after_cost": 0.486
+     },
+     "全部": {
+      "n": 150,
+      "mean": 1.18,
+      "median": 0.99,
+      "win": 0.56,
+      "win_after_cost": 0.533
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 10,
+      "mean": 11.69,
+      "median": 8.65,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": 23.11,
+      "median": 23.11,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "平常": {
+      "n": 26,
+      "mean": 1.69,
+      "median": 2.1,
+      "win": 0.615,
+      "win_after_cost": 0.615
+     },
+     "全部": {
+      "n": 37,
+      "mean": 4.97,
+      "median": 5.5,
+      "win": 0.73,
+      "win_after_cost": 0.73
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 3,
+      "mean": 26.71,
+      "median": 18.62,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 9,
+      "mean": 13.39,
+      "median": 18.88,
+      "win": 0.556,
+      "win_after_cost": 0.556
+     },
+     "全部": {
+      "n": 12,
+      "mean": 16.72,
+      "median": 18.75,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 28,
+      "mean": 1.48,
+      "median": 2.16,
+      "win": 0.571,
+      "win_after_cost": 0.571
+     },
+     "國外抗跌": {
+      "n": 8,
+      "mean": 3.65,
+      "median": 2.26,
+      "win": 0.625,
+      "win_after_cost": 0.625
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 17,
+      "mean": 5.89,
+      "median": 4.66,
+      "win": 0.588,
+      "win_after_cost": 0.529
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": 10.46,
+      "median": 5.07,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 9,
+      "mean": 12.46,
+      "median": 4.63,
+      "win": 0.556,
+      "win_after_cost": 0.556
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": 47.64,
+      "median": 31.33,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 1,
+      "mean": 8.67,
+      "median": 8.67,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 3,
+      "mean": -0.11,
+      "median": 2.41,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 7,
+      "mean": 10.46,
+      "median": 5.62,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 5,
+      "mean": -4.37,
+      "median": -4.16,
+      "win": 0.2,
+      "win_after_cost": 0.2
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 1,
+      "mean": 21.62,
+      "median": 21.62,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 11,
+      "mean": 3.56,
+      "median": 5.5,
+      "win": 0.818,
+      "win_after_cost": 0.818
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 1,
+      "mean": 13.44,
+      "median": 13.44,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": 23.11,
+      "median": 23.11,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "平常": {
+      "n": 7,
+      "mean": 3.83,
+      "median": 8.14,
+      "win": 0.571,
+      "win_after_cost": 0.571
+     }
+    }
+   }
+  },
+  {
+   "name": "被動元件",
+   "members": [
+    "2327",
+    "2492",
+    "3026"
+   ],
+   "days": {
+    "國外在動": 176,
+    "國外抗跌": 15,
+    "平常": 564
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 36,
+      "mean": 2.87,
+      "median": 0.25,
+      "win": 0.583,
+      "win_after_cost": 0.472
+     },
+     "國外抗跌": {
+      "n": 2,
+      "mean": -9.87,
+      "median": -9.87,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "平常": {
+      "n": 112,
+      "mean": 0.55,
+      "median": -0.31,
+      "win": 0.438,
+      "win_after_cost": 0.384
+     },
+     "全部": {
+      "n": 150,
+      "mean": 0.97,
+      "median": -0.2,
+      "win": 0.467,
+      "win_after_cost": 0.4
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 9,
+      "mean": 0.92,
+      "median": -1.89,
+      "win": 0.444,
+      "win_after_cost": 0.444
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 28,
+      "mean": 7.08,
+      "median": 1.12,
+      "win": 0.571,
+      "win_after_cost": 0.536
+     },
+     "全部": {
+      "n": 37,
+      "mean": 5.58,
+      "median": 0.92,
+      "win": 0.541,
+      "win_after_cost": 0.514
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 3,
+      "mean": -8.4,
+      "median": 2.53,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 9,
+      "mean": 41.62,
+      "median": 4.93,
+      "win": 0.556,
+      "win_after_cost": 0.556
+     },
+     "全部": {
+      "n": 12,
+      "mean": 29.12,
+      "median": 2.83,
+      "win": 0.583,
+      "win_after_cost": 0.583
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 24,
+      "mean": 1.95,
+      "median": -1.15,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     },
+     "國外抗跌": {
+      "n": 7,
+      "mean": 1.19,
+      "median": 0.6,
+      "win": 0.714,
+      "win_after_cost": 0.571
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 14,
+      "mean": 1.61,
+      "median": 0.21,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 4,
+      "mean": 2.79,
+      "median": 0.47,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 8,
+      "mean": 17.07,
+      "median": 0.22,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 2,
+      "mean": -2.98,
+      "median": -2.98,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 1,
+      "mean": 6.59,
+      "median": 6.59,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 3,
+      "mean": -3.19,
+      "median": -6.18,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 3,
+      "mean": -2.77,
+      "median": -3.63,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 9,
+      "mean": -0.04,
+      "median": -0.32,
+      "win": 0.444,
+      "win_after_cost": 0.333
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 2,
+      "mean": -4.51,
+      "median": -4.51,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 10,
+      "mean": 4.95,
+      "median": 1.51,
+      "win": 0.6,
+      "win_after_cost": 0.6
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 3,
+      "mean": 6.33,
+      "median": -1.89,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 6,
+      "mean": 26.44,
+      "median": 8.29,
+      "win": 0.833,
+      "win_after_cost": 0.833
+     }
+    }
+   }
+  },
+  {
+   "name": "功率電感",
+   "members": [
+    "3236"
+   ],
+   "days": {
+    "國外在動": 99,
+    "國外抗跌": 18,
+    "平常": 638
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 17,
+      "mean": 4.52,
+      "median": 1.27,
+      "win": 0.588,
+      "win_after_cost": 0.588
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": 0.34,
+      "median": -1.68,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     },
+     "平常": {
+      "n": 130,
+      "mean": -0.1,
+      "median": -0.62,
+      "win": 0.415,
+      "win_after_cost": 0.362
+     },
+     "全部": {
+      "n": 150,
+      "mean": 0.43,
+      "median": -0.61,
+      "win": 0.433,
+      "win_after_cost": 0.387
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 6,
+      "mean": 17.57,
+      "median": 10.32,
+      "win": 0.833,
+      "win_after_cost": 0.833
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 31,
+      "mean": -1.04,
+      "median": -2.68,
+      "win": 0.387,
+      "win_after_cost": 0.355
+     },
+     "全部": {
+      "n": 37,
+      "mean": 1.98,
+      "median": -0.93,
+      "win": 0.459,
+      "win_after_cost": 0.432
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 2,
+      "mean": -1.91,
+      "median": -1.91,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 10,
+      "mean": 6.94,
+      "median": -8.25,
+      "win": 0.4,
+      "win_after_cost": 0.4
+     },
+     "全部": {
+      "n": 12,
+      "mean": 5.46,
+      "median": -4.42,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 13,
+      "mean": 1.43,
+      "median": 1.18,
+      "win": 0.615,
+      "win_after_cost": 0.615
+     },
+     "國外抗跌": {
+      "n": 6,
+      "mean": -0.03,
+      "median": -1.6,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 10,
+      "mean": 5.05,
+      "median": 4.42,
+      "win": 0.7,
+      "win_after_cost": 0.7
+     },
+     "國外抗跌": {
+      "n": 4,
+      "mean": -7.03,
+      "median": -7.52,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 6,
+      "mean": 13.61,
+      "median": 8.06,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": -1.45,
+      "median": 2.62,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 4,
+      "mean": -3.48,
+      "median": -4.17,
+      "win": 0.25,
+      "win_after_cost": 0.25
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 3,
+      "mean": -1.75,
+      "median": 0.64,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 9,
+      "mean": -1.51,
+      "median": -4.0,
+      "win": 0.444,
+      "win_after_cost": 0.444
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 1,
+      "mean": 19.15,
+      "median": 19.15,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 11,
+      "mean": 3.08,
+      "median": -0.13,
+      "win": 0.455,
+      "win_after_cost": 0.364
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 2,
+      "mean": 45.76,
+      "median": 45.76,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 7,
+      "mean": -5.51,
+      "median": -8.25,
+      "win": 0.286,
+      "win_after_cost": 0.286
+     }
+    }
+   }
+  },
+  {
+   "name": "伺服器電源/PSU",
+   "members": [
+    "2308",
+    "2301",
+    "3015"
+   ],
+   "days": {
+    "國外在動": 189,
+    "國外抗跌": 36,
+    "平常": 530
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 37,
+      "mean": 0.13,
+      "median": 0.19,
+      "win": 0.541,
+      "win_after_cost": 0.459
+     },
+     "國外抗跌": {
+      "n": 6,
+      "mean": 1.18,
+      "median": 2.17,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     },
+     "平常": {
+      "n": 107,
+      "mean": 0.19,
+      "median": -0.08,
+      "win": 0.486,
+      "win_after_cost": 0.458
+     },
+     "全部": {
+      "n": 150,
+      "mean": 0.21,
+      "median": 0.05,
+      "win": 0.507,
+      "win_after_cost": 0.467
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 9,
+      "mean": 0.54,
+      "median": -0.55,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": 2.97,
+      "median": 2.97,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "平常": {
+      "n": 27,
+      "mean": 1.22,
+      "median": 0.69,
+      "win": 0.593,
+      "win_after_cost": 0.519
+     },
+     "全部": {
+      "n": 37,
+      "mean": 1.1,
+      "median": 0.17,
+      "win": 0.541,
+      "win_after_cost": 0.486
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 2,
+      "mean": 5.29,
+      "median": 5.29,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 10,
+      "mean": 4.21,
+      "median": 1.16,
+      "win": 0.6,
+      "win_after_cost": 0.5
+     },
+     "全部": {
+      "n": 12,
+      "mean": 4.39,
+      "median": 2.26,
+      "win": 0.667,
+      "win_after_cost": 0.583
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 28,
+      "mean": 1.27,
+      "median": 0.87,
+      "win": 0.607,
+      "win_after_cost": 0.607
+     },
+     "國外抗跌": {
+      "n": 9,
+      "mean": 1.07,
+      "median": 1.36,
+      "win": 0.778,
+      "win_after_cost": 0.778
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 17,
+      "mean": 0.82,
+      "median": 0.32,
+      "win": 0.588,
+      "win_after_cost": 0.471
+     },
+     "國外抗跌": {
+      "n": 4,
+      "mean": 2.4,
+      "median": 1.9,
+      "win": 0.75,
+      "win_after_cost": 0.75
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 9,
+      "mean": 3.37,
+      "median": 0.48,
+      "win": 0.556,
+      "win_after_cost": 0.556
+     },
+     "國外抗跌": {
+      "n": 4,
+      "mean": 3.17,
+      "median": 3.87,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 1,
+      "mean": -2.75,
+      "median": -2.75,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 3,
+      "mean": -3.62,
+      "median": -3.68,
+      "win": 0.333,
+      "win_after_cost": 0.0
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 6,
+      "mean": 0.97,
+      "median": -0.45,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 6,
+      "mean": 1.96,
+      "median": 1.82,
+      "win": 0.833,
+      "win_after_cost": 0.667
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 1,
+      "mean": 5.37,
+      "median": 5.37,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 11,
+      "mean": 2.44,
+      "median": 2.04,
+      "win": 0.545,
+      "win_after_cost": 0.545
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 1,
+      "mean": -3.61,
+      "median": -3.61,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": 2.97,
+      "median": 2.97,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "平常": {
+      "n": 7,
+      "mean": 0.73,
+      "median": 4.31,
+      "win": 0.571,
+      "win_after_cost": 0.571
+     }
+    }
+   }
+  },
+  {
+   "name": "BBU/備援電池",
+   "members": [
+    "6409"
+   ],
+   "days": {
+    "國外在動": 131,
+    "國外抗跌": 35,
+    "平常": 589
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 26,
+      "mean": -2.49,
+      "median": -2.51,
+      "win": 0.231,
+      "win_after_cost": 0.192
+     },
+     "國外抗跌": {
+      "n": 6,
+      "mean": 2.06,
+      "median": 2.71,
+      "win": 0.833,
+      "win_after_cost": 0.833
+     },
+     "平常": {
+      "n": 118,
+      "mean": -0.29,
+      "median": -0.68,
+      "win": 0.449,
+      "win_after_cost": 0.424
+     },
+     "全部": {
+      "n": 150,
+      "mean": -0.58,
+      "median": -1.16,
+      "win": 0.427,
+      "win_after_cost": 0.4
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 6,
+      "mean": -5.05,
+      "median": -4.11,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 31,
+      "mean": -1.91,
+      "median": -4.9,
+      "win": 0.355,
+      "win_after_cost": 0.355
+     },
+     "全部": {
+      "n": 37,
+      "mean": -2.42,
+      "median": -4.89,
+      "win": 0.351,
+      "win_after_cost": 0.351
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 1,
+      "mean": -15.02,
+      "median": -15.02,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 11,
+      "mean": -7.61,
+      "median": -3.77,
+      "win": 0.364,
+      "win_after_cost": 0.364
+     },
+     "全部": {
+      "n": 12,
+      "mean": -8.23,
+      "median": -6.09,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 18,
+      "mean": -2.5,
+      "median": -1.38,
+      "win": 0.444,
+      "win_after_cost": 0.389
+     },
+     "國外抗跌": {
+      "n": 6,
+      "mean": -1.18,
+      "median": -1.85,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 11,
+      "mean": -6.12,
+      "median": -10.65,
+      "win": 0.364,
+      "win_after_cost": 0.364
+     },
+     "國外抗跌": {
+      "n": 4,
+      "mean": 4.11,
+      "median": 4.8,
+      "win": 0.75,
+      "win_after_cost": 0.75
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 7,
+      "mean": -7.72,
+      "median": -8.52,
+      "win": 0.286,
+      "win_after_cost": 0.286
+     },
+     "國外抗跌": {
+      "n": 4,
+      "mean": 1.67,
+      "median": 4.36,
+      "win": 0.75,
+      "win_after_cost": 0.75
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 1,
+      "mean": -18.51,
+      "median": -18.51,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 3,
+      "mean": 0.28,
+      "median": 6.07,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 2,
+      "mean": 3.69,
+      "median": 3.69,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 10,
+      "mean": 1.61,
+      "median": 0.62,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 3,
+      "mean": -6.38,
+      "median": -4.45,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 9,
+      "mean": -5.57,
+      "median": -9.59,
+      "win": 0.222,
+      "win_after_cost": 0.222
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 9,
+      "mean": -2.9,
+      "median": -10.14,
+      "win": 0.222,
+      "win_after_cost": 0.222
+     }
+    }
+   }
+  },
+  {
+   "name": "伺服器ODM",
+   "members": [
+    "2317",
+    "2382",
+    "6669"
+   ],
+   "days": {
+    "國外在動": 265,
+    "國外抗跌": 20,
+    "平常": 470
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 52,
+      "mean": 0.69,
+      "median": 0.73,
+      "win": 0.538,
+      "win_after_cost": 0.538
+     },
+     "國外抗跌": {
+      "n": 7,
+      "mean": 1.22,
+      "median": 1.77,
+      "win": 0.714,
+      "win_after_cost": 0.714
+     },
+     "平常": {
+      "n": 91,
+      "mean": 0.09,
+      "median": -0.03,
+      "win": 0.495,
+      "win_after_cost": 0.484
+     },
+     "全部": {
+      "n": 150,
+      "mean": 0.35,
+      "median": 0.62,
+      "win": 0.52,
+      "win_after_cost": 0.513
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 11,
+      "mean": 2.19,
+      "median": 2.09,
+      "win": 0.545,
+      "win_after_cost": 0.545
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": -1.1,
+      "median": -1.21,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "平常": {
+      "n": 23,
+      "mean": 1.03,
+      "median": 0.24,
+      "win": 0.522,
+      "win_after_cost": 0.478
+     },
+     "全部": {
+      "n": 37,
+      "mean": 1.2,
+      "median": -0.48,
+      "win": 0.486,
+      "win_after_cost": 0.459
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 1,
+      "mean": -8.55,
+      "median": -8.55,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 11,
+      "mean": 6.16,
+      "median": 10.86,
+      "win": 0.727,
+      "win_after_cost": 0.727
+     },
+     "全部": {
+      "n": 12,
+      "mean": 4.93,
+      "median": 9.22,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 37,
+      "mean": 0.75,
+      "median": 0.03,
+      "win": 0.514,
+      "win_after_cost": 0.486
+     },
+     "國外抗跌": {
+      "n": 9,
+      "mean": 2.73,
+      "median": 1.77,
+      "win": 0.889,
+      "win_after_cost": 0.889
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 20,
+      "mean": 1.64,
+      "median": 0.65,
+      "win": 0.55,
+      "win_after_cost": 0.55
+     },
+     "國外抗跌": {
+      "n": 5,
+      "mean": 6.18,
+      "median": 5.2,
+      "win": 0.8,
+      "win_after_cost": 0.6
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 10,
+      "mean": 3.78,
+      "median": 5.85,
+      "win": 0.6,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 4,
+      "mean": 10.87,
+      "median": 9.0,
+      "win": 0.75,
+      "win_after_cost": 0.75
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 2,
+      "mean": -3.28,
+      "median": -3.28,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": -0.85,
+      "median": -0.85,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "平常": {
+      "n": 1,
+      "mean": 10.6,
+      "median": 10.6,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 6,
+      "mean": 5.52,
+      "median": 4.24,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 6,
+      "mean": -2.49,
+      "median": -5.19,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 2,
+      "mean": 2.37,
+      "median": 2.37,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 10,
+      "mean": 1.72,
+      "median": 0.94,
+      "win": 0.6,
+      "win_after_cost": 0.5
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 1,
+      "mean": -7.2,
+      "median": -7.2,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 2,
+      "mean": -1.22,
+      "median": -1.22,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "平常": {
+      "n": 6,
+      "mean": 1.78,
+      "median": 0.69,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    }
+   }
+  },
+  {
+   "name": "光通訊元件/雷射",
+   "members": [
+    "3081",
+    "2455",
+    "4979"
+   ],
+   "days": {
+    "國外在動": 318,
+    "國外抗跌": 5,
+    "平常": 432
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 60,
+      "mean": 2.62,
+      "median": 2.55,
+      "win": 0.617,
+      "win_after_cost": 0.6
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": 0.22,
+      "median": 0.22,
+      "win": 1.0,
+      "win_after_cost": 0.0
+     },
+     "平常": {
+      "n": 89,
+      "mean": 0.18,
+      "median": 0.03,
+      "win": 0.506,
+      "win_after_cost": 0.494
+     },
+     "全部": {
+      "n": 150,
+      "mean": 1.16,
+      "median": 0.58,
+      "win": 0.553,
+      "win_after_cost": 0.533
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 15,
+      "mean": 7.2,
+      "median": 8.54,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 22,
+      "mean": 4.37,
+      "median": 0.77,
+      "win": 0.636,
+      "win_after_cost": 0.591
+     },
+     "全部": {
+      "n": 37,
+      "mean": 5.51,
+      "median": 3.55,
+      "win": 0.649,
+      "win_after_cost": 0.622
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 7,
+      "mean": 26.44,
+      "median": 23.67,
+      "win": 0.857,
+      "win_after_cost": 0.857
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 5,
+      "mean": 7.36,
+      "median": -4.13,
+      "win": 0.4,
+      "win_after_cost": 0.4
+     },
+     "全部": {
+      "n": 12,
+      "mean": 18.49,
+      "median": 7.04,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 33,
+      "mean": 0.68,
+      "median": 0.66,
+      "win": 0.515,
+      "win_after_cost": 0.515
+     },
+     "國外抗跌": {
+      "n": 5,
+      "mean": 2.33,
+      "median": 2.31,
+      "win": 0.8,
+      "win_after_cost": 0.6
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 19,
+      "mean": 5.87,
+      "median": 7.4,
+      "win": 0.632,
+      "win_after_cost": 0.632
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": 15.08,
+      "median": 5.63,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 9,
+      "mean": 25.67,
+      "median": 29.63,
+      "win": 0.778,
+      "win_after_cost": 0.778
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": 26.14,
+      "median": 21.84,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 2,
+      "mean": -8.23,
+      "median": -8.23,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 2,
+      "mean": 0.43,
+      "median": 0.43,
+      "win": 1.0,
+      "win_after_cost": 0.5
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 5,
+      "mean": 12.13,
+      "median": 7.04,
+      "win": 0.8,
+      "win_after_cost": 0.8
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 7,
+      "mean": 4.99,
+      "median": 3.55,
+      "win": 0.571,
+      "win_after_cost": 0.571
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 4,
+      "mean": 6.8,
+      "median": 13.88,
+      "win": 0.75,
+      "win_after_cost": 0.75
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 8,
+      "mean": -0.34,
+      "median": -0.34,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 4,
+      "mean": 9.15,
+      "median": 13.93,
+      "win": 0.75,
+      "win_after_cost": 0.75
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 5,
+      "mean": 12.59,
+      "median": 6.18,
+      "win": 0.8,
+      "win_after_cost": 0.8
+     }
+    }
+   }
+  },
+  {
+   "name": "光纖陣列/CPO元件",
+   "members": [
+    "3163",
+    "3363"
+   ],
+   "days": {
+    "國外在動": 290,
+    "國外抗跌": 9,
+    "平常": 456
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 59,
+      "mean": 3.26,
+      "median": 2.39,
+      "win": 0.661,
+      "win_after_cost": 0.661
+     },
+     "國外抗跌": {
+      "n": 5,
+      "mean": 1.17,
+      "median": -0.62,
+      "win": 0.4,
+      "win_after_cost": 0.4
+     },
+     "平常": {
+      "n": 86,
+      "mean": 0.11,
+      "median": -0.21,
+      "win": 0.488,
+      "win_after_cost": 0.465
+     },
+     "全部": {
+      "n": 150,
+      "mean": 1.38,
+      "median": 0.89,
+      "win": 0.553,
+      "win_after_cost": 0.54
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 16,
+      "mean": 10.39,
+      "median": 8.08,
+      "win": 0.75,
+      "win_after_cost": 0.75
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": 3.63,
+      "median": 3.63,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "平常": {
+      "n": 20,
+      "mean": 1.7,
+      "median": -2.6,
+      "win": 0.4,
+      "win_after_cost": 0.4
+     },
+     "全部": {
+      "n": 37,
+      "mean": 5.51,
+      "median": 2.86,
+      "win": 0.568,
+      "win_after_cost": 0.568
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 5,
+      "mean": 9.8,
+      "median": 20.5,
+      "win": 0.8,
+      "win_after_cost": 0.8
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 7,
+      "mean": 24.11,
+      "median": 18.97,
+      "win": 0.857,
+      "win_after_cost": 0.857
+     },
+     "全部": {
+      "n": 12,
+      "mean": 18.15,
+      "median": 19.73,
+      "win": 0.833,
+      "win_after_cost": 0.833
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 38,
+      "mean": -0.38,
+      "median": 0.39,
+      "win": 0.526,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 6,
+      "mean": 1.03,
+      "median": 1.01,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 20,
+      "mean": 8.81,
+      "median": 7.11,
+      "win": 0.7,
+      "win_after_cost": 0.7
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": 7.86,
+      "median": 4.96,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 9,
+      "mean": 28.95,
+      "median": 27.2,
+      "win": 0.889,
+      "win_after_cost": 0.889
+     },
+     "國外抗跌": {
+      "n": 2,
+      "mean": 7.53,
+      "median": 7.53,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 4,
+      "mean": -3.03,
+      "median": -2.49,
+      "win": 0.25,
+      "win_after_cost": 0.25
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 7,
+      "mean": 14.11,
+      "median": 7.37,
+      "win": 0.857,
+      "win_after_cost": 0.857
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": 3.63,
+      "median": 3.63,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "平常": {
+      "n": 4,
+      "mean": 3.71,
+      "median": 2.97,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 6,
+      "mean": 9.05,
+      "median": 7.42,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 6,
+      "mean": -0.24,
+      "median": -3.04,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 3,
+      "mean": 4.42,
+      "median": 9.61,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 6,
+      "mean": 5.44,
+      "median": -1.93,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    }
+   }
+  },
+  {
+   "name": "光電封裝/雷射封測",
+   "members": [
+    "3450"
+   ],
+   "days": {
+    "國外在動": 283,
+    "國外抗跌": 12,
+    "平常": 460
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 55,
+      "mean": 1.67,
+      "median": 0.71,
+      "win": 0.545,
+      "win_after_cost": 0.545
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": 13.25,
+      "median": 13.25,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "平常": {
+      "n": 94,
+      "mean": 0.81,
+      "median": -1.12,
+      "win": 0.447,
+      "win_after_cost": 0.436
+     },
+     "全部": {
+      "n": 150,
+      "mean": 1.21,
+      "median": -0.2,
+      "win": 0.487,
+      "win_after_cost": 0.48
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 14,
+      "mean": 3.21,
+      "median": 0.38,
+      "win": 0.571,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 23,
+      "mean": 6.52,
+      "median": 4.46,
+      "win": 0.565,
+      "win_after_cost": 0.565
+     },
+     "全部": {
+      "n": 37,
+      "mean": 5.27,
+      "median": 0.9,
+      "win": 0.568,
+      "win_after_cost": 0.541
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 9,
+      "mean": 18.34,
+      "median": -2.5,
+      "win": 0.444,
+      "win_after_cost": 0.444
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 3,
+      "mean": 21.69,
+      "median": 11.29,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     },
+     "全部": {
+      "n": 12,
+      "mean": 19.18,
+      "median": 3.36,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 34,
+      "mean": 3.81,
+      "median": 1.54,
+      "win": 0.706,
+      "win_after_cost": 0.647
+     },
+     "國外抗跌": {
+      "n": 7,
+      "mean": 5.03,
+      "median": 1.82,
+      "win": 0.571,
+      "win_after_cost": 0.571
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 20,
+      "mean": 8.32,
+      "median": 1.42,
+      "win": 0.55,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": 8.32,
+      "median": 2.79,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 8,
+      "mean": 18.25,
+      "median": 13.01,
+      "win": 0.625,
+      "win_after_cost": 0.625
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": 15.22,
+      "median": 2.41,
+      "win": 0.667,
+      "win_after_cost": 0.667
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 1,
+      "mean": 1.53,
+      "median": 1.53,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 3,
+      "mean": -3.47,
+      "median": -1.21,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 5,
+      "mean": 11.38,
+      "median": 13.5,
+      "win": 0.8,
+      "win_after_cost": 0.8
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 7,
+      "mean": 17.63,
+      "median": 21.95,
+      "win": 0.857,
+      "win_after_cost": 0.857
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 6,
+      "mean": 0.31,
+      "median": -3.39,
+      "win": 0.333,
+      "win_after_cost": 0.167
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 6,
+      "mean": -5.04,
+      "median": -7.12,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 2,
+      "mean": -7.63,
+      "median": -7.63,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 7,
+      "mean": 9.59,
+      "median": 14.09,
+      "win": 0.571,
+      "win_after_cost": 0.571
+     }
+    }
+   }
+  },
+  {
+   "name": "高速銅纜/連接器",
+   "members": [
+    "3665",
+    "3533"
+   ],
+   "days": {
+    "國外在動": 134,
+    "國外抗跌": 53,
+    "平常": 568
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 21,
+      "mean": 0.17,
+      "median": -0.14,
+      "win": 0.476,
+      "win_after_cost": 0.476
+     },
+     "國外抗跌": {
+      "n": 10,
+      "mean": 2.43,
+      "median": 2.14,
+      "win": 0.6,
+      "win_after_cost": 0.6
+     },
+     "平常": {
+      "n": 119,
+      "mean": 0.64,
+      "median": 0.2,
+      "win": 0.529,
+      "win_after_cost": 0.487
+     },
+     "全部": {
+      "n": 150,
+      "mean": 0.69,
+      "median": 0.22,
+      "win": 0.527,
+      "win_after_cost": 0.493
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 4,
+      "mean": 5.67,
+      "median": 4.53,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": -10.0,
+      "median": -10.0,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "平常": {
+      "n": 32,
+      "mean": 2.93,
+      "median": 2.96,
+      "win": 0.562,
+      "win_after_cost": 0.562
+     },
+     "全部": {
+      "n": 37,
+      "mean": 2.88,
+      "median": 3.12,
+      "win": 0.595,
+      "win_after_cost": 0.595
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 1,
+      "mean": -3.14,
+      "median": -3.14,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 11,
+      "mean": 10.31,
+      "median": 14.82,
+      "win": 0.818,
+      "win_after_cost": 0.818
+     },
+     "全部": {
+      "n": 12,
+      "mean": 9.19,
+      "median": 10.93,
+      "win": 0.75,
+      "win_after_cost": 0.75
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 19,
+      "mean": -1.38,
+      "median": -2.15,
+      "win": 0.474,
+      "win_after_cost": 0.421
+     },
+     "國外抗跌": {
+      "n": 7,
+      "mean": 3.06,
+      "median": 0.66,
+      "win": 0.571,
+      "win_after_cost": 0.571
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 13,
+      "mean": -0.29,
+      "median": -0.11,
+      "win": 0.462,
+      "win_after_cost": 0.462
+     },
+     "國外抗跌": {
+      "n": 4,
+      "mean": 6.37,
+      "median": 2.65,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 8,
+      "mean": 7.39,
+      "median": 8.87,
+      "win": 0.625,
+      "win_after_cost": 0.625
+     },
+     "國外抗跌": {
+      "n": 3,
+      "mean": 17.6,
+      "median": 19.61,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 4,
+      "mean": -0.6,
+      "median": -0.83,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 2,
+      "mean": 4.53,
+      "median": 4.53,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 10,
+      "mean": 6.63,
+      "median": 7.97,
+      "win": 0.7,
+      "win_after_cost": 0.7
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 1,
+      "mean": 1.05,
+      "median": 1.05,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 11,
+      "mean": 1.87,
+      "median": 3.12,
+      "win": 0.545,
+      "win_after_cost": 0.545
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 1,
+      "mean": 12.59,
+      "median": 12.59,
+      "win": 1.0,
+      "win_after_cost": 1.0
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": -10.0,
+      "median": -10.0,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "平常": {
+      "n": 7,
+      "mean": 1.32,
+      "median": -0.67,
+      "win": 0.429,
+      "win_after_cost": 0.429
+     }
+    }
+   }
+  },
+  {
+   "name": "網通交換器",
+   "members": [
+    "2345",
+    "3596",
+    "5388"
+   ],
+   "days": {
+    "國外在動": 138,
+    "國外抗跌": 46,
+    "平常": 571
+   },
+   "blocks": {
+    "5": {
+     "國外在動": {
+      "n": 27,
+      "mean": 0.08,
+      "median": 0.17,
+      "win": 0.519,
+      "win_after_cost": 0.481
+     },
+     "國外抗跌": {
+      "n": 8,
+      "mean": 1.12,
+      "median": 1.06,
+      "win": 0.625,
+      "win_after_cost": 0.625
+     },
+     "平常": {
+      "n": 115,
+      "mean": -0.23,
+      "median": -0.35,
+      "win": 0.435,
+      "win_after_cost": 0.417
+     },
+     "全部": {
+      "n": 150,
+      "mean": -0.1,
+      "median": -0.25,
+      "win": 0.46,
+      "win_after_cost": 0.44
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 10,
+      "mean": -0.34,
+      "median": -0.37,
+      "win": 0.5,
+      "win_after_cost": 0.4
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": 0.29,
+      "median": 0.29,
+      "win": 1.0,
+      "win_after_cost": 0.0
+     },
+     "平常": {
+      "n": 26,
+      "mean": -0.53,
+      "median": -0.88,
+      "win": 0.385,
+      "win_after_cost": 0.385
+     },
+     "全部": {
+      "n": 37,
+      "mean": -0.46,
+      "median": -0.79,
+      "win": 0.432,
+      "win_after_cost": 0.378
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 3,
+      "mean": 11.72,
+      "median": 7.9,
+      "win": 1.0,
+      "win_after_cost": 0.667
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": -8.08,
+      "median": -8.08,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "平常": {
+      "n": 8,
+      "mean": -5.4,
+      "median": -5.94,
+      "win": 0.125,
+      "win_after_cost": 0.125
+     },
+     "全部": {
+      "n": 12,
+      "mean": -1.34,
+      "median": -3.27,
+      "win": 0.333,
+      "win_after_cost": 0.25
+     }
+    }
+   },
+   "events": {
+    "5": {
+     "國外在動": {
+      "n": 29,
+      "mean": 0.81,
+      "median": 0.18,
+      "win": 0.517,
+      "win_after_cost": 0.483
+     },
+     "國外抗跌": {
+      "n": 8,
+      "mean": 1.2,
+      "median": 1.73,
+      "win": 0.75,
+      "win_after_cost": 0.625
+     }
+    },
+    "20": {
+     "國外在動": {
+      "n": 16,
+      "mean": 1.25,
+      "median": -0.25,
+      "win": 0.438,
+      "win_after_cost": 0.375
+     },
+     "國外抗跌": {
+      "n": 5,
+      "mean": -0.16,
+      "median": -2.07,
+      "win": 0.4,
+      "win_after_cost": 0.2
+     }
+    },
+    "60": {
+     "國外在動": {
+      "n": 9,
+      "mean": -2.82,
+      "median": -2.15,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     },
+     "國外抗跌": {
+      "n": 4,
+      "mean": -3.19,
+      "median": -1.25,
+      "win": 0.5,
+      "win_after_cost": 0.5
+     }
+    }
+   },
+   "by_year": {
+    "2023": {
+     "國外在動": {
+      "n": 1,
+      "mean": -1.99,
+      "median": -1.99,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 3,
+      "mean": 0.26,
+      "median": -0.05,
+      "win": 0.333,
+      "win_after_cost": 0.333
+     }
+    },
+    "2024": {
+     "國外在動": {
+      "n": 5,
+      "mean": 4.72,
+      "median": 4.9,
+      "win": 0.8,
+      "win_after_cost": 0.8
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 7,
+      "mean": -1.76,
+      "median": -2.86,
+      "win": 0.143,
+      "win_after_cost": 0.143
+     }
+    },
+    "2025": {
+     "國外在動": {
+      "n": 1,
+      "mean": 0.32,
+      "median": 0.32,
+      "win": 1.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "win": null,
+      "win_after_cost": null
+     },
+     "平常": {
+      "n": 11,
+      "mean": -1.11,
+      "median": -0.56,
+      "win": 0.455,
+      "win_after_cost": 0.455
+     }
+    },
+    "2026": {
+     "國外在動": {
+      "n": 3,
+      "mean": -8.46,
+      "median": -10.75,
+      "win": 0.0,
+      "win_after_cost": 0.0
+     },
+     "國外抗跌": {
+      "n": 1,
+      "mean": 0.29,
+      "median": 0.29,
+      "win": 1.0,
+      "win_after_cost": 0.0
+     },
+     "平常": {
+      "n": 5,
+      "mean": 1.98,
+      "median": 1.28,
+      "win": 0.6,
+      "win_after_cost": 0.6
+     }
+    }
+   }
+  }
+ ],
+ "pooled": {
+  "國外在動": {
+   "blocks": 37,
+   "mean_diff": 2.27,
+   "t": 1.96,
+   "positive_share": 0.68
+  },
+  "國外抗跌": {
+   "blocks": 7,
+   "mean_diff": 1.2,
+   "t": 0.69,
+   "positive_share": 0.57
+  }
+ }
+}
