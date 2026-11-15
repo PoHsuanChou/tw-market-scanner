@@ -56,6 +56,12 @@ jobs:
         continue-on-error: true
         run: python -m scanner.theme_peers
 
+      # 網站「大盤溫度」的創新高家數、主題頁的抗跌名單與族群營收趨勢。只用 history/ 已有資料，只顯示
+      - name: Breadth and theme revenue
+        if: always()
+        continue-on-error: true
+        run: python -m scanner.breadth
+
       - name: Commit data
         if: always()
         run: |
