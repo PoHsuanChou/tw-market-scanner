@@ -93,6 +93,8 @@ def fetch_all(root="."):
     data_date = next((v["date"] for v in twse_day.values() if v["date"]), None)
     # OpenAPI 的 STOCK_DAY_ALL / MI_MARGN 要到隔天凌晨才更新，傍晚掃描時還是前一天。
     # 上櫃的 OpenAPI 當天就有；若上櫃日期比較新，上市改用帶日期的 MI_INDEX / MI_MARGN 補上。
+    # 帶日期的融資融券要到晚上才公布（17:30 常常還沒有）：行情有就先換日期、上市融資融券留空，晚上那次掃描再補。
+    # 行情也還沒有就整次跳過，不要退回去重寫前一天（2026-10～11 就是這樣把前一天的上櫃資料蓋掉的）。
     twse_margin_dated = None
     tpex_dates = {v.get("date") for v in N.tpex_day(raw["tpex_day"]).values() if v.get("date")} if raw.get("tpex_day") else set()
     newer = max(tpex_dates) if tpex_dates else None
@@ -104,10 +106,18 @@ def fetch_all(root="."):
         mg_new = _try(st, "twse_margin_dated", lambda: get_json(
             MI_MARGN_URL, params={"date": dnum, "selectType": "STOCK", "response": "json"}))
         mg_new = N.twse_margin_dated(mg_new) if mg_new else {}
-        if day_new and mg_new:
-            log.info(f"OpenAPI 上市還停在 {data_date}，改用帶日期版 {newer}")
-            twse_day, data_date, twse_margin_dated = day_new, newer, mg_new
-            st["twse_day_dated"] = {"ok": True, "rows": len(day_new), "date": newer}
+        if not day_new:
+            status["data_date"] = None
+            status["skipped"] = (f"上櫃已經是 {newer}，上市的 OpenAPI 還停在 {data_date}，帶日期的上市行情也還沒公布；"
+                                 f"這次不寫入（避免把 {data_date} 的上櫃資料蓋掉），下一次掃描再抓")
+            log.warning(status["skipped"])
+            _write_status(root, status)
+            return status
+        log.info(f"OpenAPI 上市還停在 {data_date}，改用帶日期版 {newer}")
+        twse_day, data_date, twse_margin_dated = day_new, newer, mg_new
+        st["twse_day_dated"] = {"ok": True, "rows": len(day_new), "date": newer}
+        if not mg_new:
+            st["twse_margin_dated"]["note"] = "帶日期的上市融資融券還沒公布，先留空；晚上的掃描會補（history 只會被更完整的資料覆寫）"
     status["data_date"] = data_date
     st["twse_day"].update(rows=len(twse_day), date=data_date)
 

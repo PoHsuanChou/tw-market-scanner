@@ -3,6 +3,9 @@ name: Daily Scan
 on:
   schedule:
     - cron: '30 9 * * 1-5'   # UTC 09:30 = 台灣 17:30，平日（交易所與集保資料收盤後已出）
+    # UTC 14:30 = 台灣 22:30：補上市融資融券（帶日期版晚上才公布，17:30 那次會先留空）。
+    # 同一天的 history 只會被更完整的資料覆寫，當週推薦寫過就不再寫，所以重跑是安全的
+    - cron: '30 14 * * 1-5'
   workflow_dispatch:
     inputs:
       force_picks:

@@ -66,6 +66,28 @@ def margin_continuity(root, data_date, df):
     return {"compared": int(len(j)), "match_ratio": round(float(ok), 4), "prev_file": prev_files[-1]}
 
 
+COMPLETENESS_COLS = ("close", "margin_bal", "foreign_net")
+
+
+def completeness(df):
+    """{市場: {rows, close, margin_bal, foreign_net}}：每個市場的列數與各欄有值的筆數。"""
+    out = {}
+    for m, g in df.groupby("market"):
+        out[m] = {"rows": int(len(g)), **{c: int(g[c].notna().sum()) for c in COMPLETENESS_COLS}}
+    return out
+
+
+def worse_than(new, old, tol=0.98):
+    """new 是否比 old 少東西（任一市場的列數或任一欄有值的筆數 < old × tol）。回傳原因清單，空的就是不比較差。"""
+    why = []
+    for m, o in old.items():
+        n = new.get(m, {})
+        for k, v in o.items():
+            if v and n.get(k, 0) < v * tol:
+                why.append(f"{m} {k} {n.get(k, 0)} < 原本 {v}")
+    return why
+
+
 def write_all(root, data_date, day, margin, inst, profile, rev, ind_map, tdcc, inst_markets=(), flags=None):
     out = {}
     df = build_daily(data_date, day, margin, inst, profile, rev, ind_map, inst_markets, flags)
@@ -77,7 +99,15 @@ def write_all(root, data_date, day, margin, inst, profile, rev, ind_map, tdcc, i
         for c in ("margin_bal", "margin_prev", "short_bal", "short_prev"):
             df[c] = None
         out["margin_dropped"] = True
-    df.to_csv(_path(root, "daily", f"{data_date}.csv.gz"), index=False, compression={"method": "gzip", "mtime": 0})
+    # 同一天已經有檔案：新的只要有任何一部分比較少（例如少了整個上櫃）就不覆寫，保留原本的
+    p = _path(root, "daily", f"{data_date}.csv.gz")
+    if os.path.exists(p):
+        why = worse_than(completeness(df), completeness(pd.read_csv(p, dtype={"code": str})))
+        if why:
+            log.warning(f"{data_date} 已有比較完整的資料，不覆寫：{'；'.join(why)}")
+            out["daily_kept_existing"] = why
+    if "daily_kept_existing" not in out:
+        df.to_csv(p, index=False, compression={"method": "gzip", "mtime": 0})
 
     # 月營收：依資料年月存；同一個月只保留最新抓到的版本
     by_ym = {}

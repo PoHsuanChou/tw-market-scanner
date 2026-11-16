@@ -10,6 +10,8 @@ GitHub 預設會對「失敗的 workflow」寄 email，不需要在公開 repo �
   3. 證交所有交易資料、但我們還沒收到的日子（不看今天，避免公布時間差造成誤報）
   4. 市場資料（美股、匯率）有沒有抓到最新；是不是沿用舊的
   5. 美股領先指標有沒有正常更新
+  6. 最近幾天的歷史資料有沒有少掉整個市場（上市或上櫃），或融資融券幾乎全空
+     （2026-10～11 曾經每天傍晚把前一天的上櫃資料蓋掉，前 5 項都看不出來）
 
 用法：python -m scanner.health [--root .]   # 有問題時 exit code 1
 """
@@ -18,6 +20,8 @@ import json
 import logging
 import argparse
 from datetime import datetime, date, timedelta, timezone
+
+import pandas as pd
 
 from scanner.http import get_json, FetchError
 from scanner import normalize as N
@@ -60,6 +64,31 @@ def twse_has_trading(d, fetch=get_json):
     return bool(day)
 
 
+def history_gaps(root, days=6, min_margin=0.5):
+    """最近 days 個交易日的 history/daily：少了上市或上櫃 → error；某市場融資餘額有值的不到一半 → warn。
+    最新一天不檢查融資（傍晚掃描時上市融資融券常還沒公布，要等晚上那次補）。"""
+    d = os.path.join(root, "history", "daily")
+    if not os.path.isdir(d):
+        return []
+    files = sorted(f for f in os.listdir(d) if f.endswith(".csv.gz"))[-days:]
+    out = []
+    for i, f in enumerate(files):
+        day = f[:-7]
+        try:
+            df = pd.read_csv(os.path.join(d, f), usecols=["market", "margin_bal"])
+        except Exception as e:  # noqa: BLE001
+            out.append(("error", f"history_{day}", f"{day} 的歷史資料讀不出來：{e}"))
+            continue
+        for m, name in (("TWSE", "上市"), ("TPEx", "上櫃")):
+            g = df[df["market"] == m]
+            if g.empty:
+                out.append(("error", f"history_{day}_{m}", f"{day} 的歷史資料沒有任何{name}股票，那天的評分與主題會不完整。"))
+            elif i < len(files) - 1 and g["margin_bal"].notna().mean() < min_margin:
+                out.append(("warn", f"history_{day}_{m}_margin",
+                            f"{day} 的{name}融資融券幾乎是空的（晚上補資料的那次掃描可能沒跑）。"))
+    return out
+
+
 def check(root=".", now=None, has_trading=twse_has_trading):
     now = (now or datetime.now(timezone.utc)).astimezone(TW)
     today = now.date()
@@ -85,6 +114,8 @@ def check(root=".", now=None, has_trading=twse_has_trading):
             add("warn", f"source_{k}_warn", f"{SOURCE_NAME[k]}：{v['warning']}")
     if fs.get("fatal"):
         add("error", "fatal", f"每日掃描中止：{fs['fatal']}")
+    if fs.get("skipped"):
+        add("warn", "scan_skipped", f"這次掃描跳過：{fs['skipped']}")
     # 3. 證交所有、我們沒有的交易日（不含今天）
     data_date = fs.get("data_date")
     if data_date:
@@ -115,6 +146,10 @@ def check(root=".", now=None, has_trading=twse_has_trading):
             add("warn", "us_failed", f"美股領先指標更新失敗：{us.get('reason', '原因不明')}")
         elif at and (now - at.astimezone(TW)).days >= 4:
             add("warn", "us_old", f"美股領先指標已經 {(now - at.astimezone(TW)).days} 天沒有更新（排程是週二到週六）")
+
+    # 6. 最近的歷史資料是否完整
+    for level, code, msg in history_gaps(root):
+        add(level, code, msg)
 
     out = {"checked_at": now.astimezone(timezone.utc).isoformat(timespec="seconds"), "ok": not problems,
            "problems": problems}

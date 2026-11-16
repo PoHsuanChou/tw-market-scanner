@@ -76,6 +76,9 @@ def run(root=".", do_fetch=True, force_picks=False):
     rules = score.load_rules(root)
     if do_fetch:
         status = fetch.fetch_all(root)
+        if status.get("skipped"):
+            print(status["skipped"])
+            return None
         data_date = status.get("data_date")
         if status.get("fatal") or not data_date:
             raise SystemExit(status.get("fatal", "沒有資料日期"))
@@ -121,10 +124,14 @@ def run(root=".", do_fetch=True, force_picks=False):
     if force_picks or picks_mod.is_week_close(data_date):
         week_picks, universe = picks_mod.select(df, inds, rules, data_date, universes)
         stamp = [{"rules_version": ver, **p} for p in week_picks]
-        # 同一週已經推薦過就不再寫（key = week+code+variant，週五重跑不會改變當週結果）
+        # 同一週某個版本已經推薦過，就整個版本都不再寫：週五重跑（或晚上補資料的那次）不能改變當週結果，
+        # 也不能用不同的股票重複編號（只看 week+code+variant 的話，資料不同時會多寫進新的股票）
+        done = {(r["week"], r.get("variant")) for r in ledger.read(root, "picks")}
+        stamp = [p for p in stamp if (p["week"], p.get("variant")) not in done]
         n_pick = ledger.append(root, "picks", stamp, key=("week", "code", "variant"))
-        n_rej = ledger.append(root, "pick_universe", [{"rules_version": ver, **r} for r in universe],
-                              key=("week", "code"))
+        done_u = {r["week"] for r in ledger.read(root, "pick_universe")}
+        n_rej = ledger.append(root, "pick_universe", [{"rules_version": ver, **r} for r in universe
+                                                      if r["week"] not in done_u], key=("week", "code"))
     else:
         log.info(f"{data_date} 不是週五，今天不產生推薦")
 

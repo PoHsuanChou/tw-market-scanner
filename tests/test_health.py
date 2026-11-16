@@ -84,3 +84,25 @@ def test_us_leaders_failure_and_staleness(root):
     old = ran - timedelta(days=6)
     _write(root, "us_leaders_status.json", {"ok": True, "at": old.astimezone(timezone.utc).isoformat()})
     assert "us_old" in codes(health.check(root, MON_EVENING, has_trading=lambda d: False))
+
+
+def test_history_missing_a_whole_market_is_an_error_and_empty_margin_a_warning(root):
+    import pandas as pd
+    d = os.path.join(root, "history", "daily")
+    os.makedirs(d)
+    full = pd.DataFrame({"market": ["TWSE", "TPEx"], "margin_bal": [1.0, 2.0]})
+    full.to_csv(os.path.join(d, "2026-11-10.csv.gz"), index=False)
+    pd.DataFrame({"market": ["TWSE"], "margin_bal": [1.0]}).to_csv(os.path.join(d, "2026-11-11.csv.gz"), index=False)
+    pd.DataFrame({"market": ["TWSE", "TPEx"], "margin_bal": [None, 2.0]}).to_csv(os.path.join(d, "2026-11-12.csv.gz"), index=False)
+    pd.DataFrame({"market": ["TWSE", "TPEx"], "margin_bal": [None, 2.0]}).to_csv(os.path.join(d, "2026-11-13.csv.gz"), index=False)
+    got = {c: lvl for lvl, c, _ in health.history_gaps(root)}
+    assert got == {"history_2026-11-11_TPEx": "error", "history_2026-11-12_TWSE_margin": "warn"}   # 最新一天的融資不檢查
+
+
+def test_skipped_scan_is_reported(root):
+    ran = datetime(2026, 10, 26, 17, 31, tzinfo=TW)
+    st = _ok_status(ran)
+    st.update(data_date=None, skipped="上市還沒公布")
+    _write(root, "fetch_status.json", st)
+    _write(root, "market.json", _market(ran))
+    assert "scan_skipped" in codes(health.check(root, MON_EVENING, has_trading=lambda d: False))

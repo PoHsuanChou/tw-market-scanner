@@ -22,6 +22,7 @@
   python -m scanner.replay revenue --from 2025-10 --to 2026-09                       # 補月營收
   python -m scanner.replay score  --from 2026-02-01 --to 2026-10-22                  # 重算並寫 ledger_replay
   python -m scanner.replay verify --date 2026-10-22                                  # 帶日期版 vs 當日版逐欄比對
+  python -m scanner.replay repair                                                    # 補回少了上市或上櫃的日子
 """
 import io
 import os
@@ -265,10 +266,58 @@ def cmd_verify(root, d, sleep):
                      ensure_ascii=False, indent=1))
 
 
+def missing_market_days(root):
+    """history/daily 裡少了上市或上櫃的日子：[(日期, [缺的市場])]。"""
+    out = []
+    for d in score.trading_dates(root):
+        m = set(pd.read_csv(os.path.join(root, "history", "daily", f"{d}.csv.gz"), usecols=["market"])["market"])
+        miss = [x for x in ("TWSE", "TPEx") if x not in m]
+        if miss:
+            out.append((d, miss))
+    return out
+
+
+def _industry_from_complete(root):
+    """最近一個上市、上櫃都有的檔案的「代號 → 產業」（補資料用；最新一天可能正好是缺的那天）。"""
+    for d in reversed(score.trading_dates(root)):
+        df = pd.read_csv(os.path.join(root, "history", "daily", f"{d}.csv.gz"), dtype={"code": str})
+        if {"TWSE", "TPEx"} <= set(df["market"]):
+            df = df[df["industry"].notna() & (df["industry"] != "")]
+            return dict(zip(df["code"], df["industry"]))
+    return {}
+
+
+def cmd_repair(root, sleep):
+    """把少了整個市場的日子補回來（2026-10～11 傍晚掃描曾把前一天的上櫃資料蓋掉）。
+    只補缺的那個市場、用帶日期的官方資料；原本有的那個市場一列都不動。"""
+    days = missing_market_days(root)
+    if not days:
+        log.info("沒有少市場的日子")
+        return []
+    mapping = _industry_from_complete(root)
+    done = []
+    for d, miss in days:
+        kind, res = fetch_one_day(d, sleep)
+        if kind != "ok":
+            log.warning(f"{d} 補不到（{kind}）：{res}")
+            continue
+        p = os.path.join(root, "history", "daily", f"{d}.csv.gz")
+        old = pd.read_csv(p, dtype={"code": str})
+        day = {c: v for c, v in res["day"].items() if v.get("market") in miss}
+        add = history.build_daily(d, day, res["margin"], {c: res["inst"][c] for c in day if c in res["inst"]},
+                                  {}, {}, {}, set(miss), None)
+        add["industry"] = add["code"].map(mapping).fillna("")
+        new = pd.concat([old, add], ignore_index=True).sort_values(["market", "code"]).reset_index(drop=True)
+        new.to_csv(p, index=False, compression={"method": "gzip", "mtime": 0})
+        log.info(f"{d}：補上 {'、'.join(miss)} {len(add)} 檔（原本 {len(old)} 檔不動）")
+        done.append((d, miss, len(add)))
+    return done
+
+
 def main():
     logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["fetch", "revenue", "score", "verify"])
+    ap.add_argument("cmd", choices=["fetch", "revenue", "score", "verify", "repair"])
     ap.add_argument("--root", default=".")
     ap.add_argument("--from", dest="start")
     ap.add_argument("--to", dest="end")
@@ -282,6 +331,8 @@ def main():
         cmd_revenue(a.root, a.start, a.end, a.sleep)
     elif a.cmd == "score":
         cmd_score(a.root, a.start, a.end, a.themes_draft)
+    elif a.cmd == "repair":
+        cmd_repair(a.root, a.sleep)
     else:
         cmd_verify(a.root, a.date, a.sleep)
 

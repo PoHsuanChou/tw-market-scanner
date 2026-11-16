@@ -192,3 +192,27 @@ def test_swing_uncapped_keeps_stocks_already_up(root):
     assert capped == ["1002"]                                     # 舊波段版仍擋 20 日漲 ≥ 25%
     assert [p["code"] for p in unc] == ["1002", "1001"]           # 不擋版留下 1001；排序同舊波段版（還沒漲的優先）
     assert [p["sent"] for p in unc] == [True, True] and unc[0]["pick_id"] == "2026-W43-U01"
+
+
+def test_rerun_in_same_week_does_not_add_different_stocks(root, monkeypatch):
+    """週五重跑（或晚上補資料那次）資料略有不同時，當週推薦不能多出新股票、也不能重複編號。"""
+    _send_base_on_disk(root)
+    dates = write_history(root, n_days=90, heroes={str(1000 + i) for i in range(8)})
+    fri = [d for d in dates[25:30] if pd.Timestamp(d).weekday() == 4][0]
+    write_revenue(root, "2025-12", [(str(1000 + i), 40.0, 20.0, "2026-01-01") for i in range(10)])
+    import os
+    for d in dates:
+        if d > fri:
+            os.remove(os.path.join(root, "history", "daily", f"{d}.csv.gz"))
+    run_daily.run(root, do_fetch=False)
+    first = ledger.read(root, "picks")
+    assert first
+    real = picks.select
+
+    def other(*a, **k):                             # 第二次：同一週、同一版本，但挑到另一檔
+        ps, uni = real(*a, **k)
+        return [{**p, "code": "9" + p["code"][1:]} for p in ps], [{**u, "code": "9" + u["code"][1:]} for u in uni]
+    monkeypatch.setattr(run_daily.picks_mod, "select", other)
+    run_daily.run(root, do_fetch=False)
+    assert ledger.read(root, "picks") == first
+    assert all(not r["code"].startswith("9") for r in ledger.read(root, "pick_universe"))
