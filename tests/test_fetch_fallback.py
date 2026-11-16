@@ -1,5 +1,7 @@
 from scanner import fetch
 
+T86 = {"stat": "OK", "fields": ["證券代號", "外陸資買賣超股數(不含外資自營商)", "投信買賣超股數"], "data": [["2330", "1", "1"]]}
+
 
 def test_twse_lagging_openapi_falls_back_to_dated(tmp_path, monkeypatch):
     """上市 OpenAPI 還停在前一天、上櫃已是新的一天 → 上市改用帶日期版，主日期跟上櫃一致。"""
@@ -28,6 +30,8 @@ def test_twse_lagging_openapi_falls_back_to_dated(tmp_path, monkeypatch):
             return mi
         if url == fetch.MI_MARGN_URL:
             return mg
+        if url == fetch.T86_URL:
+            return T86
         return []
     monkeypatch.setattr(fetch, "get_json", fake)
     status = fetch.fetch_all(str(tmp_path))
@@ -58,7 +62,7 @@ def test_margin_not_published_yet_still_moves_to_new_date_and_leaves_margin_blan
 
     def fake(url, params=None, **kw):
         return {fetch.URLS["twse_day"]: TWSE_OLD, fetch.URLS["tpex_day"]: TPEX_NEW, fetch.MI_INDEX_URL: MI_NEW,
-                fetch.MI_MARGN_URL: {"stat": "很抱歉，沒有符合條件的資料!"}}.get(url, [])
+                fetch.MI_MARGN_URL: {"stat": "很抱歉，沒有符合條件的資料!"}, fetch.T86_URL: T86}.get(url, [])
     monkeypatch.setattr(fetch, "get_json", fake)
     status = fetch.fetch_all(str(tmp_path))
     assert status["data_date"] == "2026-11-16" and not status.get("skipped")
@@ -79,3 +83,16 @@ def test_twse_dated_not_published_skips_instead_of_rewriting_previous_day(tmp_pa
     status = fetch.fetch_all(str(tmp_path))
     assert status["skipped"] and status["data_date"] is None
     assert written == []                                                      # 2026-11-13 的檔案沒被碰
+
+
+def test_twse_institutional_not_published_skips_even_if_price_is_out(tmp_path, monkeypatch):
+    """價格有了、上市三大法人（T86）還沒公布：先不寫，不然 B 類訊號會少掉大半、又被 ledger 固定下來。"""
+    written = []
+    _setup(tmp_path, monkeypatch, written)
+
+    def fake(url, params=None, **kw):
+        return {fetch.URLS["twse_day"]: TWSE_OLD, fetch.URLS["tpex_day"]: TPEX_NEW, fetch.MI_INDEX_URL: MI_NEW,
+                fetch.MI_MARGN_URL: {"stat": "OK", "tables": []}, fetch.T86_URL: {"stat": "很抱歉，沒有符合條件的資料!"}}.get(url, [])
+    monkeypatch.setattr(fetch, "get_json", fake)
+    status = fetch.fetch_all(str(tmp_path))
+    assert "T86" in status["skipped"] and status["data_date"] is None and written == []

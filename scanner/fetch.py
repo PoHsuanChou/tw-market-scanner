@@ -141,6 +141,15 @@ def fetch_all(root="."):
             st["twse_t86"] = {"ok": False, "error": f"T86 回應無資料：{payload.get('stat')}"}
         else:
             st.get("twse_t86", {}).update(rows=len(t86))
+    # 上市三大法人還沒公布：B 類訊號會少掉大半（實測 11-16：有訊號的股票 198 → 75、3 個以上訊號 48 → 30），
+    # 而 ledger 只增不改，傍晚寫進去的不完整評分就改不回來 → 這次先不寫，下一次掃描再抓。
+    # （融資融券沒公布不影響評分：同樣實測，拿掉當天融資融券後四類訊號完全一樣，所以不當成必要條件）
+    if data_date and not t86:
+        status["data_date"] = None
+        status["skipped"] = f"上市三大法人（T86）{data_date} 還沒公布，這次不寫入（缺了它法人訊號會大幅變少），下一次掃描再抓"
+        log.warning(status["skipped"])
+        _write_status(root, status)
+        return status
 
     # ---- 其他來源正規化 ----
     twse_margin = twse_margin_dated if twse_margin_dated is not None else (
