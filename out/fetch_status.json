@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-11-13T17:18:56+00:00",
+  "run_at": "2026-11-16T09:30:59+00:00",
   "sources": {
     "twse_day": {
       "ok": true,
@@ -17,8 +17,7 @@
     },
     "tpex_day": {
       "ok": true,
-      "rows": 1020,
-      "date": "2026-11-13"
+      "warning": "日期 ['2026-11-16'] 與主日期 2026-11-13 不一致，該來源欄位留空"
     },
     "tpex_margin": {
       "ok": true,
@@ -27,8 +26,7 @@
     },
     "tpex_inst": {
       "ok": true,
-      "rows": 896,
-      "date": "2026-11-13"
+      "warning": "日期 ['2026-11-16'] 與主日期 2026-11-13 不一致，該來源欄位留空"
     },
     "tpex_rev": {
       "ok": true
@@ -38,9 +36,9 @@
     },
     "tdcc": {
       "ok": true,
-      "rows": 4115,
-      "date": "2026-11-06",
-      "sum_mismatch": 99
+      "rows": 4125,
+      "date": "2026-11-13",
+      "sum_mismatch": 48
     },
     "twse_notice": {
       "ok": true
@@ -55,9 +53,7 @@
       "ok": true
     },
     "twse_day_dated": {
-      "ok": true,
-      "rows": 1389,
-      "date": "2026-11-13"
+      "ok": true
     },
     "twse_margin_dated": {
       "ok": true
@@ -75,22 +71,22 @@
     {
       "industry_code": "17",
       "names": {
-        "金融保險業": 16,
+        "金融保險業": 25,
         "金融業": 9
       }
     }
   ],
   "history": {
-    "daily_rows": 2409,
+    "daily_rows": 1389,
     "margin_continuity": {
-      "compared": 1007,
+      "compared": 1237,
       "match_ratio": 1.0,
       "prev_file": "2026-11-12.csv.gz"
     },
     "revenue_months": [
       "2026-10"
     ],
-    "tdcc_date": "2026-11-06"
+    "tdcc_date": "2026-11-13"
   },
-  "adjust_new_events": 2
+  "adjust_new_events": 0
 }
