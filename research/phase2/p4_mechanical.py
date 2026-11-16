@@ -90,6 +90,8 @@ def yahoo_tw_industry(tw):
 def yahoo_top_companies(keys):
     p = os.path.join(C.DATA, "m1_top_companies.json")
     cache = json.load(open(p, encoding="utf-8"))["top"] if os.path.exists(p) else {}
+    if all(k in cache for k in keys):
+        return cache                                    # 全部都有快取就不重寫檔案（避免只改抓取時間）
     import yfinance as yf
     for k in keys:
         if k in cache:

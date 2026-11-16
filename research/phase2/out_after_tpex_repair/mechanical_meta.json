@@ -1,0 +1,281 @@
+{
+ "theme_industry": {
+  "晶圓代工": "semiconductors",
+  "IC設計-AI/ASIC": "semiconductors",
+  "MCU": "semiconductors",
+  "BMC遠端管理晶片": "semiconductors",
+  "記憶體-DRAM": "semiconductors",
+  "記憶體-NAND/Flash": "semiconductors",
+  "記憶體-控制器/模組": "semiconductors",
+  "封測": "semiconductors",
+  "CoWoS/先進封裝設備": "semiconductor-equipment-materials",
+  "測試介面(探針卡/測試座)": "semiconductor-equipment-materials",
+  "矽晶圓": "semiconductor-equipment-materials",
+  "化合物半導體": "semiconductors",
+  "ABF載板": "electronic-components",
+  "CCL銅箔基板": "electronic-components",
+  "PCB(伺服器板)": "electronic-components",
+  "散熱模組/液冷": "electronic-components",
+  "被動元件": "electronic-components",
+  "功率電感": "electronic-components",
+  "伺服器電源/PSU": "computer-hardware",
+  "BBU/備援電池": "electrical-equipment-parts",
+  "伺服器ODM": "computer-hardware",
+  "機殼/滑軌": "computer-hardware",
+  "光通訊元件/雷射": "semiconductor-equipment-materials",
+  "光纖陣列/CPO元件": "communication-equipment",
+  "光電封裝/雷射封測": "semiconductor-equipment-materials",
+  "高速銅纜/連接器": "electrical-equipment-parts",
+  "網通交換器": "communication-equipment"
+ },
+ "m1_peers": {
+  "晶圓代工": [
+   "NVDA",
+   "AVGO",
+   "SKHY",
+   "AMD",
+   "MU"
+  ],
+  "IC設計-AI/ASIC": [
+   "NVDA",
+   "AVGO",
+   "SKHY",
+   "AMD",
+   "MU"
+  ],
+  "MCU": [
+   "NVDA",
+   "AVGO",
+   "SKHY",
+   "AMD",
+   "MU"
+  ],
+  "BMC遠端管理晶片": [
+   "NVDA",
+   "AVGO",
+   "SKHY",
+   "AMD",
+   "MU"
+  ],
+  "記憶體-DRAM": [
+   "NVDA",
+   "AVGO",
+   "SKHY",
+   "AMD",
+   "MU"
+  ],
+  "記憶體-NAND/Flash": [
+   "NVDA",
+   "AVGO",
+   "SKHY",
+   "AMD",
+   "MU"
+  ],
+  "記憶體-控制器/模組": [
+   "NVDA",
+   "AVGO",
+   "SKHY",
+   "AMD",
+   "MU"
+  ],
+  "封測": [
+   "NVDA",
+   "AVGO",
+   "SKHY",
+   "AMD",
+   "MU"
+  ],
+  "CoWoS/先進封裝設備": [
+   "AMAT",
+   "LRCX",
+   "KLAC",
+   "TER",
+   "Q"
+  ],
+  "測試介面(探針卡/測試座)": [
+   "AMAT",
+   "LRCX",
+   "KLAC",
+   "TER",
+   "Q"
+  ],
+  "矽晶圓": [
+   "AMAT",
+   "LRCX",
+   "KLAC",
+   "TER",
+   "Q"
+  ],
+  "化合物半導體": [
+   "NVDA",
+   "AVGO",
+   "SKHY",
+   "AMD",
+   "MU"
+  ],
+  "ABF載板": [
+   "APH",
+   "GLW",
+   "TEL",
+   "FLEX",
+   "JBL"
+  ],
+  "CCL銅箔基板": [
+   "APH",
+   "GLW",
+   "TEL",
+   "FLEX",
+   "JBL"
+  ],
+  "PCB(伺服器板)": [
+   "APH",
+   "GLW",
+   "TEL",
+   "FLEX",
+   "JBL"
+  ],
+  "散熱模組/液冷": [
+   "APH",
+   "GLW",
+   "TEL",
+   "FLEX",
+   "JBL"
+  ],
+  "被動元件": [
+   "APH",
+   "GLW",
+   "TEL",
+   "FLEX",
+   "JBL"
+  ],
+  "功率電感": [
+   "APH",
+   "GLW",
+   "TEL",
+   "FLEX",
+   "JBL"
+  ],
+  "伺服器電源/PSU": [
+   "ANET",
+   "DELL",
+   "SNDK",
+   "STX",
+   "WDC"
+  ],
+  "BBU/備援電池": [
+   "VRT",
+   "BE",
+   "HUBB",
+   "NVT",
+   "AYI"
+  ],
+  "伺服器ODM": [
+   "ANET",
+   "DELL",
+   "SNDK",
+   "STX",
+   "WDC"
+  ],
+  "機殼/滑軌": [
+   "ANET",
+   "DELL",
+   "SNDK",
+   "STX",
+   "WDC"
+  ],
+  "光通訊元件/雷射": [
+   "AMAT",
+   "LRCX",
+   "KLAC",
+   "TER",
+   "Q"
+  ],
+  "光纖陣列/CPO元件": [
+   "CSCO",
+   "MSI",
+   "HPE",
+   "LITE",
+   "CIEN"
+  ],
+  "光電封裝/雷射封測": [
+   "AMAT",
+   "LRCX",
+   "KLAC",
+   "TER",
+   "Q"
+  ],
+  "高速銅纜/連接器": [
+   "VRT",
+   "BE",
+   "HUBB",
+   "NVT",
+   "AYI"
+  ],
+  "網通交換器": [
+   "CSCO",
+   "MSI",
+   "HPE",
+   "LITE",
+   "CIEN"
+  ]
+ },
+ "m1_distinct_peer_groups": 6,
+ "m1_themes": 27,
+ "tw_members_without_industry": [],
+ "m2": {
+  "晶圓代工": "SOXX",
+  "IC設計-AI/ASIC": "SOXX",
+  "MCU": "SOXX",
+  "BMC遠端管理晶片": "SOXX",
+  "記憶體-DRAM": "SOXX",
+  "記憶體-NAND/Flash": "SOXX",
+  "記憶體-控制器/模組": "SOXX",
+  "封測": "SOXX",
+  "化合物半導體": "SOXX",
+  "光纖陣列/CPO元件": "IGN",
+  "網通交換器": "IGN"
+ },
+ "m2_distinct_etf": [
+  "IGN",
+  "SOXX"
+ ],
+ "m1_vs_expert_overlap": {
+  "晶圓代工": [],
+  "IC設計-AI/ASIC": [
+   "AVGO"
+  ],
+  "MCU": [],
+  "記憶體-DRAM": [
+   "MU"
+  ],
+  "記憶體-NAND/Flash": [],
+  "記憶體-控制器/模組": [],
+  "封測": [],
+  "CoWoS/先進封裝設備": [],
+  "測試介面(探針卡/測試座)": [],
+  "矽晶圓": [],
+  "化合物半導體": [],
+  "ABF載板": [],
+  "CCL銅箔基板": [],
+  "PCB(伺服器板)": [],
+  "散熱模組/液冷": [],
+  "被動元件": [],
+  "功率電感": [],
+  "伺服器電源/PSU": [],
+  "BBU/備援電池": [],
+  "伺服器ODM": [
+   "DELL"
+  ],
+  "光通訊元件/雷射": [],
+  "光纖陣列/CPO元件": [],
+  "光電封裝/雷射封測": [],
+  "高速銅纜/連接器": [],
+  "網通交換器": [
+   "CSCO"
+  ]
+ },
+ "rule4": {
+  "H1 IC": false,
+  "H2 國外在動 − 平常": false
+ }
+}
