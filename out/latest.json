@@ -215,7 +215,7 @@
     {
      "code": "3189",
      "name": "景碩",
-     "cap": 2855.9,
+     "cap": 2855.8,
      "signals": 1
     }
    ],
@@ -2691,7 +2691,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -34.27991886409736,
-   "flag": "disposal"
+   "flag": ""
   },
   {
    "code": "2458",
