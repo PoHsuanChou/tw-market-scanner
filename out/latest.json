@@ -5886,7 +5886,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -32.80943025540275,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "3088",
@@ -6801,7 +6801,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -40.07888349514563,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "5289",
@@ -7686,7 +7686,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": 92.75362318840578,
-   "flag": "notice"
+   "flag": "disposal"
   },
   {
    "code": "6708",
@@ -7836,7 +7836,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": 8.223350253807116,
-   "flag": "notice"
+   "flag": "disposal"
   },
   {
    "code": "7734",
@@ -8151,7 +8151,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -18.79432624113475,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "8240",
