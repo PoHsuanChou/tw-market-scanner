@@ -6261,7 +6261,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": 9.025270758122739,
-   "flag": "notice"
+   "flag": "disposal"
   },
   {
    "code": "3498",
@@ -6471,7 +6471,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": 11.312990386183564,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "3693",
@@ -7146,7 +7146,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -7.6271186440677985,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "6173",
@@ -7191,7 +7191,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -45.12455516014234,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "6188",
@@ -7521,7 +7521,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -24.07407407407407,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "6548",
@@ -7905,13 +7905,13 @@
    "industry": "半導體業",
    "close": 2080.0,
    "A": false,
-   "B": true,
+   "B": false,
    "C": false,
    "D": false,
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -40.05763688760807,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "8042",
