@@ -5796,7 +5796,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -7.4027603513174505,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "1595",
@@ -5841,7 +5841,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -28.57142857142857,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "3081",
@@ -5886,7 +5886,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -10.947368421052628,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "3131",
@@ -6081,7 +6081,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -31.081081081081074,
-   "flag": "notice"
+   "flag": "disposal"
   },
   {
    "code": "3289",
@@ -6111,7 +6111,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -36.7741935483871,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "3354",
@@ -6126,7 +6126,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -38.51485148514852,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "3357",
@@ -6171,7 +6171,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -44.97098646034816,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "3374",
@@ -6381,7 +6381,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -36.849816849816854,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "3675",
@@ -6501,7 +6501,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -54.13333333333333,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "4577",
@@ -6516,7 +6516,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -11.71428571428571,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "4749",
@@ -6741,7 +6741,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": 11.68582375478926,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "5274",
@@ -7116,7 +7116,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": 0.8510638297872353,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "6163",
@@ -7161,7 +7161,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -39.9047619047619,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "6187",
@@ -7386,7 +7386,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -55.35483870967741,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "6290",
@@ -7476,7 +7476,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -15.18578352180937,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "6532",
@@ -7821,7 +7821,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -40.17094017094017,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "7751",
@@ -7911,7 +7911,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -36.07407407407408,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "8043",
