@@ -59,6 +59,12 @@ jobs:
         continue-on-error: true
         run: python -m scanner.theme_peers
 
+      # 網站「波段 › 跨市場」：主題的台股成員和國外同類公司放一起，列價格位置與成交量。只顯示、不判斷誰領先
+      - name: Cross-market view
+        if: always()
+        continue-on-error: true
+        run: python -m scanner.cross_market
+
       # 網站「大盤溫度」的創新高家數、主題頁的抗跌名單與族群營收趨勢。只用 history/ 已有資料，只顯示
       - name: Breadth and theme revenue
         if: always()
