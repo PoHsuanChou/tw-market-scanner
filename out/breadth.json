@@ -1,13 +1,8 @@
 {
- "data_date": "2026-11-19",
+ "data_date": "2026-11-20",
  "new_highs": {
   "window": 250,
   "series": [
-   [
-    "2025-11-07",
-    23,
-    1845
-   ],
    [
     "2025-11-10",
     39,
@@ -1252,240 +1247,245 @@
     "2026-11-19",
     6,
     1905
+   ],
+   [
+    "2026-11-20",
+    0,
+    1904
    ]
   ]
  },
  "resilient": {
-  "date": "2026-11-19",
-  "bench_r20": -17.0,
-  "n_ranked": 295,
+  "date": "2026-11-20",
+  "bench_r20": -23.1,
+  "n_ranked": 299,
   "window": 20,
   "min_turnover_yi": 3.0,
   "rows": [
    {
+    "code": "8099",
+    "name": "大世科",
+    "industry": "資訊服務業",
+    "r20": 102.4,
+    "rel20": 125.6,
+    "turnover_yi": 3.4,
+    "rev_yoy": 87.0
+   },
+   {
     "code": "2466",
     "name": "冠西電",
     "industry": "光電業",
-    "r20": 78.8,
-    "rel20": 95.8,
-    "turnover_yi": 9.4,
+    "r20": 55.7,
+    "rel20": 78.9,
+    "turnover_yi": 9.1,
     "rev_yoy": 54.2
-   },
-   {
-    "code": "2465",
-    "name": "麗臺",
-    "industry": "電腦及週邊設備業",
-    "r20": 47.9,
-    "rel20": 64.9,
-    "turnover_yi": 17.6,
-    "rev_yoy": 340.6
-   },
-   {
-    "code": "9933",
-    "name": "中鼎",
-    "industry": "其他",
-    "r20": 31.8,
-    "rel20": 48.8,
-    "turnover_yi": 8.3,
-    "rev_yoy": 53.9
    },
    {
     "code": "2468",
     "name": "華經",
     "industry": "資訊服務業",
-    "r20": 29.0,
-    "rel20": 46.0,
-    "turnover_yi": 20.7,
+    "r20": 38.2,
+    "rel20": 61.3,
+    "turnover_yi": 23.4,
     "rev_yoy": 20.0
    },
    {
     "code": "6148",
     "name": "驊宏資",
     "industry": "資訊服務業",
-    "r20": 23.6,
-    "rel20": 40.6,
-    "turnover_yi": 9.7,
+    "r20": 30.6,
+    "rel20": 53.7,
+    "turnover_yi": 10.9,
     "rev_yoy": 145.1
    },
    {
-    "code": "1476",
-    "name": "儒鴻",
-    "industry": "紡織纖維",
-    "r20": 18.1,
-    "rel20": 35.1,
-    "turnover_yi": 9.7,
-    "rev_yoy": 10.7
+    "code": "7765",
+    "name": "中華資安",
+    "industry": "數位雲端",
+    "r20": 27.5,
+    "rel20": 50.6,
+    "turnover_yi": 3.2,
+    "rev_yoy": 32.2
    },
    {
-    "code": "6199",
-    "name": "天品",
-    "industry": "其他",
-    "r20": 17.3,
-    "rel20": 34.3,
-    "turnover_yi": 14.6,
-    "rev_yoy": 143.5
-   },
-   {
-    "code": "2254",
-    "name": "巨鎧精密-創",
-    "industry": "汽車工業",
-    "r20": 15.9,
-    "rel20": 32.9,
-    "turnover_yi": 3.4,
-    "rev_yoy": 7.4
+    "code": "2465",
+    "name": "麗臺",
+    "industry": "電腦及週邊設備業",
+    "r20": 26.3,
+    "rel20": 49.4,
+    "turnover_yi": 17.7,
+    "rev_yoy": 340.6
    },
    {
     "code": "2471",
     "name": "資通",
     "industry": "資訊服務業",
-    "r20": 14.8,
-    "rel20": 31.8,
-    "turnover_yi": 3.2,
+    "r20": 25.7,
+    "rel20": 48.9,
+    "turnover_yi": 3.9,
     "rev_yoy": 5.3
    },
    {
-    "code": "5013",
-    "name": "強新",
-    "industry": "鋼鐵工業",
-    "r20": 14.3,
-    "rel20": 31.3,
-    "turnover_yi": 3.9,
-    "rev_yoy": 39.9
+    "code": "9933",
+    "name": "中鼎",
+    "industry": "其他",
+    "r20": 17.8,
+    "rel20": 41.0,
+    "turnover_yi": 8.9,
+    "rev_yoy": 53.9
    },
    {
-    "code": "4526",
-    "name": "東台",
-    "industry": "電機機械",
-    "r20": 13.7,
-    "rel20": 30.7,
-    "turnover_yi": 16.3,
-    "rev_yoy": -12.1
-   },
-   {
-    "code": "7717",
-    "name": "萊德光電-KY",
-    "industry": "通信網路業",
-    "r20": 12.9,
-    "rel20": 29.9,
+    "code": "2254",
+    "name": "巨鎧精密-創",
+    "industry": "汽車工業",
+    "r20": 15.4,
+    "rel20": 38.5,
     "turnover_yi": 3.4,
-    "rev_yoy": 168.8
+    "rev_yoy": 7.4
    },
    {
-    "code": "2610",
-    "name": "華航",
-    "industry": "航運業",
-    "r20": 10.3,
-    "rel20": 27.3,
-    "turnover_yi": 9.1,
-    "rev_yoy": 22.4
+    "code": "6199",
+    "name": "天品",
+    "industry": "其他",
+    "r20": 14.5,
+    "rel20": 37.7,
+    "turnover_yi": 15.3,
+    "rev_yoy": 143.5
+   },
+   {
+    "code": "1476",
+    "name": "儒鴻",
+    "industry": "紡織纖維",
+    "r20": 12.0,
+    "rel20": 35.1,
+    "turnover_yi": 10.2,
+    "rev_yoy": 10.7
    },
    {
     "code": "2618",
     "name": "長榮航",
     "industry": "航運業",
-    "r20": 9.6,
-    "rel20": 26.6,
-    "turnover_yi": 12.4,
+    "r20": 6.2,
+    "rel20": 29.3,
+    "turnover_yi": 12.8,
     "rev_yoy": 22.6
-   },
-   {
-    "code": "1477",
-    "name": "聚陽",
-    "industry": "紡織纖維",
-    "r20": 8.0,
-    "rel20": 24.9,
-    "turnover_yi": 4.0,
-    "rev_yoy": 15.1
    },
    {
     "code": "2412",
     "name": "中華電",
     "industry": "通信網路業",
-    "r20": 7.4,
-    "rel20": 24.4,
-    "turnover_yi": 24.8,
+    "r20": 5.5,
+    "rel20": 28.7,
+    "turnover_yi": 27.5,
     "rev_yoy": 13.4
    },
    {
-    "code": "2033",
-    "name": "佳大",
-    "industry": "鋼鐵工業",
+    "code": "1477",
+    "name": "聚陽",
+    "industry": "紡織纖維",
     "r20": 5.3,
-    "rel20": 22.3,
-    "turnover_yi": 3.3,
-    "rev_yoy": -13.0
+    "rel20": 28.4,
+    "turnover_yi": 4.5,
+    "rev_yoy": 15.1
    },
    {
-    "code": "6446",
-    "name": "藥華藥",
-    "industry": "生技醫療業",
-    "r20": 4.3,
-    "rel20": 21.3,
-    "turnover_yi": 43.8,
-    "rev_yoy": 102.0
-   },
-   {
-    "code": "4977",
-    "name": "眾達-KY",
-    "industry": "通信網路業",
-    "r20": 3.8,
-    "rel20": 20.8,
-    "turnover_yi": 21.0,
-    "rev_yoy": 117.4
-   },
-   {
-    "code": "3691",
-    "name": "碩禾",
-    "industry": "光電業",
-    "r20": 2.6,
-    "rel20": 19.6,
-    "turnover_yi": 7.3,
-    "rev_yoy": 59.2
-   },
-   {
-    "code": "3491",
-    "name": "昇達科",
-    "industry": "通信網路業",
-    "r20": 2.3,
-    "rel20": 19.2,
-    "turnover_yi": 27.5,
-    "rev_yoy": 20.1
-   },
-   {
-    "code": "2355",
-    "name": "敬鵬",
-    "industry": "電子零組件業",
-    "r20": 2.1,
-    "rel20": 19.1,
-    "turnover_yi": 14.7,
-    "rev_yoy": 33.0
-   },
-   {
-    "code": "2891",
-    "name": "中信金",
-    "industry": "金融保險業",
-    "r20": 2.1,
-    "rel20": 19.1,
-    "turnover_yi": 36.9,
-    "rev_yoy": -35.4
-   },
-   {
-    "code": "2880",
-    "name": "華南金",
-    "industry": "金融保險業",
-    "r20": 1.6,
-    "rel20": 18.6,
-    "turnover_yi": 8.7,
-    "rev_yoy": 5.0
+    "code": "2610",
+    "name": "華航",
+    "industry": "航運業",
+    "r20": 4.7,
+    "rel20": 27.8,
+    "turnover_yi": 9.4,
+    "rev_yoy": 22.4
    },
    {
     "code": "2474",
     "name": "可成",
     "industry": "其他電子業",
-    "r20": 1.5,
-    "rel20": 18.5,
-    "turnover_yi": 4.2,
+    "r20": -1.3,
+    "rel20": 21.9,
+    "turnover_yi": 4.5,
     "rev_yoy": -12.9
+   },
+   {
+    "code": "2886",
+    "name": "兆豐金",
+    "industry": "金融保險業",
+    "r20": -3.4,
+    "rel20": 19.8,
+    "turnover_yi": 16.2,
+    "rev_yoy": -9.6
+   },
+   {
+    "code": "3293",
+    "name": "鈊象",
+    "industry": "文化創意業",
+    "r20": -3.6,
+    "rel20": 19.6,
+    "turnover_yi": 11.5,
+    "rev_yoy": 18.7
+   },
+   {
+    "code": "2033",
+    "name": "佳大",
+    "industry": "鋼鐵工業",
+    "r20": -3.8,
+    "rel20": 19.3,
+    "turnover_yi": 3.2,
+    "rev_yoy": -13.0
+   },
+   {
+    "code": "1216",
+    "name": "統一",
+    "industry": "食品工業",
+    "r20": -4.5,
+    "rel20": 18.7,
+    "turnover_yi": 11.0,
+    "rev_yoy": 5.3
+   },
+   {
+    "code": "6221",
+    "name": "晉泰",
+    "industry": "資訊服務業",
+    "r20": -4.7,
+    "rel20": 18.5,
+    "turnover_yi": 4.3,
+    "rev_yoy": 54.3
+   },
+   {
+    "code": "2880",
+    "name": "華南金",
+    "industry": "金融保險業",
+    "r20": -5.6,
+    "rel20": 17.5,
+    "turnover_yi": 8.8,
+    "rev_yoy": 5.0
+   },
+   {
+    "code": "5880",
+    "name": "合庫金",
+    "industry": "金融保險業",
+    "r20": -5.7,
+    "rel20": 17.4,
+    "turnover_yi": 5.6,
+    "rev_yoy": 1.1
+   },
+   {
+    "code": "3045",
+    "name": "台灣大",
+    "industry": "通信網路業",
+    "r20": -5.7,
+    "rel20": 17.4,
+    "turnover_yi": 14.2,
+    "rev_yoy": 9.2
+   },
+   {
+    "code": "5013",
+    "name": "強新",
+    "industry": "鋼鐵工業",
+    "r20": -6.2,
+    "rel20": 16.9,
+    "turnover_yi": 3.9,
+    "rev_yoy": 39.9
    }
   ]
  },
@@ -6519,60 +6519,52 @@
   "rule": "盤中最高比前一天收盤 ≥ +7%，收盤比最高掉 ≥ 4%，成交金額 ≥ 1 億",
   "rows": [
    {
-    "code": "2345",
-    "name": "智邦",
-    "industry": "通信網路業",
-    "high_pct": 8.1,
-    "close_pct": -4.9,
-    "turnover_yi": 117.7
+    "code": "7788",
+    "name": "松川精密",
+    "industry": "電子零組件業",
+    "high_pct": 8.9,
+    "close_pct": 3.7,
+    "turnover_yi": 12.3
    },
    {
-    "code": "2468",
-    "name": "華經",
+    "code": "8099",
+    "name": "大世科",
     "industry": "資訊服務業",
-    "high_pct": 7.3,
-    "close_pct": -5.0,
-    "turnover_yi": 48.1
-   },
-   {
-    "code": "2886",
-    "name": "兆豐金",
-    "industry": "金融保險業",
-    "high_pct": 7.4,
-    "close_pct": 1.5,
-    "turnover_yi": 37.7
-   },
-   {
-    "code": "7765",
-    "name": "中華資安",
-    "industry": "數位雲端",
-    "high_pct": 9.9,
-    "close_pct": 1.9,
+    "high_pct": 7.1,
+    "close_pct": -4.0,
     "turnover_yi": 11.5
    },
    {
-    "code": "6925",
-    "name": "意藍",
+    "code": "5314",
+    "name": "世紀*",
+    "industry": "其他",
+    "high_pct": 7.7,
+    "close_pct": 1.3,
+    "turnover_yi": 10.0
+   },
+   {
+    "code": "6690",
+    "name": "安碁資訊",
     "industry": "數位雲端",
-    "high_pct": 9.5,
-    "close_pct": -3.1,
-    "turnover_yi": 7.6
+    "high_pct": 9.4,
+    "close_pct": 3.3,
+    "turnover_yi": 6.5
    },
    {
-    "code": "8089",
-    "name": "康全電訊",
-    "industry": "通信網路業",
-    "high_pct": 9.9,
+    "code": "4923",
+    "name": "力士",
+    "industry": "半導體業",
+    "high_pct": 10.0,
+    "close_pct": 4.1,
+    "turnover_yi": 1.6
+   },
+   {
+    "code": "7722",
+    "name": "LINEPAY",
+    "industry": "數位雲端",
+    "high_pct": 9.3,
     "close_pct": 0.0,
-    "turnover_yi": 3.9
-   },
-   {
-    "code": "5457",
-    "name": "宣德",
-    "industry": "電子零組件業",
-    "high_pct": 8.4,
-    "close_pct": -4.4,
-    "turnover_yi": 2.1
+    "turnover_yi": 1.5
    }
   ]
  },
