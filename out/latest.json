@@ -222,7 +222,7 @@
     {
      "code": "6213",
      "name": "聯茂",
-     "cap": 1292.6,
+     "cap": 1292.7,
      "signals": 1
     }
    ],
@@ -763,7 +763,7 @@
     {
      "code": "2344",
      "name": "華邦電",
-     "cap": 4014.0,
+     "cap": 4210.7,
      "signals": 1
     }
    ],
@@ -782,7 +782,7 @@
     {
      "code": "2344",
      "name": "華邦電",
-     "cap": 4014.0,
+     "cap": 4210.7,
      "signals": 1
     },
     {
@@ -1892,7 +1892,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -52.30905861456483,
-   "flag": ""
+   "flag": "disposal"
   },
   {
    "code": "2308",
@@ -3887,7 +3887,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -56.42523364485981,
-   "flag": ""
+   "flag": "disposal"
   },
   {
    "code": "3533",
