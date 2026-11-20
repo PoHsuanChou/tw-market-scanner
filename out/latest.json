@@ -3761,7 +3761,7 @@
    "industry": "光電業",
    "close": 648.0,
    "A": false,
-   "B": false,
+   "B": true,
    "C": false,
    "D": false,
    "c_basis": "tdcc",
@@ -6032,7 +6032,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -37.38095238095238,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "3141",
@@ -6392,7 +6392,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -45.49180327868852,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "3526",
@@ -6572,7 +6572,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -12.324483760763648,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "3693",
@@ -6587,7 +6587,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -39.48467966573816,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "3707",
@@ -6647,7 +6647,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -27.705627705627712,
-   "flag": "notice"
+   "flag": "disposal"
   },
   {
    "code": "4749",
@@ -7217,7 +7217,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": 30.597014925373124,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "6150",
@@ -7397,7 +7397,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -28.87112887112887,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "6231",
@@ -7622,7 +7622,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -39.10149750415973,
-   "flag": "notice"
+   "flag": "disposal"
   },
   {
    "code": "6548",
@@ -8147,7 +8147,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": 23.238095238095234,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "8091",
@@ -8267,7 +8267,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -31.606217616580313,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "8358",
