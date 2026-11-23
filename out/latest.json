@@ -5716,7 +5716,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -23.665893271461723,
-   "flag": "notice"
+   "flag": "disposal"
   },
   {
    "code": "1595",
@@ -5776,7 +5776,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -41.473684210526315,
-   "flag": "notice"
+   "flag": "disposal"
   },
   {
    "code": "3088",
@@ -5866,7 +5866,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -41.666666666666664,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "3211",
@@ -6046,7 +6046,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -45.24524524524524,
-   "flag": "notice"
+   "flag": "disposal"
   },
   {
    "code": "3357",
@@ -6076,7 +6076,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -46.604361370716504,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "3363",
@@ -6091,7 +6091,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -51.08695652173913,
-   "flag": "notice"
+   "flag": "disposal"
   },
   {
    "code": "3374",
@@ -6421,7 +6421,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -55.79710144927537,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "4577",
@@ -6616,7 +6616,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -43.493975903614455,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "5202",
@@ -7051,7 +7051,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -53.15161839863713,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "6182",
@@ -7816,7 +7816,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -53.665689149560116,
-   "flag": "notice"
+   "flag": "disposal"
   },
   {
    "code": "8042",
@@ -7831,7 +7831,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -42.435424354243544,
-   "flag": "notice"
+   "flag": "disposal"
   },
   {
    "code": "8043",
@@ -8086,7 +8086,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -44.46978335233751,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "8383",
