@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-11-23T21:36:07+00:00",
+  "run_at": "2026-11-24T01:46:36+00:00",
   "sources": {
     "twse_day": {
       "ok": true,
@@ -76,10 +76,9 @@
     "daily_rows": 2414,
     "margin_continuity": {
       "compared": 2163,
-      "match_ratio": 0.4683,
+      "match_ratio": 0.9958,
       "prev_file": "2026-11-20.csv.gz"
     },
-    "margin_dropped": true,
     "revenue_months": [
       "2026-10"
     ],
