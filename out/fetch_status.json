@@ -1,10 +1,10 @@
 {
-  "run_at": "2026-11-24T01:46:36+00:00",
+  "run_at": "2026-11-24T09:31:05+00:00",
   "sources": {
     "twse_day": {
       "ok": true,
       "rows": 1394,
-      "date": "2026-11-23"
+      "date": "2026-11-24"
     },
     "twse_margin": {
       "ok": true
@@ -18,17 +18,16 @@
     "tpex_day": {
       "ok": true,
       "rows": 1020,
-      "date": "2026-11-23"
+      "date": "2026-11-24"
     },
     "tpex_margin": {
       "ok": true,
-      "rows": 923,
-      "date": "2026-11-23"
+      "warning": "日期 ['2026-11-23'] 與主日期 2026-11-24 不一致，該來源欄位留空"
     },
     "tpex_inst": {
       "ok": true,
-      "rows": 922,
-      "date": "2026-11-23"
+      "rows": 925,
+      "date": "2026-11-24"
     },
     "tpex_rev": {
       "ok": true
@@ -54,15 +53,24 @@
     "tpex_disposal": {
       "ok": true
     },
+    "twse_day_dated": {
+      "ok": true,
+      "rows": 1394,
+      "date": "2026-11-24"
+    },
+    "twse_margin_dated": {
+      "ok": true,
+      "note": "帶日期的上市融資融券還沒公布，先留空；晚上的掃描會補（history 只會被更完整的資料覆寫）"
+    },
     "twse_mi_index": {
       "ok": true
     },
     "twse_t86": {
       "ok": true,
-      "rows": 1370
+      "rows": 1343
     }
   },
-  "data_date": "2026-11-23",
+  "data_date": "2026-11-24",
   "industry_code_conflicts": [
     {
       "industry_code": "17",
@@ -74,15 +82,11 @@
   ],
   "history": {
     "daily_rows": 2414,
-    "margin_continuity": {
-      "compared": 2163,
-      "match_ratio": 0.9958,
-      "prev_file": "2026-11-20.csv.gz"
-    },
+    "margin_continuity": null,
     "revenue_months": [
       "2026-10"
     ],
     "tdcc_date": "2026-11-20"
   },
-  "adjust_new_events": 0
+  "adjust_new_events": 15
 }
