@@ -832,7 +832,7 @@
     {
      "code": "8299",
      "name": "群聯",
-     "cap": 3527.6,
+     "cap": 3532.0,
      "signals": 2
     },
     {
@@ -5716,7 +5716,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -14.122137404580148,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "3081",
@@ -6331,7 +6331,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -29.912663755458514,
-   "flag": "notice"
+   "flag": "disposal"
   },
   {
    "code": "3707",
@@ -7126,7 +7126,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -22.249999999999993,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "6223",
@@ -7576,7 +7576,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -2.590673575129532,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "6788",
@@ -8011,7 +8011,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": 20.359281437125752,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "8299",
