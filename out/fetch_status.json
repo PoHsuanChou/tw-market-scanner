@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-11-24T20:16:44+00:00",
+  "run_at": "2026-11-24T23:34:46+00:00",
   "sources": {
     "twse_day": {
       "ok": true,
@@ -54,14 +54,6 @@
     "tpex_disposal": {
       "ok": true
     },
-    "twse_day_dated": {
-      "ok": true,
-      "rows": 1394,
-      "date": "2026-11-24"
-    },
-    "twse_margin_dated": {
-      "ok": true
-    },
     "twse_mi_index": {
       "ok": true
     },
@@ -83,8 +75,8 @@
   "history": {
     "daily_rows": 2414,
     "margin_continuity": {
-      "compared": 1933,
-      "match_ratio": 0.9752,
+      "compared": 2165,
+      "match_ratio": 0.9778,
       "prev_file": "2026-11-23.csv.gz"
     },
     "revenue_months": [

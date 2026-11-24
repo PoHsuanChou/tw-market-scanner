@@ -3586,7 +3586,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -24.22611036339165,
-   "flag": ""
+   "flag": "disposal"
   },
   {
    "code": "3450",
@@ -4951,7 +4951,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -33.742331288343564,
-   "flag": ""
+   "flag": "disposal"
   },
   {
    "code": "6515",
