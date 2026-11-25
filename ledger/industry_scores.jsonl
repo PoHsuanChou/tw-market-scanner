@@ -174,3 +174,11 @@
 {"data_date":"2026-11-24","rules_version":"2026-11-13.1","industry":"電子通路業","n_stocks":14,"A":false,"B":false,"C":false,"D":false,"score":0,"known":4,"delta_4w":0}
 {"data_date":"2026-11-24","rules_version":"2026-11-13.1","industry":"電子零組件業","n_stocks":95,"A":false,"B":false,"C":false,"D":false,"score":0,"known":4,"delta_4w":0}
 {"data_date":"2026-11-24","rules_version":"2026-11-13.1","industry":"電腦及週邊設備業","n_stocks":48,"A":false,"B":false,"C":false,"D":false,"score":0,"known":4,"delta_4w":0}
+{"data_date":"2026-11-25","rules_version":"2026-11-13.1","industry":"資訊服務業","n_stocks":21,"A":false,"B":true,"C":false,"D":false,"score":1,"known":4,"delta_4w":0}
+{"data_date":"2026-11-25","rules_version":"2026-11-13.1","industry":"光電業","n_stocks":51,"A":false,"B":false,"C":false,"D":false,"score":0,"known":4,"delta_4w":0}
+{"data_date":"2026-11-25","rules_version":"2026-11-13.1","industry":"其他電子業","n_stocks":36,"A":false,"B":false,"C":false,"D":false,"score":0,"known":4,"delta_4w":0}
+{"data_date":"2026-11-25","rules_version":"2026-11-13.1","industry":"半導體業","n_stocks":127,"A":false,"B":false,"C":false,"D":false,"score":0,"known":4,"delta_4w":0}
+{"data_date":"2026-11-25","rules_version":"2026-11-13.1","industry":"通信網路業","n_stocks":35,"A":false,"B":false,"C":false,"D":false,"score":0,"known":4,"delta_4w":0}
+{"data_date":"2026-11-25","rules_version":"2026-11-13.1","industry":"電子通路業","n_stocks":14,"A":false,"B":false,"C":false,"D":false,"score":0,"known":4,"delta_4w":-2}
+{"data_date":"2026-11-25","rules_version":"2026-11-13.1","industry":"電子零組件業","n_stocks":93,"A":false,"B":false,"C":false,"D":false,"score":0,"known":4,"delta_4w":0}
+{"data_date":"2026-11-25","rules_version":"2026-11-13.1","industry":"電腦及週邊設備業","n_stocks":48,"A":false,"B":false,"C":false,"D":false,"score":0,"known":4,"delta_4w":0}
