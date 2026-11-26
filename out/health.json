@@ -1,5 +1,11 @@
 {
- "checked_at": "2026-11-25T20:13:44+00:00",
- "ok": true,
- "problems": []
+ "checked_at": "2026-11-26T10:46:13+00:00",
+ "ok": false,
+ "problems": [
+  {
+   "level": "warn",
+   "code": "source_tpex_margin_warn",
+   "msg": "上櫃融資融券：日期 ['2026-11-25'] 與主日期 2026-11-26 不一致，該來源欄位留空"
+  }
+ ]
 }
