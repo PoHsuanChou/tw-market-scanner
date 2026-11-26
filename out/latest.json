@@ -571,7 +571,7 @@
     {
      "code": "3707",
      "name": "漢磊",
-     "cap": 188.2,
+     "cap": 188.5,
      "signals": 0
     }
    ],
@@ -5725,7 +5725,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -31.918819188191883,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "3211",
