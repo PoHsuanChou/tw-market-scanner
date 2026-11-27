@@ -6101,7 +6101,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -32.27459016393443,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "3441",
@@ -6266,7 +6266,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -26.48221343873518,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "3675",
@@ -6626,7 +6626,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -39.88728866624922,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "5289",
@@ -6806,7 +6806,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": 34.67561521252796,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "5475",
@@ -7256,7 +7256,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -40.0,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "6290",
@@ -7706,7 +7706,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": 26.086956521739136,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "7792",
@@ -7961,7 +7961,7 @@
    "c_basis": "tdcc",
    "d_basis": "prev_month_yoy",
    "r20": -20.28985507246377,
-   "flag": ""
+   "flag": "notice"
   },
   {
    "code": "8240",
